@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\BYOND\bin\dm.exe" .\DM_PROJECT.dme

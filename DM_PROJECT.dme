@@ -1,0 +1,75 @@
+// DM Environment file for DM_PROJECT.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+#define FILE_DIR "assets"
+#define FILE_DIR "assets/icons"
+#define FILE_DIR "assets/icons/hair"
+#define FILE_DIR "assets/icons/shinigami"
+#define FILE_DIR "assets/png"
+#define FILE_DIR "test"
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include "interface.dmf"
+#include "main_map.dmm"
+#include "_defines\_helpers.dm"
+#include "_defines\combat.dm"
+#include "_defines\damagetype.dm"
+#include "_defines\layers.dm"
+#include "_defines\levelup.dm"
+#include "_defines\requirements.dm"
+#include "_defines\spawnloc.dm"
+#include "_defines\spells.dm"
+#include "_defines\stats.dm"
+#include "_defines\step_size.dm"
+#include "_defines\text.dm"
+#include "DM_PROJECT.dm"
+#include "initialize.dm"
+#include "assets\huecomundo.dm"
+#include "assets\inside.dm"
+#include "assets\outside.dm"
+#include "assets\training_equipment.dm"
+#include "assets\warps.dm"
+#include "src\AdminSystem\admin.dm"
+#include "src\AISystem\aisystem.dm"
+#include "src\AISystem\trigger.dm"
+#include "src\client\client.dm"
+#include "src\CombatSystem\combat_flag.dm"
+#include "src\CombatSystem\combat_text.dm"
+#include "src\CombatSystem\damage_type.dm"
+#include "src\CombatSystem\dealdamage.dm"
+#include "src\CombatSystem\effect.dm"
+#include "src\CombatSystem\handlers.dm"
+#include "src\CombatSystem\health.dm"
+#include "src\CombatSystem\variables.dm"
+#include "src\CombatSystem\Attacks\_spell.dm"
+#include "src\CombatSystem\Attacks\attack.dm"
+#include "src\CombatSystem\Attacks\hollow.dm"
+#include "src\ConnectSystem\login.dm"
+#include "src\ConnectSystem\logout.dm"
+#include "src\ItemSystem\item.dm"
+#include "src\ItemSystem\shinigami.dm"
+#include "src\ItemSystem\vaizard.dm"
+#include "src\MonsterSystem\monster.dm"
+#include "src\MonsterSystem\monsters.dm"
+#include "src\NPCSystem\NPCs.dm"
+#include "src\NPCSystem\npcsystem.dm"
+#include "src\pixelmovement\input.dm"
+#include "src\pixelmovement\pixelmovement.dm"
+#include "src\RaceSystem\checkracerewards.dm"
+#include "src\RaceSystem\makerace.dm"
+#include "src\RaceSystem\race.dm"
+#include "src\RaceSystem\shinigami.dm"
+#include "src\SaveSystem\save.dm"
+#include "src\StatSystem\stats.dm"
+// END_INCLUDE
+

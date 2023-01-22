@@ -1,0 +1,10 @@
+DM_PROJECT.rsc
+DM_PROJECT.dyn.rsc
+DM_PROJECT.int
+DM_PROJECT.dmb
+assets/
+**/**.dmi
+**/**.png
+**/**.jpg
+saves/
+backup/

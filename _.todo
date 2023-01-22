@@ -1,0 +1,46 @@
+Bleach Project:
+	Notes:
+		- /atom/movable directions
+			`NORTH`	= 1
+			`SOUTH` = 2
+			`EAST` 	= 4
+			`WEST` 	= 8
+			`NORTHEAST` = 5
+			`SOUTHEAST` = 6
+			`NORTHWEST` = 9
+			`SOUTHWEST` = 10
+
+	Todos:
+		Map:
+			New:
+			Done:
+				✔ Urahara shop @done(23-01-22 16:01)
+				✔ Aizen's place in Hueco mundo @done(23-01-22 16:01)
+		NPCs:
+			New:
+				☐ Urahara 
+				☐ Shinji 
+				☐ Quincy Elder
+			Done:
+				✔ Barber: new hairtypes doesn't change in color. @critical @done(23-01-22 16:00)
+				✔ Shinigami trainer @done(22-12-21 21:01)
+				✔ Shopkeeper @done(23-01-22 15:59)
+				✔ barber shop @done(23-01-22 16:00)
+		Monsters:
+			New:
+				☐ Chase speed is a bit weird, and doesn't correctly flick "Move" state of icon. @critical
+					Looks absolutely horrific 
+				☐ Different hollow attacks, like cero and bala 
+		SaveSystem:
+			New:
+			Done:
+				✔ Overlays has to be readded to /atom after Read() @done(22-12-21 13:22)
+				✔ Underlays has to be readded to /atom after Read() @done(22-12-21 13:22)
+		Shinigami:
+			New:
+				☐ Squad system. @started(22-12-21 21:19)
+		CombatSystem:
+			New:
+			Done:
+				✔ Fix /mob/verb/Attack() to adjust according to pixel movement(obounds()) and not oview())@done(22-12-21 07:18)
+					@fixed also made sure it was considerate of  8 directions.

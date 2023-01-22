@@ -1,0 +1,2 @@
+#define MOB_STEP_SIZE 2
+#define MONSTER_STEP_SIZE 1
