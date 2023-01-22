@@ -23,9 +23,12 @@ mob/hollow/verb/cero()
 	var/prev_tile[2] = list(x,y)
 	..(dir, delay)
 	if(prev_tile[1] != x)
-		//Spawn a cero_trail at locate(prev_tile[1],y,z)
+
+		//Spawn a cero_trail at the previous x loc 
+		//locate(prev_tile[1],y,z)
 	if(prev_tile[2] != y)
-		//Spawn a cero_trail at locate(x,prev_tile[2],z)
+		//Spawn a cero_trail at the previous y loc
+		// locate(x,prev_tile[2],z)
 
 mob/hollow/verb/bala()
 	set name = "Bala"
