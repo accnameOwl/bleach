@@ -3,53 +3,71 @@
 mob/hollow/verb/cero()
 	set name = "Cero"
 	set category = "Attack"
+	//Check reiatsu
+	if(!check_spellcost(src, SPELL_COST_CERO))
+		src << Bold(Red("insufficient mana to cast Cero!"))
+		return
 
 	//1: Charge cero
+	consume_reiatsu(src, SPELL_COST_CERO)
 		//charge speed depends on cero mastery
 
 	//2: send cero
 	var/datum/spell/cero/cero = new()
-	cero.Initialize(dir, loc)
+	cero.set_caster(src)
+	cero.set_damage(src.Stats[REISHI]*SPELL_MULTIPL_CERO, DARKMAGIC_TYPE)
+	cero.Initialize(dir, locate(x,y,z), src.step_x, src.step_y)
 
 /datum/spell/cero
+	name = "Cero"
 	icon = 'cero.dmi'
 	icon_state = "cero"
 	timeout_duration = SPELL_TIMEOUT_CERO
-	step_size = 8
+	step_size = SPELL_CERO_STEP_SIZE
+	move_on_init = TRUE
+	density = 1
 
 /datum/spell/cero_trail
 	icon = 'cero.dmi'
 	icon_state = "cero_trail"
-	timeout_duration = SPELL_TIMEOUT_CERO
+	timeout_duration = SPELL_TIMEOUT_CERO/6
+
 
 /datum/spell/cero/Step(dir,delay=step_delay)
 	//store prev x and y loc
-	var/cached_loc = new/list("x" = x, "y" = y)
+	var/prev_x = x
+	var/prev_y = y
 	//make sure it exists
-	ASSERT(cached_loc)
 	//run ..Step()
-	..(dir, delay)
-	//Look up if x cord changed
-	if(cached_loc[1] != x)
-		//if changed, spawn trail in prev x cord
-		var/datum/spell/cero_trail/trail = new/datum/spell/cero_trail()
-		trail.loc = locate(cached_loc["x"], y,z)
-		trail.Initialize()
-	//look up if y cord changed
-	if(cached_loc[2] != y)
-		//if changed, spawn trail in prev y cord
-		var/datum/spell/cero_trail/trail = new()
-		trail.loc = locate(x, cached_loc["y"],z)
-		trail.Initialize()
-
-
+	. = ..(dir, delay)
+	if(.)
+		//if moved one tile
+		if(prev_x != x || prev_y != y)
+			var/datum/spell/cero_trail/trail = new()
+			switch(dir)
+				if(NORTH)
+					trail.Initialize(dir, locate(x,y,z), src.step_x, src.step_y-(TILE_HEIGHT/4))
+				if(SOUTH)
+					trail.Initialize(dir, locate(x,y,z), src.step_x, src.step_y+(TILE_HEIGHT/4))
+				if(EAST)
+					trail.Initialize(dir, locate(x,y,z), src.step_x-(TILE_WIDTH/4), src.step_y)
+				if(WEST)
+					trail.Initialize(dir, locate(x,y,z), src.step_x+(TILE_WIDTH/4), src.step_y)
 
 // Bala
 mob/hollow/verb/bala()
 	set name = "Bala"
 	set category = "Attack"
 
+	if(!check_spellcost(src, SPELL_COST_BALA))
+		src << Bold(Red("insufficient mana to cast Bala!"))
+		return
+
+	//1: Charge cero
+	consume_reiatsu(src, SPELL_COST_BALA)
+
 /datum/spell/bala
+	name = "Bala"
 	//icon = ''
 	//icon_state = ""
 	timeout_duration = SPELL_TIMEOUT_BALA
@@ -60,96 +78,129 @@ mob/hollow/verb/bala()
 mob/hollow/verb/granreycero()
 	set name = "Gran Rey Cero"
 	set category = "Attack"
+
+	if(!check_spellcost(src, SPELL_COST_GRC))
+		src << Bold(Red("insufficient mana to cast Gran Rey Cero!"))
+		return
+
+	//1: Charge cero
+	consume_reiatsu(src, SPELL_COST_GRC)
+
 	var/datum/spell/granreycero/left/left = new()
 	var/datum/spell/granreycero/center/center = new()
 	var/datum/spell/granreycero/right/right = new()
-	left.Initialize(dir, loc)
-	center.Initialize(dir, loc)
-	right.Initialize(dir, loc)
+
+	left.set_caster(src)
+	center.set_caster(src)
+	right.set_caster(src)
+
+	left.set_damage(src.Stats[REISHI]*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
+	center.set_damage(src.Stats[REISHI]*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
+	right.set_damage(src.Stats[REISHI]*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
+
+	switch(dir)
+		if(NORTH)
+			left.Initialize(dir, locate(x-1,y,z), src.step_x, src.step_y)
+			center.Initialize(dir, locate(x,y,z), src.step_x, src.step_y)
+			right.Initialize(dir, locate(x+1,y,z), src.step_x, src.step_y)
+		if(SOUTH)
+			left.Initialize(dir, locate(x+1,y,z), src.step_x, src.step_y)
+			center.Initialize(dir, locate(x,y,z), src.step_x, src.step_y)
+			right.Initialize(dir, locate(x-1,y,z), src.step_x, src.step_y)
+		if(EAST)
+			left.Initialize(dir, locate(x,y-1,z), src.step_x, src.step_y)
+			center.Initialize(dir, locate(x,y,z), src.step_x, src.step_y)
+			right.Initialize(dir, locate(x,y+1,z), src.step_x, src.step_y)
+		if(WEST)
+			left.Initialize(dir, locate(x,y+1,z), src.step_x, src.step_y)
+			center.Initialize(dir, locate(x,y,z), src.step_x, src.step_y)
+			right.Initialize(dir, locate(x,y-1,z), src.step_x, src.step_y)
 
 //Gran rey cero
+/datum/spell/granreycero
+	name = "Gran Rey Cero"
+	step_size = SPELL_GRC_STEP_SIZE
+	icon = 'cero.dmi'
+	timeout_duration = SPELL_TIMEOUT_GRANREYCERO 
+	density = 1
+/datum/spell/granreycero_trail
+	step_size = SPELL_GRC_STEP_SIZE
+	icon = 'cero.dmi'
+	timeout_duration = SPELL_TIMEOUT_GRANREYCERO/5
+
 /datum/spell/granreycero/left
-	icon = 'cero.dmi'
-	icon_state = "grx_left"
-	timeout_duration = SPELL_TIMEOUT_GRANREYCERO
+	icon_state = "grc_left"
 	move_on_init = TRUE
-	step_size = 8
+
 	Step(dir,delay=step_delay)
-		//store prev x and y loc
-		var/cached_loc = new/list("x" = x, "y" = y)
-		//make sure it exists
-		ASSERT(cached_loc)
-		//run ..Step()
-		..(dir, delay)
-		//Look up if x cord changed
-		if(cached_loc[1] != x)
-			//if changed, spawn trail in prev x cord
-			var/datum/spell/granreycero/trail/left/trail = new()
-			trail.loc = locate(cached_loc["x"], y,z)
-			trail.Initialize()
-		//look up if y cord changed
-		if(cached_loc[2] != y)
-			//if changed, spawn trail in prev y cord
-			var/datum/spell/granreycero/trail/left/trail = new()
-			trail.loc = locate(x, cached_loc["y"],z)
-			trail.Initialize()
+		var/prev_x = x
+		var/prev_y = y
+		. = ..(dir, delay)
+		if(.)
+			//if moved one tile
+			if(prev_x != x || prev_y != y)
+				var/datum/spell/granreycero_trail/left/trail = new()
+				switch(dir)
+					if(NORTH)
+						trail.Initialize(dir, locate(x,y,z), src.step_x, src.step_y-(TILE_HEIGHT/4))
+					if(SOUTH)
+						trail.Initialize(dir, locate(x,y,z), src.step_x, src.step_y+(TILE_HEIGHT/4))
+					if(EAST)
+						trail.Initialize(dir, locate(x,y,z), src.step_x-(TILE_WIDTH/4), src.step_y)
+					if(WEST)
+						trail.Initialize(dir, locate(x,y,z), src.step_x+(TILE_WIDTH/4), src.step_y)
+
 /datum/spell/granreycero/center
-	icon = 'cero.dmi'
 	icon_state = "grc_center"
-	timeout_duration = SPELL_TIMEOUT_GRANREYCERO
 	move_on_init = TRUE
-	step_size = 8
+
 	Step(dir,delay=step_delay)
-		//store prev x and y loc
-		var/cached_loc = new/list("x" = x, "y" = y)
-		//make sure it exists
-		ASSERT(cached_loc)
+		var/prev_x = x
+		var/prev_y = y
 		//run ..Step()
-		..(dir, delay)
-		//Look up if x cord changed
-		if(cached_loc[1] != x)
-			//if changed, spawn trail in prev x cord
-			var/datum/spell/granreycero/trail/center/trail = new()
-			trail.loc = locate(cached_loc["x"], y,z)
-		//look up if y cord changed
-		if(cached_loc[2] != y)
-			//if changed, spawn trail in prev y cord
-			var/datum/spell/granreycero/trail/center/trail = new()
-			trail.loc = locate(x, cached_loc["y"],z)
+		. = ..(dir, delay)
+		if(.)
+			//if moved one tile
+			if(prev_x != x || prev_y != y)
+				var/datum/spell/granreycero_trail/center/trail = new()
+				switch(dir)
+					if(NORTH)
+						trail.Initialize(dir, locate(x,y,z), src.step_x, src.step_y-(TILE_HEIGHT/4))
+					if(SOUTH)
+						trail.Initialize(dir, locate(x,y,z), src.step_x, src.step_y+(TILE_HEIGHT/4))
+					if(EAST)
+						trail.Initialize(dir, locate(x,y,z), src.step_x-(TILE_WIDTH/4), src.step_y)
+					if(WEST)
+						trail.Initialize(dir, locate(x,y,z), src.step_x+(TILE_WIDTH/4), src.step_y)
+
 /datum/spell/granreycero/right
-	icon = 'cero.dmi'
 	icon_state = "grc_right"
-	timeout_duration = SPELL_TIMEOUT_GRANREYCERO
 	move_on_init = TRUE
-	step_size = 8
+
 	Step(dir,delay=step_delay)
-		//store prev x and y loc
-		var/cached_loc = new/list("x" = x, "y" = y)
-		//make sure it exists
-		ASSERT(cached_loc)
+		var/prev_x = x
+		var/prev_y = y
 		//run ..Step()
-		..(dir, delay)
-		//Look up if x cord changed
-		if(cached_loc[1] != x)
-			//if changed, spawn trail in prev x cord
-			var/datum/spell/granreycero/trail/right/trail = new()
-			trail.loc = locate(cached_loc["x"], y,z)
-		//look up if y cord changed
-		if(cached_loc[2] != y)
-			//if changed, spawn trail in prev y cord
-			var/datum/spell/granreycero/trail/right/trail = new()
-			trail.loc = locate(x, cached_loc["y"],z)
+		. = ..(dir, delay)
+		if(.)
+			//if moved one tile
+			if(prev_x != x || prev_y != y)
+				var/datum/spell/granreycero_trail/right/trail = new()
+				switch(dir)
+					if(NORTH)
+						trail.Initialize(dir, locate(x,y,z), src.step_x, src.step_y-(TILE_HEIGHT/4))
+					if(SOUTH)
+						trail.Initialize(dir, locate(x,y,z), src.step_x, src.step_y+(TILE_HEIGHT/4))
+					if(EAST)
+						trail.Initialize(dir, locate(x,y,z), src.step_x-(TILE_WIDTH/4), src.step_y)
+					if(WEST)
+						trail.Initialize(dir, locate(x,y,z), src.step_x+(TILE_WIDTH/4), src.step_y)
+
 
 //Gran rey cero traail
-/datum/spell/granreycero/trail/left
-	icon = 'cero.dmi'
+/datum/spell/granreycero_trail/left
 	icon_state = "grc_trail_left"
-	timeout_duration = SPELL_TIMEOUT_GRANREYCERO
-/datum/spell/granreycero/trail/center
-	icon = 'cero.dmi'
+/datum/spell/granreycero_trail/center
 	icon_state = "grc_trail_center"
-	timeout_duration = SPELL_TIMEOUT_GRANREYCERO
-/datum/spell/granreycero/trail/right
-	icon = 'cero.dmi'
+/datum/spell/granreycero_trail/right
 	icon_state = "grc_trail_right"
-	timeout_duration = SPELL_TIMEOUT_GRANREYCERO

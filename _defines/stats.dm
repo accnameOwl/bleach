@@ -8,3 +8,4 @@
 #define	HIERRO		"hierro"
 #define	EXP_MAX		"expmax"
 #define	EXP_CUR		"expcur"
+#define FATIGUE 	"fatigue"

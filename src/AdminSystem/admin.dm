@@ -30,6 +30,10 @@ mob
 				if("Owner")
 					src.verbs += typesof(/mob/Enforcer/verb)
 					src.verbs += typesof(/mob/Owner/verb)
+					#ifdef __TEST__
+					//Hollow verbs
+					src.verbs += typesof(/mob/hollow/verb)
+					#endif
 				if("Admin")
 					src.verbs += typesof(/mob/Enforcer/verb)
 				if("Non-Admin")

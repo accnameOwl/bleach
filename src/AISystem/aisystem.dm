@@ -19,8 +19,6 @@ mob/monster/New()
 
 mob/monster/Trigger(mob/m)
 	if(m.client)
-		ai_trigger.loc = null
-		ai_trigger = null
 		TargetState(m)
 
 mob/monster/Attack()
@@ -55,6 +53,7 @@ mob/monster/Respawn()
 		n.RestingState()
 
 
+
 mob/monster/proc/RestingState()
 	if(!ai_trigger)
 		ai_trigger = new/datum/trigger(src)
@@ -66,6 +65,8 @@ mob/monster/proc/RestingState()
 mob/monster/proc/TargetState(mob/new_target)
 	if(!target)
 		target = new_target
+		ai_trigger.loc = null
+		ai_trigger = null
 		ChaseState()
 
 mob/monster/proc/ChaseState()
@@ -128,6 +129,8 @@ mob/monster/proc/ResetState()
 		sleep(world.tick_lag * chase_speed)
 	combat_flag.in_combat = FALSE
 	. = RestingState()
+
+
 
 mob/monster/proc/step_rand_loop()
 	while(src)

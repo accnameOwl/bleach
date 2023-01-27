@@ -2,6 +2,7 @@
 #define	Bold(t)		"<b>[t]</b>"
 #define	Italic(t) 	"<i>[t]</i>"
 #define	Underline(t) "<u>[t]</u>"
+#define White(t)	"<font color=#FFFFFF>[t]</font>"
 #define	Red(t)		"<font color=#ff0000>[t]</font>"
 #define Orange(t)	"<font color=#ffA500>[t]</font>"
 #define	Green(t)	"<font color=#00ff00>[t]</font>"
@@ -14,6 +15,8 @@
 #define	Gold(t) 	"<font color=#e3ae01>[t]</font>"
 
 #define Melee(t)	"<font color=#e3ae01>[t]</font>"
+#define Magic(t)    "<font color=#4287f5>[t]</font>"
+#define DarkMagic(t) "<font color =#324a36>[t]</font>"
 #define Bleed(t)	"<font color=#Bf0000>[t]</font>"
 #define Burn(t)		"<font color=#ffA500>[t]</font>"
 #define Toxin(t)	"<font color=#009200>[t]</font>"

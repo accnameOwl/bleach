@@ -19,6 +19,8 @@
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
+#include "DM_PROJECT.dm"
+#include "initialize.dm"
 #include "interface.dmf"
 #include "main_map.dmm"
 #include "_defines\_helpers.dm"
@@ -32,8 +34,6 @@
 #include "_defines\stats.dm"
 #include "_defines\step_size.dm"
 #include "_defines\text.dm"
-#include "DM_PROJECT.dm"
-#include "initialize.dm"
 #include "assets\huecomundo.dm"
 #include "assets\inside.dm"
 #include "assets\outside.dm"
@@ -70,6 +70,7 @@
 #include "src\RaceSystem\race.dm"
 #include "src\RaceSystem\shinigami.dm"
 #include "src\SaveSystem\save.dm"
+#include "src\StatSystem\handlers.dm"
 #include "src\StatSystem\stats.dm"
 // END_INCLUDE
 

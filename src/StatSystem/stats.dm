@@ -1,5 +1,5 @@
 mob
-	var/list/Stats = list()
+	var/list/Stats
 	var/tmp/last_time_trained = 0
 	var/level = 1
 	var/total_exp = 0
@@ -20,8 +20,8 @@ mob/proc/initialize_stats()
 		REISHI			= 1,
 		HIERRO			= 1,
 		EXP_MAX			= 100,
-		EXP_CUR			= 1)
-	world << list2params(Stats)
+		EXP_CUR			= 1,
+		FATIGUE			= 1)
 
 mob/proc/IncreaseStatBy(stat, value)
 	// Increases a certain stat for a mob.

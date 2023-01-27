@@ -2,7 +2,6 @@
 	These are simple defaults for your project.
  */
  #define __TEST__
- //#define TEST_BUIL
 
 world
 	fps = 25		// 25 frames per second
@@ -20,16 +19,9 @@ world
 // Make objects move 8 pixels per tick when walking
 
 mob
-	step_size = MOB_STEP_SIZE
 	density = 1
 	icon = 'base.dmi'
 	bound_x = 10
 	bound_width = 12
 	bound_y = 0
 	bound_height = 17
-
-
-
-
-obj
-	step_size = 8

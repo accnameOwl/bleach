@@ -5,6 +5,7 @@ mob/monster
 	var/reward_hierro = 0
 	var/reward_health = 0
 	var/reward_reiatsu = 0
+	step_size = MONSTER_STEP_SIZE
 
 // makes monster move random direction while alive
 // called in mob/NPC/Resting()

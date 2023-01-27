@@ -33,11 +33,11 @@ mob
 		if(world.time >= end_time)
 			Del(src)
 		//if it deals tick_damage
-		if(damage_type == BLEED|BURN|TOXIN)
+		if(damage_type == BLEED_TYPE|BURN_TYPE|TOXIN_TYPE)
 			if(world.time >= last_tick+tick_speed)
 				new_tick()
 		//if it's a slow effect. slow anchored mob
-		if(damage_type == FREEZE)
+		if(damage_type == FREEZE_TYPE)
 			if(slow && !anchor.slowed)
 				anchor.slowed=TRUE
 				anchor.slow_amount += slow_by_perc

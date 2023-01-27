@@ -1,7 +1,7 @@
 /datum/trigger
 	parent_type = /obj
 
-	#ifdef TEST_BUILD
+	#ifdef __TEST__
 	icon = 'trigger.dmi'
 	#endif
 
@@ -11,6 +11,7 @@
 	anchored_to = anchor
 
 /datum/trigger/Crossed(mob/m)
+	if(!istype(m, /mob)) return
 	anchored_to.Trigger(m)
 
 /datum/trigger/proc/ChangeBounds(x_offset = 0, y_offset = 0, extra_width = 0, extra_height = 0)

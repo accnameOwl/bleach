@@ -1,6 +1,6 @@
 //#define change_target
 
-/proc/EnterCombat(mob/m)
+/proc/EnterCombat(mob/m = null, mob/source = null)
 	/*
 	combat_flag.combat_time
 		<- refreshes to world.time at:
@@ -12,6 +12,8 @@
 
 	if(m.combat_flag.in_combat == TRUE)
 		return
+	if(istype(m, /mob/monster))
+		m:TargetState(source)
 
 	m.combat_flag.in_combat = TRUE
 
@@ -39,8 +41,8 @@ mob/proc/Death(mob/killer)
 				race = "Hollow"
 		if("Human")
 			MakeSoul()
-
-	world << "[src.name] Killed by [killer]"
+			
+	world << Bold(Red("[src.name] Killed by [killer]"))
 
 	combat_flag.dead = TRUE
 	spawn Respawn()

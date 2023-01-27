@@ -14,6 +14,8 @@ client/Stat()
 	stat("Attack: ", usr.Stats[ATTACK])
 	stat("Reishi: ", usr.Stats[REISHI])
 	stat("Hierro: ", usr.Stats[HIERRO])
+	stat("")
+	stat("Fatigue: ", round(usr.Stats[FATIGUE]))
 	statpanel("Inventory", usr.contents)
 
 client/New()
