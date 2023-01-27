@@ -12,6 +12,8 @@ mob/Login()
 	CheckAdmin()
 	OnlinePlayers += src
 
+	src.verbs += typesof(/mob/player/verb)
+
 	// Check inventory for equipped items, then add them to overlays.
 	// Overlays and underlays are not saved, so these will have to get added after connecting
 	for(var/datum/item/i in contents)
