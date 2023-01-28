@@ -1,12 +1,43 @@
 
 var/worldmute = FALSE
 var/rebooting = FALSE
-var/list/reports = list(/*Phat T*/)
-var/list/MuteList=list(/*Phat T*/)
-var/list/MuteListKey=list(/*Phat T*/)
-var/list/JailList=list(/*Phat T*/)
+var/list/reports = list()
+var/list/MuteList=list()
+var/list/MuteListKey=list()
+var/list/JailList=list()
 var/list/OnlinePlayers=list()
+//Ban list
+var/list/BanList=list()
+proc/LoadBanlist()
+	if(fexists(banlist_loc))
+		var/savefile/existing_savefile = new/savefile(banlist_loc)
+		existing_savefile >> BanList
+		return 0 // 0 = no errors
+	else
+		return 1 // 1 = error
 
+proc/SaveBanlist()
+	if(fexists(banlist_loc))
+		fdel(banlist_loc)
+	var/savefile/new_savefile = new/savefile(banlist_loc)
+	new_savefile << BanList
+	return 1
+proc/is_banned(mob/m)
+	//Check if ban is valid
+	var/time_of_ban = BanList && BanList[m.ckey]
+	world << time_of_ban
+	if(time_of_ban <= world.realtime)
+		var/ok = RemoveBan(m.ckey)
+		if(ok) 
+			SaveBanlist()
+			return 0
+	return BanList && BanList[m.ckey] ? BanList[m.ckey] : 0
+proc/RemoveBan(ckey)
+	var/is_found = BanList && BanList[ckey]
+	if(!is_found) return 0
+	BanList.Remove(ckey)
+	return 1
+//mob variables
 mob
 	var/watching
 	var/muted
@@ -38,6 +69,8 @@ mob/proc/CheckAdmin()
 			src.verbs += typesof(/mob/Enforcer/verb)
 		if(HOST)
 			src.verbs += typesof(/mob/Host/verb)
+
+
 
 mob/Host/verb/Reboot()
 	set category = "Admin"
@@ -79,10 +112,22 @@ mob/Host/verb/Reboot()
 						m.Save()
 			sleep(10/world.fps)
 
-	
-mob/Enforcer/verb/CheckIP(/*Phat T*/)
+mob/Host/verb/Repop()
 	set category = "Admin"
-	var/list/onlinePlayers = list(/*Phat T*/)
+	set desc = "Repop the world"
+	world << Bold(Red("World Repop()"))
+	world.Repop()
+mob/Host/verb/ResetTickLag()
+	set category = "Admin"
+	set desc = "Change Ticklag"
+	name = "Reset Ticklag"
+	//quick maths... 
+	// tick_lag = 10/world.fps
+	//    0.4 = 10/25
+	world.tick_lag = 10/world.fps
+mob/Enforcer/verb/CheckIP()
+	set category = "Admin"
+	var/list/onlinePlayers = list()
 	for(var/mob/M in OnlinePlayers)
 		onlinePlayers += M
 	var/mob/mob2Check=input("Player","Player") as null|anything in onlinePlayers
@@ -91,19 +136,16 @@ mob/Enforcer/verb/CheckIP(/*Phat T*/)
 	usr <<"<B>IP:</B> [mob2Check.client.address]"
 	usr <<"<B>CID:</B> [mob2Check.client.computer_id]"
 
-mob/Enforcer/verb/Warn_Player(/*Phat T*/)
+mob/Enforcer/verb/Warn_Player()
 	set category = "Admin"
-	var/list/players = list(/*Phat T*/)
-	for(var/mob/M in OnlinePlayers)
-		players += M
-	var/mob/M = input("Who would you like to warn?\n- Note: They will be the only person seeing the warning","Warn Player")as null|anything in players
+	set desc = "Create a warning for a player"
+	var/mob/M = input("Who would you like to warn?\n- Note: They will be the only person seeing the warning","Warn Player") as mob in OnlinePlayers
 	if(!M) return
-	var/warning = input("Input your warning to [M]\n- Note: They will be the only person seeing the warning","Warn Player")as text|null
+	var/warning = input("Input your warning to [M]\n- Note: They will be the only person seeing the warning","Warn Player") as text
 	if(!warning) return
-	M<< "<font color=red><small>Warning: </font color>[html_encode(warning)] ; from [usr]"
-		/************/
-		/**ANNOUNCE**/
-		/************/
+	M << Small(Red("Warning: ") + html_encode(warning))
+	src << Small(Red("[M.name] recieved the warning."))
+		
 mob/Enforcer/verb/Announce()
 	set category="Admin"
 	set desc = "What would you like to Announce to the world?"
@@ -112,7 +154,17 @@ mob/Enforcer/verb/Announce()
 	world << Bold(Center(Red(H3("Announcement"))))
 	world << Bold(Center(Red(H4(msg))))
 
-mob/Admin/verb/Teleport(/*Phat T*/)
+mob/Enforcer/verb/Kick()
+	set category = "Admin"
+	set desc = "Kick a player."
+	var/mob/player = input("Please select a player", "Admin") in OnlinePlayers + "Cancel"
+	if(player)
+		var/confirmation = alert("Are you sure you want to kick [player.name]?", "Confirmation","Yes", "no")
+		if(confirmation == "Yes")
+			Del(player)
+	else
+		return
+mob/Admin/verb/Teleport()
 	set category = "Admin"
 	switch(input("What type of Teleport would you like to preform?","Teleport") in list("Manual Teleport","Player Teleport","Cancel"))
 		if("Cancel") return
@@ -128,7 +180,7 @@ mob/Admin/verb/Teleport(/*Phat T*/)
 			usr.z = z
 
 		if("Player Teleport")
-			var/list/people = list(/*Phat T*/)
+			var/list/people = list()
 			for(var/mob/M in OnlinePlayers)
 				people += M
 			var/mob/M = input("Who would you like to teleport to?","Teleport")as null|anything in people
@@ -139,10 +191,10 @@ mob/Admin/verb/Teleport(/*Phat T*/)
 
 
 
-mob/Admin/verb/Summon(/*Phat T*/)
+mob/Admin/verb/Summon()
 	set category = "Admin"
 
-	var/list/people = list(/*Phat T*/)
+	var/list/people = list()
 	for(var/mob/M in OnlinePlayers)
 		people += M
 	var/mob/M = input("Who would you like to summon?","Summon")as null|anything in people
@@ -150,35 +202,55 @@ mob/Admin/verb/Summon(/*Phat T*/)
 	M.x = usr.x
 	M.y = usr.y-1
 	M.z = usr.z
-mob/Admin/verb/View_Reports(/**/)
-	set category = "Admin"
-	var/html = {"<font size=3><b>Reports: </b></font size>
-	<hr>
-	<font color=black>
-	<font size=2>"}
-	if(length(reports))
-		for(var/r in reports) html+="[r]<br><br>"
-	else html+="<br><b>No Reports</b>"
-	html+="<br>---------------------------<br><br><b><u>Current Time</u>:  [world.realtime]</b>"
-	usr<<browse(html,"window=who,size=550x600")
-mob/Admin/verb/Delete_Reports(/**/)
-	set category = "Admin"
-	switch(alert("Are you sure you want to delete all reports?","Delete Reports","Yes","No"))
-		if("No") return
-	reports = new(/**/)
-	fdel("Save Files/Reports.sav")
-	usr<<output("<font color=red><small>All reports have succesfully been deleted","Chat")
 
+mob/Admin/verb/Watch()
+	set category = "Admin"
+	var/list/players = list()
 
+	if(!usr.watching)
+		usr.watching=1
+		for(var/mob/M in OnlinePlayers)
+			players += M
+		var/mob/M = input("Who would you like to watch","Watch player")as null|anything in players
+		if(M)
+			client.eye = M
+
+			client.perspective = 255
+	else
+		usr.watching=0
+		client.eye = usr
+mob/Admin/verb/World_Mute()
+	set category="Admin"
+	worldmute = !worldmute
+	usr<<output("[usr] has [worldmute ? "" : "un-"]muted the world","Chat")
+mob/Admin/verb/Ban()
+	set category="Admin"
+	set desc = "Choose a player to ban, and decide for how long."
+	var/mob/player = input("Choose a player to ban", "Ban player") as mob in OnlinePlayers
+	if(!player)
+		return 0
+	var/duration = input("How long do you wish to ban [player.name], In hours", "Duration") as num
+	player << Bold(Red("You have been banned for [duration] hours!"))
+	duration = world.realtime + (duration * HOUR)
+	BanList[player.ckey] = duration
+	var/ok = SaveBanlist()
+	if(ok) world << "SaveBanlist() OK"
+mob/Admin/verb/UnBan()
+	set category="Admin"
+	set desc = "Choose a player to unban, and decide for how long."
+	var/ckey = input("Choose a player to ban", "Ban player") as text|anything in BanList
+	switch(alert("Do you wish to unban [ckey]?","Unban", "Yes", "No"))
+		if("Yes")
+			src << Bold(Red("Unbanned [ckey]"))
+			BanList.Remove(ckey)
+			. = SaveBanlist()
+			if(.) world << "SaveBanlist() OK"
+		if("No")
+			return 0
 mob/Creator/verb/Delete(atom/o in world)
 	set category = "Admin"
 	if(o)
 		del o
-
-mob/Creator/verb/World_Mute(/**/)
-	set category="Admin"
-	worldmute = !worldmute
-	usr<<output("[usr] has [worldmute ? "" : "un-"]muted the world","Chat")
 
 mob/Creator/verb/Edit(atom/O in world)
 	set category = "Admin"
@@ -217,24 +289,9 @@ mob/Creator/verb/Edit(atom/O in world)
 		if("List") input("This is what's in [variable]") in O:vars[variable] + list("Close")
 		if("Null")
 			if(alert("Are you sure you want to clear this variable?","Null","Yes","No") == "Yes") O:vars[variable] = null
-mob/Creator/verb/Watch(/*Phat T*/)
-	set category = "Admin"
-	var/list/players = list(/*Phat T*/)
 
-	if(!usr.watching)
-		usr.watching=1
-		for(var/mob/M in OnlinePlayers)
-			players += M
-		var/mob/M = input("Who would you like to watch","Watch player")as null|anything in players
-		if(M)
-			client.eye = M
-
-			client.perspective = 255
-	else
-		usr.watching=0
-		client.eye = usr
-
-mob/Creatorreator/verb/Icon_Options(/**/)
+/*
+mob/Creatorreator/verb/Icon_Options()
 	set category = "Admin"
 	switch(input("What would you like to do with this icon?","Icon Options")as null | anything in list("Icon","Icon State","Overlay","Underlay"))
 		if("Icon")
@@ -245,7 +302,7 @@ mob/Creatorreator/verb/Icon_Options(/**/)
 					usr.icon = i
 					usr.overlays = null
 				if("Change Players")
-					var/list/players = list(/*Phat T*/)
+					var/list/players = list()
 					for(var/mob/M in OnlinePlayers)
 						if(M.client) players += M
 					var/mob/M = input("Whos icon do you wish to Change","Icon")as null | anything in players
@@ -259,7 +316,7 @@ mob/Creatorreator/verb/Icon_Options(/**/)
 					usr.icon_state = iconstate
 				if("Change Players")
 					var/iconstate = input("Please input the Icon State you wish this person to have.\n- Please be sure this is Case Sensitive","Icon State")as text | null
-					var/list/players = list(/*Phat T*/)
+					var/list/players = list()
 					for(var/mob/M in OnlinePlayers)
 						if(M.client) players += M
 					var/mob/M = input("Whos icon state do you wish to Change?","Icon State")as null | anything in players
@@ -272,7 +329,7 @@ mob/Creatorreator/verb/Icon_Options(/**/)
 			switch(alert("What would you like to do with this overlay?","Overlay","Change","Change Players"))
 				if("Change") usr.overlays += i
 				if("Change Players")
-					var/list/players = list(/*Phat T*/)
+					var/list/players = list()
 					for(var/mob/M in OnlinePlayers)
 						if(M.client) players += M
 					var/mob/M = input("What overlay do you wish to change","Overlay")as null | anything in players
@@ -284,8 +341,11 @@ mob/Creatorreator/verb/Icon_Options(/**/)
 			switch(alert("What would you like to do with this Underlay?","Underlay","Change","Change Players"))
 				if("Change") usr.underlays += i
 				if("Change Players")
-					var/list/players = list(/*Phat T*/)
+					var/list/players = list()
 					for(var/mob/M in OnlinePlayers)
 						if(M.client) players += M
 					var/mob/M = input("What overlay do you wish to change","Underlay")as null | anything in players
 					if(!M) return
+*/
+mob/Creator/verb/TestRealtime()
+	world << world.realtime

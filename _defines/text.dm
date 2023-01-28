@@ -8,6 +8,7 @@
 #define H2(t)	"<h2>[t]</h2>"
 #define H3(t)	"<h3>[t]</h3>"
 #define H4(t)	"<h4>[t]</h4>"
+#define Small(t) "<small>[t]</small>"
 
 #define White(t)	"<font color=#FFFFFF>[t]</font>"
 #define	Red(t)		"<font color=#ff0000>[t]</font>"

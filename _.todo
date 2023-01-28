@@ -12,6 +12,7 @@ Bleach Project:
 
 	Todos:
 		Admin:
+			✔ Ban system! saved in saves/banlist.sav @started(23-01-28 22:00) @done(23-01-28 23:00) @lasted(3600s)
 			✔ Change verb types to /mob/Creator, /mob/Admin, mob/Enforcer and mob/Host @done(23-01-28 15:45)
 		Map:
 			☐ Vaizard hideout

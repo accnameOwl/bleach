@@ -2,7 +2,6 @@
 // Saving removes all overlays...
 // Don't let this happen.
 
-#define save_loc "saves/[copytext(src.ckey,1,2)]/[src.ckey].sav"
 datum/Write(var/savefile/F, var/list/neversave=null)
 	if(neversave != null && istype(neversave, /list) && neversave.len >= 1)
 		var/i

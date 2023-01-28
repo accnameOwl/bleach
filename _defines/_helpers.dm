@@ -5,3 +5,6 @@
 
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 32
+
+#define banlist_loc "saves/banlist.sav"
+#define save_loc "saves/[copytext(src.ckey,1,2)]/[src.ckey].sav"
