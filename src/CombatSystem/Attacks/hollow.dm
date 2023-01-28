@@ -65,13 +65,19 @@ mob/hollow/verb/bala()
 
 	//1: Charge cero
 	consume_reiatsu(src, SPELL_COST_BALA)
+	var/datum/spell/bala/bala = new()
+	bala.set_caster(src)
+	bala.set_damage(src.Stats[REISHI]*SPELL_MULTIPL_BALA, MAGIC_TYPE)
+	bala.Initialize(dir, locate(x,y,z), src.step_x, src.step_y)
 
 /datum/spell/bala
 	name = "Bala"
-	//icon = ''
-	//icon_state = ""
+	icon = 'cero.dmi'
+	icon_state = "bala"
 	timeout_duration = SPELL_TIMEOUT_BALA
 	step_size = 8
+	move_on_init = TRUE
+	density = 1
 
 
 // Gran Rey Cero
