@@ -2,6 +2,13 @@
 #define	Bold(t)		"<b>[t]</b>"
 #define	Italic(t) 	"<i>[t]</i>"
 #define	Underline(t) "<u>[t]</u>"
+#define Center(t)	"<center>[t]</center>"
+
+#define H1(t)	"<h1>[t]</h1>"
+#define H2(t)	"<h2>[t]</h2>"
+#define H3(t)	"<h3>[t]</h3>"
+#define H4(t)	"<h4>[t]</h4>"
+
 #define White(t)	"<font color=#FFFFFF>[t]</font>"
 #define	Red(t)		"<font color=#ff0000>[t]</font>"
 #define Orange(t)	"<font color=#ffA500>[t]</font>"

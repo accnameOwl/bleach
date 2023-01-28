@@ -26,6 +26,7 @@
 #include "_defines\_helpers.dm"
 #include "_defines\combat.dm"
 #include "_defines\damagetype.dm"
+#include "_defines\admin.dm"
 #include "_defines\layers.dm"
 #include "_defines\levelup.dm"
 #include "_defines\requirements.dm"

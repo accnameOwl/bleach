@@ -8,7 +8,7 @@ mob/Login()
 		initialize_stats()
 
 	if(key == "Tafe")
-		rank = "Owner"
+		rank = CREATOR
 	CheckAdmin()
 	OnlinePlayers += src
 
