@@ -6,6 +6,8 @@ var/list/MuteList=list()
 var/list/MuteListKey=list()
 var/list/JailList=list()
 var/list/OnlinePlayers=list()
+var/list/afk_check_cleared=list() // list of players who isn't afk, by talking through OOC
+var/afk_check_running = FALSE
 //Ban list
 var/list/BanList=list()
 proc/LoadBanlist()
@@ -54,6 +56,8 @@ proc/Admin_Alert(message)
 mob/proc/CheckAdmin()
 	switch(src.rank)
 		if(CREATOR)
+			src.admin = TRUE
+			src.admin_tag = CREATOR
 			src.verbs += typesof(/mob/Host/verb)
 			src.verbs += typesof(/mob/Enforcer/verb)
 			src.verbs += typesof(/mob/Admin/verb)
@@ -63,9 +67,13 @@ mob/proc/CheckAdmin()
 			src.verbs += typesof(/mob/hollow/verb)
 			#endif
 		if(ADMIN)
+			src.admin = TRUE
+			src.admin_tag = ADMIN
 			src.verbs += typesof(/mob/Enforcer/verb)
 			src.verbs += typesof(/mob/Admin/verb)
 		if(ENFORCER)
+			src.admin = TRUE
+			src.admin_tag = ENFORCER
 			src.verbs += typesof(/mob/Enforcer/verb)
 		if(HOST)
 			src.verbs += typesof(/mob/Host/verb)
@@ -120,13 +128,15 @@ mob/Host/verb/Repop()
 mob/Host/verb/ResetTickLag()
 	set category = "Admin"
 	set desc = "Change Ticklag"
-	name = "Reset Ticklag"
+	set name = "Reset Ticklag"
 	//quick maths... 
 	// tick_lag = 10/world.fps
 	//    0.4 = 10/25
 	world.tick_lag = 10/world.fps
 mob/Enforcer/verb/CheckIP()
 	set category = "Admin"
+	set desc = "Check a players IP address"
+	set name = "Check IP"
 	var/list/onlinePlayers = list()
 	for(var/mob/M in OnlinePlayers)
 		onlinePlayers += M
@@ -139,6 +149,7 @@ mob/Enforcer/verb/CheckIP()
 mob/Enforcer/verb/Warn_Player()
 	set category = "Admin"
 	set desc = "Create a warning for a player"
+	set name = "Warn player"
 	var/mob/M = input("Who would you like to warn?\n- Note: They will be the only person seeing the warning","Warn Player") as mob in OnlinePlayers
 	if(!M) return
 	var/warning = input("Input your warning to [M]\n- Note: They will be the only person seeing the warning","Warn Player") as text
@@ -151,8 +162,8 @@ mob/Enforcer/verb/Announce()
 	set desc = "What would you like to Announce to the world?"
 	var/msg = input(src, "Make an announcement", "Enforcer") as text
 	if(!msg) return
-	world << Bold(Center(Red(H3("Announcement"))))
-	world << Bold(Center(Red(H4(msg))))
+	world << Bold(Center(Green(H3("Announcement"))))
+	world << Bold(Center(Green(H4(msg))))
 
 mob/Enforcer/verb/Kick()
 	set category = "Admin"
@@ -164,6 +175,21 @@ mob/Enforcer/verb/Kick()
 			Del(player)
 	else
 		return
+mob/Enforcer/verb/AFKCheck()
+	set category = "Admin"
+	set desc = "Run a check for 30 seconds, that kicks all inactive players."
+	if(afk_check_running)
+		src << Bold(Red("AFK check already running"))
+		return
+	afk_check_running = TRUE
+	world << Bold(Center(Green(H2("AFK check"))))
+	world << Bold(Center(Green(H4("Please say something in OOC in 30 seconds"))))
+	spawn(300) 
+		for(var/mob/m in OnlinePlayers)
+			if(!afk_check_cleared.Find(m.ckey))
+				Del(m)
+		afk_check_running = FALSE
+
 mob/Admin/verb/Teleport()
 	set category = "Admin"
 	switch(input("What type of Teleport would you like to preform?","Teleport") in list("Manual Teleport","Player Teleport","Cancel"))
