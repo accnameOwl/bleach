@@ -1,2 +1,2 @@
-/proc/Initialize(...)
+/proc/Initialize()
 	squadlist_init()

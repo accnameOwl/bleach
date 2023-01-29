@@ -209,12 +209,20 @@ mob/NPC/ShinigamiTeacher/verb/Talk()
 					while(changeofmind)
 
 					// @Select Squad
-					var/picksquad = input("Kyōraku Akina: Which division do you wish to attend?", _title) in __squadlist
+					// TODO: *Have to make something more generic and easy for shinigami_squads...
+					// Maybe it needs to be one list, of all players with an index of their squad number...(?)
+					// instead of individual datum types, within a list holding several different datatypes, using more resources
+					
+					var/picksquad = input("Kyōraku Akina: Which division do you wish to attend?", _title) in __squadlist as num
+					
 					usr.squad = __squadlist[picksquad]
-					var/datum/shinigami_squad/sq = squadlist[picksquad]
-					sq.NewMember(usr)
-					usr.verbs += typesof(/mob/Squad/verb)
-
+					if(usr.squad)
+						if(squadlist[picksquad] == null)
+							squadlist[picksquad] = new/datum/shinigami_squad(picksquad)
+						var/datum/shinigami_squad/sq = squadlist && squadlist[picksquad]
+						sq.NewMember(usr)
+						usr.verbs += typesof(/mob/Squad/verb)
+					
 					// End
 					alert("Kyōraku Akina: Congratulations on becoming a Shinigami!", _title)
 					usr.MakeShinigami()

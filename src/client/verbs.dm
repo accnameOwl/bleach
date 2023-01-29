@@ -7,15 +7,16 @@ mob/player/verb/OOC()
 			afk_check_cleared.Add(src.ckey)
 			src << Bold(Red("AFK check submitted"))
 			return 
-	var/pretext = "([src.race])[src.name] OOC: "
-	if(racerank)
-		splicetext(pretext, 1,0, "([racerank])")
-	if(admin)
-		splicetext(pretext, 1,0, "(GM)")
+	msg = Red("([src.race])[src.name] OOC: ") +  White(msg)
+	var/pretext = ""
 	if(guild != null)
-		splicetext(pretext, 1,0, "([guild.name])")
+		pretext += "[guild.name]"
+	if(admin)
+		pretext += "(GM)"
+	if(racerank)
+		pretext += "([racerank])"
 	
-	msg = Bold(Red(pretext) + White(msg))
+	msg = Bold(Red(pretext) + msg)
 
 	for(var/mob/m in OnlinePlayers)
 		m << msg
