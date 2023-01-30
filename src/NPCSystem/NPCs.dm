@@ -221,7 +221,7 @@ mob/NPC/ShinigamiTeacher/verb/Talk()
 							squadlist[picksquad] = new/datum/shinigami_squad(picksquad)
 						var/datum/shinigami_squad/sq = squadlist && squadlist[picksquad]
 						sq.NewMember(usr)
-						usr.verbs += typesof(/mob/Squad/verb)
+						usr.verbs += typesof(/mob/squad/verb)
 					
 					// End
 					alert("Kyōraku Akina: Congratulations on becoming a Shinigami!", _title)

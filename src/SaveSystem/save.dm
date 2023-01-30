@@ -84,6 +84,9 @@ mob/Write(var/savefile/F,var/list/neversave=null)
 	F << src.y
 	F << src.z
 	F.cd = ocd
+	F.cd = "verbs"
+	F << src.verbs
+	F.cd = ocd
 	return .
 mob/Read(var/savefile/F,var/list/neversave=null)
 	. = ..(F,neversave)
@@ -93,17 +96,20 @@ mob/Read(var/savefile/F,var/list/neversave=null)
 	F >> src.y
 	F >> src.z
 	F.cd = ocd
+	F.cd = "verbs"
+	F >> src.verbs
+	F.cd = ocd
 	return .
 
 
 mob/proc/save()
 	var/savefile/F = new/savefile(save_loc)
-	F << src
+	src.Write(F)
 	return TRUE
 mob/proc/load()
 	if(fexists(save_loc))
 		var/savefile/F = new/savefile(save_loc)
-		F >> src
+		src.Read(F)
 		return TRUE
 	else
 		return FALSE

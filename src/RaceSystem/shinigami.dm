@@ -15,14 +15,11 @@ mob/proc/GiveBankai()
 	SQUAD STUFF....
 */
 
-// Returns player's squad
-mob/proc/Squad()
-	return squad ? squadlist && squadlist[squad] : 0
 
 //Checks for captain requirements.
 mob/proc/CheckCaptainReq()
 	if(level >= 100 && race == "shinigami")
-		var/datum/shinigami_squad/s = Squad()
+		var/datum/shinigami_squad/s = squadlist && squadlist[squad]
 		if(s)
 			var/mob/_capt = s.captain
 			if(_capt && (_capt.level <= level))
@@ -56,18 +53,21 @@ mob/verb/checkSquadCaptains()
 		src << Bold(Silver("     Captain: [cn] - [cl]"))
 		src << Bold(Silver("     Leutenant: [ln] - [ll]"))
 
-mob/Squad/verb/Say()
+mob/squad/verb/Say()
 	set category = "Squad"
 
-	var/datum/shinigami_squad/sq = Squad()
-	var/text = input("What do you whish to say to your squad", "Squad")
+	var/datum/shinigami_squad/sq = squadlist && squadlist[squad]
+	var/msg = input("What do you whish to say to your squad", "Squad")
 	
 	for(var/mob/m in sq.members)
-		m << text
-
+		m << Bold(Red("[html_encode(src.name)] Squad Say: ") + Grey(msg))
+//TODO
+mob/squad/captain/verb/MakeLeutenant()
+	set category = "Squad"
+	set name = "Make Leutenant"
 
 var/list/squadlist = list()
-
+	
 // Called in world/New()
 proc/squadlist_init()
 	if(!squadlist.len) return

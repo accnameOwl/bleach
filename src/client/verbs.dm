@@ -8,9 +8,10 @@ mob/player/verb/OOC()
 			src << Bold(Red("AFK check submitted"))
 			return 
 	msg = Red("([src.race])[src.name] OOC: ") +  White(msg)
+	
 	var/pretext = ""
-	if(guild != null)
-		pretext += "[guild.name]"
+	if(guild_name)
+		pretext += "[guild_name] "
 	if(admin)
 		pretext += "(GM)"
 	if(racerank)

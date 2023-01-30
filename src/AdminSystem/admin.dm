@@ -47,6 +47,7 @@ mob
 	var/rank = ""
 	var/admin = ""
 	var/admin_tag = ""
+	var/godmode = FALSE
 
 proc/Admin_Alert(message)
 	for(var/mob/M in world)
@@ -192,7 +193,7 @@ mob/Enforcer/verb/AFKCheck()
 
 mob/Admin/verb/Teleport()
 	set category = "Admin"
-	switch(input("What type of Teleport would you like to preform?","Teleport") in list("Manual Teleport","Player Teleport","Cancel"))
+	switch(input("What type of Teleport would you like to preform?","Teleport") in list("Manual Teleport","Player Teleport","NPC Teleport", "Cancel"))
 		if("Cancel") return
 		if("Manual Teleport")
 			var/x = input("Input X coordinates","X Coordinates")as num|null
@@ -215,6 +216,16 @@ mob/Admin/verb/Teleport()
 			usr.y = M.y-1
 			usr.z = M.z
 
+		if("NPC Teleport")
+			var/list/npcs = list()
+			for(var/mob/NPC/npc in world)
+				npcs += npc
+			var/mob/M = input("Who would you like to teleport to?","Teleport")as null|anything in npcs
+			if(!M) return
+			usr.x = M.x
+			usr.y = M.y-1
+			usr.z = M.z
+			
 
 
 mob/Admin/verb/Summon()
@@ -273,6 +284,13 @@ mob/Admin/verb/UnBan()
 			if(.) world << "SaveBanlist() OK"
 		if("No")
 			return 0
+mob/Creator/verb/GodMode()
+	set category = "Admin"
+	set desc = "Become God for testing"
+	src.density = !density
+	src.godmode = !godmode
+
+
 mob/Creator/verb/Delete(atom/o in world)
 	set category = "Admin"
 	if(o)

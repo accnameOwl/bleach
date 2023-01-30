@@ -12,6 +12,7 @@
 
 /datum/trigger/Crossed(mob/m)
 	if(!ismob(m)) return
+	if(m.godmode) return
 	anchored_to.Trigger(m)
 
 /datum/trigger/proc/ChangeBounds(x_offset = 0, y_offset = 0, extra_width = 0, extra_height = 0)

@@ -8,3 +8,4 @@
 
 #define banlist_loc "saves/banlist.sav"
 #define save_loc "saves/[copytext(src.ckey,1,2)]/[src.ckey].sav"
+#define guilds_save_loc "saves/guilds.sav"
