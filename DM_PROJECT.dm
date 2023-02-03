@@ -16,7 +16,6 @@ world
 		..()
 		status="[world.name] (version [world.version]) <font color=red>(CLOSED TESTING)</font>"
 		Initialize()
-		squadlist_init()
 		var/err = LoadBanlist()
 		if(err)
 			world.log << "Could not read banlist."

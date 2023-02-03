@@ -29,7 +29,7 @@ mob/Login()
 		overlays.Add(hair)
 
 	if(race == "shinigami")
-		check_captain()
+		give_squad_verbs(src)
 
 mob/Del()
 	src.save()

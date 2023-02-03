@@ -107,7 +107,7 @@ mob/NPC/ShinigamiTeacher/verb/Talk()
 			alert("Kyōraku Akina: Hello human! I do not know how you arrived here. I will send you back to the world of living. Only 'souls' are allowed to speak to me.", _title)
 		if("Shinigami")
 			if(racerank == "Captain")
-				alert("Kyōraku Akina: I'm honored by your presence, Squad [usr.squad] captain [usr.name]!",,"Leave...")
+				alert("Kyōraku Akina: I'm honored by your presence, Squad [usr.squad_division] captain [usr.name]!",,"Leave...")
 			else
 				alert("Kyōraku Akina: Long time no see [usr.name]! I'm glad to see you are well.",,"Exit")
 		if("Hollow"||"Menos"||"Adjucha"||"Vasto Lorde"||"Arrancar"||"Quincy")
@@ -209,23 +209,13 @@ mob/NPC/ShinigamiTeacher/verb/Talk()
 					while(changeofmind)
 
 					// @Select Squad
-					// TODO: *Have to make something more generic and easy for shinigami_squads...
-					// Maybe it needs to be one list, of all players with an index of their squad number...(?)
-					// instead of individual datum types, within a list holding several different datatypes, using more resources
-					
 					var/picksquad = input("Kyōraku Akina: Which division do you wish to attend?", _title) in __squadlist as num
-					
-					usr.squad = __squadlist[picksquad]
-					if(usr.squad)
-						if(squadlist[picksquad] == null)
-							squadlist[picksquad] = new/datum/shinigami_squad(picksquad)
-						var/datum/shinigami_squad/sq = squadlist && squadlist[picksquad]
-						sq.NewMember(usr)
-						usr.verbs += typesof(/mob/squad/verb)
 					
 					// End
 					alert("Kyōraku Akina: Congratulations on becoming a Shinigami!", _title)
 					usr.MakeShinigami()
+					usr.in_squad = true
+					make_squad_member(usr, picksquad)
 
 	// @Aizen
 mob/NPC/AizenSoske

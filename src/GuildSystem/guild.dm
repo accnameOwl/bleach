@@ -11,7 +11,6 @@ mob
 	var/guild_canboot = 0
 	var/guild_canchangerank = 0
 
-var/list/guilds_list = list()
 
 mob/player/verb/Guild_Create()
 	set category = "Guild"
@@ -23,7 +22,6 @@ mob/player/verb/Guild_Create()
 	switch(alert("Are you sure you wish to create a Guild?","Create guild", "Yes", "No"))
 		if("No")
 			return
-	var/savefile/guild_save = new(guilds_save_loc)
 	Create 
 	var/new_guild_name = input("What do you wish to name your Guild?", "Guild name") as text
 	if(!new_guild_name)
@@ -48,7 +46,7 @@ mob/player/verb/Guild_Create()
 	guild_rank = "Leader"
 	in_guild = 1
 	guilds_list.Add(new_guild_name)
-	guild_save["Guilds"] << guilds_list
+	save_guilds_list()
 	give_guild_verbs(src)
 	verbs -= new/mob/player/verb/Guild_Create
 
@@ -372,3 +370,16 @@ proc/remove_guild_verbs(mob/m)
 
 	if(m.guild_canchangerank)
 		m.verbs -= new/mob/guild_leader/verb/Guild_Change_Rank()
+
+//
+var/list/guilds_list = list()
+proc/save_guilds_list()
+	if(fexists(guilds_save_loc))
+		fdel(guilds_save_loc)
+	var/savefile/f = new/savefile(guilds_save_loc)
+	f << guilds_list
+proc/load_guilds_list()
+	if(!fexists(guilds_save_loc))
+		return
+	var/savefile/f = new/savefile(guilds_save_loc)
+	f >> guilds_list
