@@ -21,3 +21,12 @@ mob/player/verb/OOC()
 
 	for(var/mob/m in OnlinePlayers)
 		m << msg
+
+mob/player/verb/Check_Ranks()
+	for(var/i = 1, i < squads_list.len, i++)
+		var/datum/squad_db_type/squad = get_squad(i)
+		if(!squad) continue
+		src << Yellow(Bold("Squad: [squad.squad]"))
+		src << Small("\tCaptain: [squad.cap] [squad.cap_level]")
+		src << Small("\tLeutenant:[squad.leut] [squad.leut_level]")
+

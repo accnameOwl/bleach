@@ -28,7 +28,7 @@ mob/Login()
 	if(hair)
 		overlays.Add(hair)
 
-	if(race == "shinigami")
+	if(race == "Shinigami")
 		give_squad_verbs(src)
 
 mob/Del()

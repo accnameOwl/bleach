@@ -73,7 +73,7 @@ mob/NPC/Shopkeeper/New()
 // @ShinigamiTeacher
 mob/NPC/ShinigamiTeacher
 		icon = 'npcs.dmi'
-		icon_state = "shinigamitrainer"
+		icon_state = "Shinigamitrainer"
 
 		name = "Kyōraku Akina"
 		level = 85
@@ -209,12 +209,11 @@ mob/NPC/ShinigamiTeacher/verb/Talk()
 					while(changeofmind)
 
 					// @Select Squad
-					var/picksquad = input("Kyōraku Akina: Which division do you wish to attend?", _title) in __squadlist as num
-					
+					var/picksquad = input("Kyōraku Akina: Which division do you wish to attend?", _title) in __squadlist
+					picksquad =  __squadlist[picksquad]
 					// End
 					alert("Kyōraku Akina: Congratulations on becoming a Shinigami!", _title)
 					usr.MakeShinigami()
-					usr.in_squad = true
 					make_squad_member(usr, picksquad)
 
 	// @Aizen

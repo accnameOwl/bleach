@@ -51,7 +51,7 @@ mob/squad_captain/verb/Squad_Boot()
 				src << "You decided not to boot [m]"
 				return
 
-mob/squad_captain/verb/make_Leutenant()
+mob/squad_captain/verb/Make_Leutenant()
 	set category = "Squad"
 
 	var/list/player_list = list()
@@ -94,7 +94,7 @@ mob/squad/verb/Say()
 	set category = "Squad"
 	
 	var/msg = input("Say something to your squad", "Squad say") as text
-	msg = Cyan("(Squad [squad_division])[src.name] Say: ") + White(msg)
+	msg = Cyan("[src.name]: ") + White(msg)
 	var/pretext = ""
 	if(squad_captain)
 		pretext += "(Captain)"
@@ -114,25 +114,19 @@ mob/squad/verb/Say()
 proc/make_squad_captain(mob/m)
 	if(m.race != "Shinigami" || !m.in_squad) 
 		return
-	m.squad_captain = true
-	m.racerank = "Captain"
 	if(m.squad_leutenant)
 		m.squad_leutenant = false
-	give_squad_verbs(m)
+	if(!m.squad_captain)
+		m.squad_captain = true
+		m.racerank = "Captain"
+		m << Bold(Gold("You have been promoted to ") + Silver("[m.racerank]") + Gold("!"))
+		give_squad_verbs(m)
 	//Add to squad_list for db purposes
-	var/found_squad = false
-	for(var/datum/squad_db_type/sq in squads_list)
-		
-		if(sq.squad != m.squad_division)
-			continue
-		found_squad = true
-		if(sq.cap != m.name)
-			sq.cap = m.name
-	if(!found_squad)
-		var/datum/squad_db_type/db = new/datum/squad_db_type()
-		db.squad = m.squad_division
-		squads_list.Add(db)
-		.(m)
+	var/datum/squad_db_type/sq = get_squad(m.squad_division)
+	if(sq.cap != m.name)
+		sq.cap = m.name
+	if(sq.cap_level < m.level)
+		sq.cap_level = m.level
 	save_squads_list()
 proc/remove_squad_captain(mob/m)
 	if(m.race != "Shinigami" || !m.in_squad) 
@@ -141,43 +135,32 @@ proc/remove_squad_captain(mob/m)
 	m.squad_captain = false
 	m.racerank = ""
 	//Add to squad_list for db purposes
-	var/found_squad = false
-	for(var/datum/squad_db_type/sq in squads_list)
-		
-		if(sq.squad != m.squad_division)
-			continue
-		found_squad = true
-		if(sq.cap == m.name)
-			sq.cap = ""
-	if(!found_squad)
-		var/datum/squad_db_type/db = new/datum/squad_db_type()
-		db.squad = m.squad_division
-		squads_list.Add(db)
-		.(m)
+	var/datum/squad_db_type/sq = get_squad(m.squad_division)
+	if(sq.cap == m.name)
+		sq.cap = ""
+	if(sq.cap_level == m.level)
+		sq.cap_level = ""
 	save_squads_list()
 
 proc/make_squad_leutenant(mob/m)
 	if(m.race != "Shinigami" || !m.in_squad) 
 		return
-	m.squad_leutenant = true
-	m.racerank = "Leutenant"
 	if(m.squad_captain)
 		m.squad_captain = false
-	give_squad_verbs(m)
+
+	if(!m.squad_leutenant)
+		m.squad_leutenant = true
+		m.racerank = "Leutenant"
+		m << Bold(Gold("You have been promoted to ") + Silver("[m.racerank]") + Gold("!"))
+		give_squad_verbs(m)
 	//Add to squad_list for db purposes
-	var/found_squad = false
-	for(var/datum/squad_db_type/sq in squads_list)
-		if(sq.squad != m.squad_division)
-			continue
-		found_squad = true
-		if(sq.leut != m.name)
-			sq.leut = m.name
-	if(!found_squad)
-		var/datum/squad_db_type/db = new/datum/squad_db_type()
-		db.squad = m.squad_division
-		squads_list.Add(db)
-		.(m)
+	var/datum/squad_db_type/sq = get_squad(m.squad_division)
+	if(sq.leut != m.name)
+		sq.leut = m.name
+	if(sq.leut_level != m.level)
+		sq.leut_level = m.level
 	save_squads_list()
+
 proc/remove_squad_leutenant(mob/m)
 	if(m.race != "Shinigami" || !m.in_squad) 
 		return
@@ -185,22 +168,14 @@ proc/remove_squad_leutenant(mob/m)
 	m.squad_leutenant = false
 	m.racerank = ""
 	//Add to squad_list for db purposes
-	var/found_squad = false
-	for(var/datum/squad_db_type/sq in squads_list)
-		
-		if(sq.squad != m.squad_division)
-			continue
-		found_squad = true
-		if(sq.leut == m.name)
-			sq.leut = ""
-	if(!found_squad)
-		var/datum/squad_db_type/db = new/datum/squad_db_type()
-		db.squad = m.squad_division
-		squads_list.Add(db)
-		.(m)
+	var/datum/squad_db_type/sq = get_squad(m.squad_division)
+	if(sq.leut == m.name)
+		sq.leut = ""
+	if(sq.leut_level == m.level)
+		sq.leut_level = ""
 	save_squads_list()
 
-proc/make_squad_member(mob/m, squad)
+proc/make_squad_member(mob/m, squad = null)
 	if(!squad) return
 	if(m.race == "Shinigami" && !m.in_squad)
 		m.in_squad = true
@@ -231,7 +206,10 @@ proc/remove_from_squad(mob/m)
 	m.squad_division = false
 	m.squad_captain = false
 	m.squad_leutenant = false
-
+proc/get_squad(squad_div=0)
+	for(var/datum/squad_db_type/db_sq in squads_list)
+		if(db_sq.squad == squad_div)
+			return db_sq
 /*********************************/
 /*		squad list savefile 	 */
 /*							 	 */
@@ -240,7 +218,9 @@ proc/remove_from_squad(mob/m)
 /datum/squad_db_type
 	var/squad = 0
 	var/cap = ""
+	var/cap_level
 	var/leut = ""
+	var/leut_level
 
 var/list/squads_list = list()
 
@@ -252,6 +232,7 @@ proc/save_squads_list()
 
 proc/load_squads_list()
 	if(!fexists(squads_save_loc))
-		return
+		return 0
 	var/savefile/f = new/savefile(squads_save_loc)
 	f >> squads_list
+	return 1

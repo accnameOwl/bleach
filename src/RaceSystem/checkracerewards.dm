@@ -25,6 +25,11 @@ mob/proc/CheckShinigamiRewards()
 		GiveShikai()
 	if(level >= LEVELREQ_BANKAI && !hasBankai && shikaiMastery == 100)
 		GiveBankai()
+	if(level >= LEVELREQ_SHINIGAMI_CAPTAIN)
+		//check current captain
+		var/datum/squad_db_type/db = get_squad(src.squad_division)
+		if( db.cap != src.name || db.cap_level < src.level)
+			make_squad_captain(src)
 
 mob/proc/CheckBountoRewards()
 
