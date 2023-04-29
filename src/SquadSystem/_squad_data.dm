@@ -37,7 +37,7 @@ mob/player
 				quincy_sternritter_members[src.key] = sd
 
 	proc/RemoveSquadData()
-	 	 if(shinigami_squad_members[src.ney])
+	 	 if(shinigami_squad_members[src.key])
 			  shinigami_squad_members.Remove(src.key)
 	 	 if(hollow_espada_squad[src.key])
 		   	hollow_espada_members.Remove(src.key)
