@@ -90,6 +90,13 @@ mob/squad_captain/verb/Remove_Leutenant()
 		m.squad_leutenant = false
 		remove_squad_verbs(m)
 
+mob/squad/verb/who()
+	set category = "Squad"
+	src << Bold(Yellow("Squad who:"))
+	for(var/mob/m in OnlinePlayers)
+		if(m.squad_division == src.squad_division)
+			src << Yellow(m.name)
+
 mob/squad/verb/Say()
 	set category = "Squad"
 	

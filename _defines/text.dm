@@ -29,3 +29,5 @@
 #define Burn(t)		"<font color=#ffA500>[t]</font>"
 #define Toxin(t)	"<font color=#009200>[t]</font>"
 #define Freeze(t)	"<font color=#81d4fa>[t]</font>"
+
+#define Except(exception) 	world.log << Red(Bold("Error:\n")) + Red(exception) + Yellow("\n\t-> [exception.file]:[exception.line]")
