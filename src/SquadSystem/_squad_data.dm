@@ -18,19 +18,26 @@ datum/squad_data
 		catch(var/exception/e)
 			Except(e)
 
-mob/player/proc/UpdateSquadData()
-	var/datum/squad_data/sd = new(
-			src.key, 
-			src.name,
-			src.level,
-			src.squad_division,
-			src.squad_captain,
-			src.squad_leutenant)
+mob/player
+	proc/UpdateSquadData()
+		var/datum/squad_data/sd = new(
+				src.key, 
+				src.name,
+				src.level,
+				src.squad_division,
+				src.squad_captain,
+				src.squad_leutenant)
 
-	switch(src.race)
-		if("Shinigami")
-			shinigami_squad_members[src.key] = sd
-		if("Hollow")
-			hollow_espada_members[src.key] = sd
-		if("Quincy")
-			quincy_sternritter_members[src.key] = sd
+		switch(src.race)
+			if("Shinigami")
+				shinigami_squad_members[src.key] = sd
+			if("Hollow")
+				hollow_espada_members[src.key] = sd
+			if("Quincy")
+				quincy_sternritter_members[src.key] = sd
+
+	proc/RemoveSquadData()
+		shinigami_squad_members[src.key] = null
+		hollow_espada_members[src.key] = null
+		quincy_sternritter_members[src.key] = null
+	
