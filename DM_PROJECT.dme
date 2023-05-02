@@ -30,6 +30,7 @@
 #include "_defines\layers.dm"
 #include "_defines\levelup.dm"
 #include "_defines\requirements.dm"
+#include "_defines\save.dm"
 #include "_defines\spawnloc.dm"
 #include "_defines\spells.dm"
 #include "_defines\stats.dm"
@@ -81,6 +82,8 @@
 #include "src\SquadSystem\quincy.dm"
 #include "src\SquadSystem\shinigami.dm"
 #include "src\StatSystem\handlers.dm"
-#include "src\StatSystem\stats.dm"
+#include "src\StatSystem\stat_definitions.dm"
+#include "src\StatSystem\stats_new.dm"
+#include "src\WorldCreation\new.dm"
 // END_INCLUDE
 

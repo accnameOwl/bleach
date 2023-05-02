@@ -5,7 +5,6 @@ mob/Login()
 		src << Bold("Loaded savefile")
 	else
 		loc = locate(33,26,1)
-		initialize_stats()
 	
 	if(is_banned(src))
 		src << Bold(Red("You are banned!"))

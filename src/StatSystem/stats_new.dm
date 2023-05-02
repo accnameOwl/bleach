@@ -5,7 +5,7 @@
 	var/locs[] = new
 
 /datum/stat/New(base)
-	src.base = base
+	src.value = base
 	Update()
 
 /datum/stat/proc/Update()
@@ -18,15 +18,21 @@
 		for(var/atom/a in locs)
 			a.OnStatUpdate(src, ., current)
 	
-/datum/stat/operator+=(stat/s)
-	contents += s
-	s.locs += src
-	Update()
+/datum/stat/proc
+	operator>=(datum/stat/s)
+		return src.current >= s.current
+	operator<=(datum/stat/s)
+		return src.current <= s.current
 
-/datum/stat/operator-=(stat/s)
-	contents -= s
-	s.locs -= src
-	Update()
+	operator+=(datum/stat/s)
+		contents += s
+		s.locs += src
+		Update()
+
+	operator-=(datum/stat/s)
+		contents -= s
+		s.locs -= src
+		Update()
 
 atom/proc/OnStatUpdate(stat/s, old_cur, new_cur)
 	//Do stuff by overriding.
