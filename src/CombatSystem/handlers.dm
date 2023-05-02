@@ -73,7 +73,7 @@ mob/proc/Respawn()
 	*/
 	spawn_loc = locate(SPAWN_LOC_HUMAN)
 
-	Stats[HEALTH_CUR] = Stats[HEALTH_MAX]
+	health_cur = health_max
 
 	if(!spawn_delay)
 		return
@@ -93,7 +93,7 @@ mob/proc/Respawn()
 		return
 	n.combat_flag.dead = 1
 	n.loc = null
-	n.Stats[HEALTH_CUR] = n.Stats[HEALTH_MAX]
+	n.Stats[HEALTH_CUR] = n.health_max]
 	spawn(_delay)
 		n.combat_flag.dead = 0
 		n.loc = _loc

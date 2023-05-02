@@ -19,11 +19,14 @@
 			a.OnStatUpdate(src, ., current)
 	
 /datum/stat/proc
+	operator<(datum/stat/s)
+		return src.current < s.current
+	operator>(datum/stat/s)
+		return src.current > s.current
 	operator>=(datum/stat/s)
 		return src.current >= s.current
 	operator<=(datum/stat/s)
 		return src.current <= s.current
-
 	operator+=(datum/stat/s)
 		contents += s
 		s.locs += src

@@ -1,7 +1,7 @@
 mob/proc/RemoveHealth(mob/source, value)
 	EnterCombat(src)
 	combat_flag.time = world.time
-	Stats[HEALTH_CUR] -= round(value)
+	health_cur -= round(value)
 
 
 	#ifdef change_target
@@ -11,13 +11,13 @@ mob/proc/RemoveHealth(mob/source, value)
 		Target = source
 	#endif
 
-	if(Stats[HEALTH_CUR] <= 0)
+	if(health_cur <= 0)
 		Death(source)
 
 	combat_flag.time = world.time
 
 mob/proc/RestoreHealth(mob/source, amount=0)
-	Stats[HEALTH_CUR] += round(amount)
+	health_cur += round(amount)
 
 //Resting ??
 mob/var/resting = FALSE
@@ -35,22 +35,22 @@ mob/player/verb/Rest()
 	src << Bold(White("You started to rest!"))
 	while(resting)
 		if(world.time > last_tick+5)
-			if(Stats[HEALTH_CUR] < Stats[HEALTH_MAX])
-				Stats[HEALTH_CUR] += round(Stats[HEALTH_CUR]/30)
-			if(Stats[HEALTH_CUR] > Stats[HEALTH_MAX])
-				Stats[HEALTH_CUR] = Stats[HEALTH_MAX]
+			if(health_cur < health_max)
+				health_cur += round(health_cur/30)
+			if(health_cur > health_max)
+				health_cur = health_max
 
-			if(Stats[REIATSU_CUR] < Stats[REIATSU_MAX])
-				Stats[REIATSU_CUR] += round(Stats[REIATSU_MAX]/30)
-			if(Stats[REIATSU_CUR] > Stats[REIATSU_MAX])
-				Stats[REIATSU_CUR] = Stats[REIATSU_MAX]
+			if(reiatsu_cur < reiatsu_max)
+				reiatsu_cur += round(reiatsu_max/30)
+			if(reiatsu_cur > reiatsu_max)
+				reiatsu_cur = reiatsu_max
 
-			if(Stats[FATIGUE] > 0)
-				Stats[FATIGUE] -= 0.666
-			if(Stats[FATIGUE] < 0)
-				Stats[FATIGUE] = 0
+			if(fatigue > 0)
+				fatigue -= 0.666
+			if(fatigue < 0)
+				fatigue = 0
 
-			if(Stats[HEALTH_CUR] >= Stats[HEALTH_MAX] && Stats[REIATSU_CUR] >= Stats[REIATSU_MAX] && Stats[FATIGUE] <= 0)
+			if(health_cur >= health_max && reiatsu_cur >= reiatsu_max && fatigue <= 0)
 				break
 			last_tick = world.time
 		sleep(10/world.fps)
