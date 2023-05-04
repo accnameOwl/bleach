@@ -100,9 +100,9 @@ mob/hollow/verb/granreycero()
 	center.set_caster(src)
 	right.set_caster(src)
 
-	left.set_damage(src.Stats[REISHI]*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
-	center.set_damage(src.Stats[REISHI]*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
-	right.set_damage(src.Stats[REISHI]*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
+	left.set_damage(src.reishi*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
+	center.set_damage(src.reishi*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
+	right.set_damage(src.reishi*SPELL_MULTIPL_GRC, DARKMAGIC_TYPE)
 
 	switch(dir)
 		if(NORTH)

@@ -1,5 +1,5 @@
 /proc/check_spellcost(mob/m, cost)
-	if(m.Stats[REIATSU_CUR] >= cost)
+	if(m.reiatsu_cur >= cost)
 		return 1
 	else
 		return 0
@@ -7,9 +7,9 @@
 /proc/consume_reiatsu(mob/m, cost)
 	if(cost < 0)
 		cost = 0
-	m.Stats[REIATSU_CUR] -= cost
+	m.reiatsu_cur -= cost
 
-mob/proc/IncreaseStatBy(var/datum/stat/s, value)
+mob/proc/IncreaseStatBy(var/stat/s, value)
 	// Increases a certain stat for a mob.
 	// Indended for players only.
 	if(s == null) return

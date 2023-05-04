@@ -30,6 +30,7 @@ mob/Login()
 	if(race == "Shinigami")
 		give_squad_verbs(src)
 
+
 mob/Del()
 	src.save()
 	return ..()
