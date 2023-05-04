@@ -1,7 +1,7 @@
 /*
 	These are simple defaults for your project.
  */
- #define __TEST__
+ #define TEST_BUILD
 
 world
 	fps = 25		// 25 frames per second

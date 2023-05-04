@@ -36,7 +36,9 @@ mob/proc/GiveExperience(value)
 		IncreaseStatBy(exp_max, exp_max.current/20)
 
 		#ifdef TEST_BUILD
-		text2file("[level]     [exp_max.current]    [total_exp]", "level requirements.txt")
+		if(fexists("level requirements.txt"))
+			fdel("level requirements.txt")
+		text2file("[level]:\t[exp_max.current]\t[total_exp]", "level requirements.txt")
 		#endif
 
 		if(exp.current < 0)

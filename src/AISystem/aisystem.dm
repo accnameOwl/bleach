@@ -4,7 +4,7 @@ mob/monster
 	step_size = MONSTER_STEP_SIZE
 	var/mob/target = null
 	var/datum/trigger/ai_trigger
-	var/home_loc
+	var/tmp/turf/home_loc
 	var/aggro_dist=4
 	var/attack_reach = 22 //pixels
 	var/chase_speed = 1 //increased pixels to move
