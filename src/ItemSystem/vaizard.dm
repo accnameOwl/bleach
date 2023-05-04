@@ -17,6 +17,7 @@ obj/vaizardmask
 		icon_state = "7"
 	eight
 		icon_state = "8"
+#ifdef TEST_BUILD
 mob/verb
 	One()
 		set category = "masks"
@@ -53,3 +54,4 @@ mob/verb
 	Remov()
 		set category = "masks"
 		overlays = null
+#endif
