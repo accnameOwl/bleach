@@ -20,7 +20,7 @@
 	
 /stat/proc
 	operator<(stat/s)
-		. = src.current < s.current
+		return src.current < s.current
 	operator>(stat/s)
 		return src.current > s.current
 	operator>=(stat/s)
