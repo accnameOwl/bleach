@@ -24,7 +24,7 @@ mob/monster/Trigger(mob/m)
 mob/monster/Attack()
 	for(var/mob/m in obounds(src, attack_reach))
 		if(m.client)
-			DealDamage(m, Stats[ATTACK])
+			DealDamage(m, attack.value)
 
 mob/monster/Death(mob/killer)
 	..(killer)
@@ -47,7 +47,7 @@ mob/monster/Respawn()
 	n.combat_flag.dead = 1
 	n.loc = null
 	spawn(_delay)
-		n.Stats[HEALTH_CUR] = n.Stats[HEALTH_MAX]
+		n.health_cur.value = n.health_max.value
 		n.combat_flag.dead = 0
 		n.loc = _loc
 		n.RestingState()

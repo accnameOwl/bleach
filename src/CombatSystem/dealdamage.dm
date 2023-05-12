@@ -2,7 +2,7 @@ mob/proc/DealDamage(mob/target, value, damage_type = null, spell_name = null)
 	if(NONE_DAMAGEABLE(target)) return
 	EnterCombat(src)
 	EnterCombat(target, src)
-	value = round(value - target.Stats[HIERRO])
+	value = round(value - target.hierro.value)
 	if(value < 0)
 		value = 0
 
