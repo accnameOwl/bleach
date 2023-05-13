@@ -73,7 +73,7 @@ mob/proc/Respawn()
 	*/
 	spawn_loc = locate(SPAWN_LOC_HUMAN)
 
-	health_cur = health_max
+	health.value = health.limit
 
 	if(!spawn_delay)
 		return

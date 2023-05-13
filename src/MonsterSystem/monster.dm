@@ -9,10 +9,10 @@ mob/monster
 
 // makes monster move random direction while alive
 // called in mob/NPC/Resting()
-mob/monster/proc/Reward(mob/killer)
+mob/monster/proc/Reward(mob/player/killer)
 	killer.GiveExperience(reward_experience)
-	killer.IncreaseStatBy(attack, reward_attack)
-	killer.IncreaseStatBy(reishi, reward_reishi)
-	killer.IncreaseStatBy(hierro, reward_hierro)
-	killer.IncreaseStatBy(health_max, reward_health)
-	killer.IncreaseStatBy(reiatsu_max, reward_reiatsu)
+	killer.attack += reward_attack
+	killer.reishi += reward_reishi
+	killer.hierro += reward_hierro
+	killer.health += reward_health
+	killer.reiatsu += reward_reiatsu

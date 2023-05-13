@@ -191,6 +191,9 @@ mob/Enforcer/verb/AFKCheck()
 				Del(m)
 		afk_check_running = FALSE
 
+mob/Admin/verb/AdminRoom()
+	loc = locate(9,52,3)
+
 mob/Admin/verb/Teleport()
 	set category = "Admin"
 	switch(input("What type of Teleport would you like to preform?","Teleport") in list("Manual Teleport","Player Teleport","NPC Teleport", "Cancel"))

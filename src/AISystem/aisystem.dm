@@ -47,7 +47,7 @@ mob/monster/Respawn()
 	n.combat_flag.dead = 1
 	n.loc = null
 	spawn(_delay)
-		n.health_cur.value = n.health_max.value
+		n.health.value = n.health.limit
 		n.combat_flag.dead = 0
 		n.loc = _loc
 		n.RestingState()

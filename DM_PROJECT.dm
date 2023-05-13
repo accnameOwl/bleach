@@ -20,6 +20,8 @@ world
 		if(err)
 			world.log << "Could not read banlist."
 		
+	// Player type for players
+	mob = /mob/player
 // Make objects move 8 pixels per tick when walking
 
 mob

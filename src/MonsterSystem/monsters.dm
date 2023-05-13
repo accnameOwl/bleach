@@ -23,7 +23,7 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 2
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 1000,
 				HEALTH_CUR 		= 1000,
@@ -32,7 +32,7 @@ mob
 				ATTACK			= 10,
 				CRIT			= 10,
 				REISHI			= 10,
-				HIERRO			= 10)
+				HIERRO			= 10) */
 			respawn_time = 10
 
 			reward_experience = 3500
@@ -57,7 +57,7 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 4
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 1000,
 				HEALTH_CUR 		= 1000,
@@ -66,7 +66,7 @@ mob
 				ATTACK			= 10,
 				CRIT			= 10,
 				REISHI			= 10,
-				HIERRO			= 10)
+				HIERRO			= 10) */
 			respawn_time = 10
 
 			reward_experience = 100000
@@ -91,7 +91,7 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 4
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 860,
 				HEALTH_CUR 		= 860,
@@ -100,7 +100,7 @@ mob
 				ATTACK			= 230,
 				CRIT			= 0,
 				REISHI			= 41,
-				HIERRO			= 60)
+				HIERRO			= 60) */
 			respawn_time = 60
 
 			reward_experience = 32
@@ -124,7 +124,7 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 2
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 1200,
 				HEALTH_CUR 		= 1200,
@@ -133,7 +133,7 @@ mob
 				ATTACK			= 320,
 				CRIT			= 0,
 				REISHI			= 230,
-				HIERRO			= 230)
+				HIERRO			= 230) */
 			respawn_time = 120
 
 			reward_experience = 56
@@ -173,7 +173,7 @@ mob
 			chase_speed = 2
 
 			bounds = "1,1 to 32,32"
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 2500,
 				HEALTH_CUR 		= 2500,
@@ -182,7 +182,7 @@ mob
 				ATTACK			= 813,
 				CRIT			= 20,
 				REISHI			= 271,
-				HIERRO			= 542)
+				HIERRO			= 542) */
 			respawn_time = 10
 
 			reward_experience = 120
@@ -236,7 +236,7 @@ mob
 			chase_speed = 2
 
 			bounds = "1,1 to 32,32"
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 12000,
 				HEALTH_CUR 		= 12000,
@@ -245,7 +245,7 @@ mob
 				ATTACK			= 2200,
 				CRIT			= 20,
 				REISHI			= 2200,
-				HIERRO			= 2000)
+				HIERRO			= 2000) */
 			respawn_time = 60
 
 			reward_experience = 120 * 3
@@ -291,7 +291,7 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 3
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 155000,
 				HEALTH_CUR 		= 155000,
@@ -300,7 +300,7 @@ mob
 				ATTACK			= 80000,
 				CRIT			= 20,
 				REISHI			= 22000,
-				HIERRO			= 50000)
+				HIERRO			= 50000) */
 			respawn_time = 600
 
 			reward_experience = 5800
@@ -324,7 +324,7 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 3
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 155000,
 				HEALTH_CUR 		= 155000,
@@ -333,7 +333,7 @@ mob
 				ATTACK			= 80000,
 				CRIT			= 20,
 				REISHI			= 22000,
-				HIERRO			= 50000)
+				HIERRO			= 50000) */
 			respawn_time = 600
 
 			reward_experience = 5800
@@ -358,7 +358,7 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 4
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 225000,
 				HEALTH_CUR 		= 225000,
@@ -367,7 +367,7 @@ mob
 				ATTACK			= 120000,
 				CRIT			= 20,
 				REISHI			= 22000,
-				HIERRO			= 80000)
+				HIERRO			= 80000) */
 			respawn_time = 600
 
 			reward_experience = 12000
@@ -393,7 +393,7 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 4
-
+/* 
 			Stats = list(
 				HEALTH_MAX		= 2200000,
 				HEALTH_CUR 		= 2200000,
@@ -402,7 +402,7 @@ mob
 				ATTACK			= 73000,
 				CRIT			= 20,
 				REISHI			= 40000,
-				HIERRO			= 56000)
+				HIERRO			= 56000) */
 			respawn_time = 10
 
 			reward_experience = 12000

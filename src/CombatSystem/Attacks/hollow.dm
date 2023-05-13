@@ -15,7 +15,7 @@ mob/hollow/verb/cero()
 	//2: send cero
 	var/datum/spell/cero/cero = new()
 	cero.set_caster(src)
-	cero.set_damage(src.reishi.current*SPELL_MULTIPL_CERO, DARKMAGIC_TYPE)
+	cero.set_damage(src.reishi.value*SPELL_MULTIPL_CERO, DARKMAGIC_TYPE)
 	cero.Initialize(dir, locate(x,y,z), src.step_x, src.step_y)
 
 /datum/spell/cero
@@ -67,7 +67,7 @@ mob/hollow/verb/bala()
 	consume_reiatsu(src, SPELL_COST_BALA)
 	var/datum/spell/bala/bala = new()
 	bala.set_caster(src)
-	bala.set_damage(src.reishi.current*SPELL_MULTIPL_BALA, MAGIC_TYPE)
+	bala.set_damage(src.reishi.value*SPELL_MULTIPL_BALA, MAGIC_TYPE)
 	bala.Initialize(dir, locate(x,y,z), src.step_x, src.step_y)
 
 /datum/spell/bala

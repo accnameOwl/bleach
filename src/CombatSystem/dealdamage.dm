@@ -1,8 +1,8 @@
-mob/proc/DealDamage(mob/target, value, damage_type = null, spell_name = null)
+mob/proc/DealDamage(mob/target, stat/s, damage_type = null, spell_name = null)
 	if(NONE_DAMAGEABLE(target)) return
 	EnterCombat(src)
 	EnterCombat(target, src)
-	value = round(value - target.hierro.value)
+	var/value = round(s.value - target.hierro.value)
 	if(value < 0)
 		value = 0
 
