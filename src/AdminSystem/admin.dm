@@ -192,6 +192,7 @@ mob/Enforcer/verb/AFKCheck()
 		afk_check_running = FALSE
 
 mob/Admin/verb/AdminRoom()
+	set category = "Admin"
 	loc = locate(9,52,3)
 
 mob/Admin/verb/Teleport()
@@ -263,6 +264,7 @@ mob/Admin/verb/World_Mute()
 	set category="Admin"
 	worldmute = !worldmute
 	usr<<output("[usr] has [worldmute ? "" : "un-"]muted the world","Chat")
+
 mob/Admin/verb/Ban()
 	set category="Admin"
 	set desc = "Choose a player to ban, and decide for how long."
