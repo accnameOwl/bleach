@@ -24,6 +24,7 @@ proc/SaveBanlist()
 	var/savefile/new_savefile = new/savefile(banlist_loc)
 	new_savefile << BanList
 	return 1
+
 proc/is_banned(mob/m)
 	//Check if ban is valid
 	var/time_of_ban = BanList && BanList[m.ckey]
@@ -34,11 +35,13 @@ proc/is_banned(mob/m)
 			SaveBanlist()
 			return 0
 	return BanList && BanList[m.ckey] ? BanList[m.ckey] : 0
+
 proc/RemoveBan(ckey)
 	var/is_found = BanList && BanList[ckey]
 	if(!is_found) return 0
 	BanList.Remove(ckey)
 	return 1
+
 //mob variables
 mob
 	var/watching
@@ -126,6 +129,7 @@ mob/Host/verb/Repop()
 	set desc = "Repop the world"
 	world << Bold(Red("World Repop()"))
 	world.Repop()
+
 mob/Host/verb/ResetTickLag()
 	set category = "Admin"
 	set desc = "Change Ticklag"
@@ -134,6 +138,7 @@ mob/Host/verb/ResetTickLag()
 	// tick_lag = 10/world.fps
 	//    0.4 = 10/25
 	world.tick_lag = 10/world.fps
+
 mob/Enforcer/verb/CheckIP()
 	set category = "Admin"
 	set desc = "Check a players IP address"
@@ -229,8 +234,6 @@ mob/Admin/verb/Teleport()
 			usr.x = M.x
 			usr.y = M.y-1
 			usr.z = M.z
-			
-
 
 mob/Admin/verb/Summon()
 	set category = "Admin"
@@ -260,6 +263,7 @@ mob/Admin/verb/Watch()
 	else
 		usr.watching=0
 		client.eye = usr
+
 mob/Admin/verb/World_Mute()
 	set category="Admin"
 	worldmute = !worldmute
@@ -277,6 +281,7 @@ mob/Admin/verb/Ban()
 	BanList[player.ckey] = duration
 	var/ok = SaveBanlist()
 	if(ok) world << "SaveBanlist() OK"
+
 mob/Admin/verb/UnBan()
 	set category="Admin"
 	set desc = "Choose a player to unban, and decide for how long."
@@ -289,6 +294,7 @@ mob/Admin/verb/UnBan()
 			if(.) world << "SaveBanlist() OK"
 		if("No")
 			return 0
+			
 mob/Creator/verb/GodMode()
 	set category = "Admin"
 	set desc = "Become God for testing"
@@ -396,5 +402,3 @@ mob/Creatorreator/verb/Icon_Options()
 					var/mob/M = input("What overlay do you wish to change","Underlay")as null | anything in players
 					if(!M) return
 */
-mob/Creator/verb/TestRealtime()
-	world << world.realtime

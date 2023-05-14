@@ -16,6 +16,10 @@ client/Stat()
 	stat("Hierro: ", usr.hierro.value)
 	stat("")
 	stat("Fatigue: ", round(usr:fatigue))
+	#ifdef SYS_LEVELING_POINTS
+	stat("")
+	stat("Stat points: ", usr:statpoints)
+	#endif
 	statpanel("Inventory", usr.contents)
 
 client/New()

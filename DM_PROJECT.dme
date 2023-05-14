@@ -61,6 +61,7 @@
 #include "src\ConnectSystem\login.dm"
 #include "src\ConnectSystem\logout.dm"
 #include "src\GuildSystem\guild.dm"
+#include "src\html_contents\statpoints_panel.dm"
 #include "src\ItemSystem\item.dm"
 #include "src\ItemSystem\shinigami.dm"
 #include "src\ItemSystem\vaizard.dm"

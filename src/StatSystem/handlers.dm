@@ -1,5 +1,5 @@
 /proc/check_spellcost(mob/m, cost)
-	if(m.reiatsu >= cost)
+	if(m.reiatsu.value >= cost)
 		return 1
 	else
 		return 0
@@ -17,12 +17,19 @@ mob/player/proc/GiveExperience(value)
 	while(exp.value >= exp.limit)
 
 		//Increase level
+		#ifdef SYS_LEVELING_BONUS
 		++level
 		health.limit(LEVELUP_HEALTH_BONUS) 
 		reiatsu.limit(LEVELUP_REIATSU_BONUS) 
 		attack += LEVELUP_ATTACK_BONUS
 		reishi += LEVELUP_REISHI_BONUS
 		hierro += LEVELUP_HIERRO_BONUS
+		#endif
+		
+		// award statpoints?
+		#ifdef SYS_LEVELING_POINTS
+		AwardStatPoint(6)
+		#endif
 
 		health.value = health.limit
 		reiatsu.value = reiatsu.limit

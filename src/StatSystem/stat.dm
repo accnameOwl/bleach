@@ -1,37 +1,46 @@
 stat
 	var/limit = 1
 	var/value = 1
+	// Flag
+	var/onupdate_operator_change_limit = FALSE
 
 stat/New(base)
-	src.value = base
+	value = base
 	if(args[2])
-		src.limit = args[2]
+		limit = args[2]
 	else
-		src.limit = base
+		limit = base
+
+	if(args[3] && (args[3] == TRUE))
+		onupdate_operator_change_limit = TRUE
+
 	//OnUpdate()
 
-stat/proc/OnUpdate()
+stat/proc/OnUpdate(x = null)
 	
 	// Do override stuff
+	if(onupdate_operator_change_limit)
+		if(x && isnum(x))
+			limit += round(x)
 
-	#ifdef TEST_BUILD
-	world.log << "[src.type]::Update() -> Result([src.value], [src.limit])"
-	#endif
+	// #ifdef TEST_BUILD
+	// world.log << "[src.type]::Update() -> Result([src.value], [src.limit])"
+	// #endif
 	
-stat/proc/operator+=(number)
-	value += round(number)
-	// OnUpdate()
+stat/proc/operator+=(x)
+	value += round(x)
+	OnUpdate(x)
 
-stat/proc/operator-=(number)
-	value -= round(number)
-	//OnUpdate()
+stat/proc/operator-=(x)
+	value -= round(x)
+	OnUpdate(x)
 
-stat/proc/operator<=(number)
-	return value <= number
+stat/proc/operator<=(x)
+	return limit <= x
 
-stat/proc/operator>=(number)
-	return value >= number
+stat/proc/operator>=(x)
+	return value >= x
 
-stat/proc/limit(number)
-	src.limit += round(number)
+stat/proc/limit(x)
+	src.limit += round(x)
 	//OnUpdate()
