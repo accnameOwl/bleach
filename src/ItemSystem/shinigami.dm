@@ -1,20 +1,6 @@
-/datum/item
-	verb
-		Equip()
-			if(equipped)
-				usr.overlays.Add(src)
-				equipped = 0
-			else
-				usr.overlays.Add(src)
-				equipped = 1
-		Drop()
-			src.loc = usr.loc
+datum/item
 
-		PickUp()
-			set src in oview(1)
-			usr << src
-
-	Zanpaktou
+	zanpakuto
 		layer = SWORD_LAYER
 		icon = 'sword.dmi'
 

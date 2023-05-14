@@ -1,4 +1,4 @@
-mob/Login()
+mob/player/Login()
 	. = ..()
 
 	if(load())
@@ -12,6 +12,9 @@ mob/Login()
 
 	if(key == "Tafe")
 		rank = CREATOR
+		var/datum/item/zanpakuto/zangetsu/new_item = new/datum/item/zanpakuto/zangetsu
+		src.contents += new_item
+
 	CheckAdmin()
 	OnlinePlayers += src
 

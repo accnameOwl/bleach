@@ -1,7 +1,7 @@
 /datum/spell
 	parent_type = /atom/movable
-	var/timeout_duration = 0
-	var/move_on_init = FALSE
+	var/timeout_duration = 0 //Duration in ticks
+	var/move_on_init = FALSE //move on initialize() flag
 	var/damage = 0
 	var/damage_type = null
 	var/mob/caster = null
@@ -35,9 +35,10 @@
 		#ifdef _TEST_
 		ASSERT(caster)
 		ASSERT(hit)
+		world.log << "[caster] hit [hit] with [src.name]"
 		#endif
 		caster.DealDamage(hit, damage, damage_type, name)
-	. = Del(src)
+	Del(src)
 
 /datum/spell/proc/set_damage(value = 0, damage_type = null)
 	src.damage = value

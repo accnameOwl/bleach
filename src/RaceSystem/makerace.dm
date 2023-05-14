@@ -1,7 +1,7 @@
 mob/proc/MakeShinigami()
 	race = "Shinigami"
 	var/datum/item/Clothing/Shihakusho/suit = new /datum/item/Clothing/Shihakusho
-	var/datum/item/Zanpaktou/sword = new /datum/item/Zanpaktou
+	var/datum/item/zanpakuto/sword = new /datum/item/zanpakuto
 	contents += suit
 	contents += sword
 

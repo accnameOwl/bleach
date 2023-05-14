@@ -1,8 +1,25 @@
-/datum/item
+datum/item
 	parent_type = /obj
 	layer = MOB_LAYER+1
 	var
 		equipped = 0
+
+
+datum/item/verb/Equip()
+	if(equipped)
+		usr.overlays.Add(src)
+		equipped = 0
+	else
+		usr.overlays.Add(src)
+		equipped = 1
+	. = equipped
+datum/item/verb/Drop()
+	src.loc = usr.loc
+
+datum/item/verb/PickUp()
+	set src in oview(1)
+	usr << src
+
 
 /datum/hair
 	parent_type = /atom/movable
@@ -10,7 +27,7 @@
 	layer = HAIR_LAYER
 
 // hair
-mob/var/datum/hair/hair
+mob/var/icon/hair 
 
 
 var/list/hairtypes = list(
