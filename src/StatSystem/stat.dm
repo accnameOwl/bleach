@@ -4,16 +4,14 @@
 	// Flag
 	var/onupdate_operator_change_limit = FALSE
 
-/datum/stat/New(base)
-	value = base
-	if(args[2])
-		limit = args[2]
+/datum/stat/New(b, l = 0, f = FALSE)
+	value = b
+	if(l)
+		limit = l
 	else
-		limit = base
-
-	if(args[3] && (args[3] == TRUE))
-		onupdate_operator_change_limit = TRUE
-
+		limit = b
+	if(f)
+		onupdate_operator_change_limit = f
 	//OnUpdate()
 
 /datum/stat/proc/OnUpdate(x = null)

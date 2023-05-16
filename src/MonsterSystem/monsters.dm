@@ -347,16 +347,6 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 4
-/* 
-			Stats = list(
-				HEALTH_MAX		= 2200000,
-				HEALTH_CUR 		= 2200000,
-				REIATSU_MAX 	= 1000000,
-				REIATSU_CUR 	= 1000000,
-				ATTACK			= 73000,
-				CRIT			= 20,
-				REISHI			= 40000,
-				HIERRO			= 56000) */
 			respawn_time = 10
 
 			level = 120
@@ -376,9 +366,6 @@ mob
 			Death(mob/killer)
 				..(killer)
 				Reward(killer)
-
-
-
 
 obj/overlay/largehollow
 	icon = 'monsters.dmi'
