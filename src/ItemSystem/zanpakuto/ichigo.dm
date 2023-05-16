@@ -8,7 +8,18 @@
 			src.verbs -= typesof(/mob/player/zanpakuto/ichigo/verb)
 
 mob/player/zanpakuto/ichigo/verb
-	getsuga_tensho()
+	getsuga_tensho() 
+		//FIXME 
+		/**
+		runtime error: undefined variable /datum/item/zanpakuto/zangetsu/var/attack
+		proc name: Getsuga Tensho (/mob/player/zanpakuto/ichigo/verb/getsuga_tensho)
+			usr: Tafe (/mob/player)
+			src: the zangetsu (/datum/item/zanpakuto/zangetsu)
+			usr.loc: the tr (6,51,3) (/turf/earth/outside/dirt/tr)
+			src.loc: Tafe (/mob/player)
+		call stack:
+		the zangetsu (/datum/item/zanpakuto/zangetsu): Getsuga Tensho()
+		*/
 		set name = "Getsuga Tensho"
 		set category = "Attacks"
 

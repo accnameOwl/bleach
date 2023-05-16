@@ -45,7 +45,7 @@
 	src.damage_type = damage_type
 
 /datum/spell/proc/set_caster(mob/m)
-	#ifdef _TEST_
+	#ifdef DEBUG
 	ASSERT(m)
 	#endif
 	if(m)
