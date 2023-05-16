@@ -13,3 +13,5 @@
 
 #define true TRUE
 #define false FALSE
+
+#define case if

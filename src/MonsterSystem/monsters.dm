@@ -152,13 +152,14 @@ mob
 		LargeHollow
 			icon_state = "largehollow"
 
+			var/obj/overlay/largehollow/upleft/ul = new
+			var/obj/overlay/largehollow/upright/ur = new
+			var/obj/overlay/largehollow/up/u = new
+			var/obj/overlay/largehollow/downleft/dl = new
+			var/obj/overlay/largehollow/downright/dr = new
+
 			New()
 				..()
-				var/obj/overlay/largehollow/upleft/ul = new
-				var/obj/overlay/largehollow/upright/ur = new
-				var/obj/overlay/largehollow/up/u = new
-				var/obj/overlay/largehollow/downleft/dl = new
-				var/obj/overlay/largehollow/downright/dr = new
 				overlays += ul
 				overlays += u
 				overlays += ur
@@ -221,10 +222,12 @@ mob
 		// @Menos Grande
 		MenosGrande
 			icon_state = "menos"
+
+			var/obj/overlay/menosgrande/upup/two = new
+			var/obj/overlay/menosgrande/up/one = new
+			
 			New()
 				..()
-				var/obj/overlay/menosgrande/upup/two = new
-				var/obj/overlay/menosgrande/up/one = new
 				overlays += one
 				overlays += two
 

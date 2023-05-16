@@ -1,10 +1,10 @@
-stat
+/datum/stat
 	var/limit = 1
 	var/value = 1
 	// Flag
 	var/onupdate_operator_change_limit = FALSE
 
-stat/New(base)
+/datum/stat/New(base)
 	value = base
 	if(args[2])
 		limit = args[2]
@@ -16,7 +16,7 @@ stat/New(base)
 
 	//OnUpdate()
 
-stat/proc/OnUpdate(x = null)
+/datum/stat/proc/OnUpdate(x = null)
 	
 	// Do override stuff
 	if(onupdate_operator_change_limit)
@@ -27,20 +27,20 @@ stat/proc/OnUpdate(x = null)
 	// world.log << "[src.type]::Update() -> Result([src.value], [src.limit])"
 	// #endif
 	
-stat/proc/operator+=(x)
+/datum/stat/proc/operator+=(x)
 	value += round(x)
 	OnUpdate(x)
 
-stat/proc/operator-=(x)
+/datum/stat/proc/operator-=(x)
 	value -= round(x)
 	OnUpdate(x)
 
-stat/proc/operator<=(x)
+/datum/stat/proc/operator<=(x)
 	return limit <= x
 
-stat/proc/operator>=(x)
+/datum/stat/proc/operator>=(x)
 	return value >= x
 
-stat/proc/limit(x)
+/datum/stat/proc/limit(x)
 	src.limit += round(x)
 	//OnUpdate()

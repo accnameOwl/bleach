@@ -1,4 +1,4 @@
-mob/proc/DealDamage(mob/target, stat/s, damage_type = null, spell_name = null)
+mob/proc/DealDamage(mob/target, datum/stat/s, damage_type = null, spell_name = null)
 	if(NONE_DAMAGEABLE(target)) return
 	EnterCombat(src)
 	EnterCombat(target, src)
