@@ -21,9 +21,9 @@ mob/player/zanpakuto/ichigo/verb
 		two.set_caster(src)
 
 		var/damage = (0.4 * attack.value) + (1 * reishi.value)
-		one.set_damage( damage )
-		center.set_damage( damage )
-		two.set_damage( damage )
+		one.set_damage( damage, MAGIC_TYPE )
+		center.set_damage( damage, MAGIC_TYPE )
+		two.set_damage( damage, MAGIC_TYPE )
 		
 		center.Initialize(src.dir, locate(x,y,z), src.step_x, src.step_y)
 		switch(dir)
@@ -44,7 +44,6 @@ mob/player/zanpakuto/ichigo/verb
 
 /datum/spell/getsuga_tensho
 	timeout_duration = SPELL_TIMEOUT_GETSUGATENSHO
-	damage_type = MAGIC_TYPE
 	move_on_init = TRUE
 	name = "Getsuga Tensho"
 	icon = 'zangetsu_getsuga.dmi'
