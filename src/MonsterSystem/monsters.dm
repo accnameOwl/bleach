@@ -15,25 +15,20 @@ mob
 
 		// @Zaraki
 		Zaraki
-			icon_state = "zaraki"
-
 			name = "Zaraki Kenpachi"
-			level = 85
+			icon_state = "zaraki"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 2
-/* 
-			Stats = list(
-				HEALTH_MAX		= 1000,
-				HEALTH_CUR 		= 1000,
-				REIATSU_MAX 	= 500,
-				REIATSU_CUR 	= 500,
-				ATTACK			= 10,
-				CRIT			= 10,
-				REISHI			= 10,
-				HIERRO			= 10) */
 			respawn_time = 10
+
+			level = 85
+			health = new/datum/stat(1000,1000)
+			reiatsu = new/datum/stat(500,500)
+			attack = new/datum/stat(10)
+			reishi = new/datum/stat(10)
+			hierro = new/datum/stat(10)
 
 			reward_experience = 3500
 			reward_attack = 310
@@ -49,25 +44,20 @@ mob
 
 		// @Byakuya
 		Byakuya
-			icon_state = "byakuya"
-
 			name = "Kuchiki Byakuya"
-			level = 85
+			icon_state = "byakuya"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 4
-/* 
-			Stats = list(
-				HEALTH_MAX		= 1000,
-				HEALTH_CUR 		= 1000,
-				REIATSU_MAX 	= 500,
-				REIATSU_CUR 	= 500,
-				ATTACK			= 10,
-				CRIT			= 10,
-				REISHI			= 10,
-				HIERRO			= 10) */
 			respawn_time = 10
+
+			level = 85
+			health = new/datum/stat(1000,1000)
+			reiatsu = new/datum/stat(500,500)
+			attack = new/datum/stat(10)
+			reishi = new/datum/stat(10)
+			hierro = new/datum/stat(10)
 
 			reward_experience = 100000
 			reward_attack = 42
@@ -83,25 +73,20 @@ mob
 
 		// @Demihollow
 		Demihollow
-			icon_state = "demihollow"
-
 			name = "Demi"
-			level = 6
+			icon_state = "demihollow"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 4
-/* 
-			Stats = list(
-				HEALTH_MAX		= 860,
-				HEALTH_CUR 		= 860,
-				REIATSU_MAX 	= 300,
-				REIATSU_CUR 	= 300,
-				ATTACK			= 230,
-				CRIT			= 0,
-				REISHI			= 41,
-				HIERRO			= 60) */
 			respawn_time = 60
+
+			level = 6
+			health = new/datum/stat(860)
+			reiatsu = new/datum/stat(300)
+			attack = new/datum/stat(230)
+			reishi = new/datum/stat(41)
+			hierro = new/datum/stat(60)
 
 			reward_experience = 32
 			reward_attack = 5
@@ -124,17 +109,13 @@ mob
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 2
-/* 
-			Stats = list(
-				HEALTH_MAX		= 1200,
-				HEALTH_CUR 		= 1200,
-				REIATSU_MAX 	= 300,
-				REIATSU_CUR 	= 300,
-				ATTACK			= 320,
-				CRIT			= 0,
-				REISHI			= 230,
-				HIERRO			= 230) */
 			respawn_time = 120
+
+			health = new/datum/stat(1200)
+			reiatsu = new/datum/stat(300)
+			attack = new/datum/stat(320)
+			reishi = new/datum/stat(230)
+			hierro = new/datum/stat(230)
 
 			reward_experience = 56
 			reward_attack = 11
@@ -150,41 +131,22 @@ mob
 
 		// @Large Hollow
 		LargeHollow
-			icon_state = "largehollow"
-
-			var/obj/overlay/largehollow/upleft/ul = new
-			var/obj/overlay/largehollow/upright/ur = new
-			var/obj/overlay/largehollow/up/u = new
-			var/obj/overlay/largehollow/downleft/dl = new
-			var/obj/overlay/largehollow/downright/dr = new
-
-			New()
-				..()
-				overlays += ul
-				overlays += u
-				overlays += ur
-				overlays += dl
-				overlays += dr
-
 			name = "Hollow"
-			level = 24
+			icon_state = "largehollow"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 2
+			respawn_time = 10
 
 			bounds = "1,1 to 32,32"
-/* 
-			Stats = list(
-				HEALTH_MAX		= 2500,
-				HEALTH_CUR 		= 2500,
-				REIATSU_MAX 	= 300,
-				REIATSU_CUR 	= 300,
-				ATTACK			= 813,
-				CRIT			= 20,
-				REISHI			= 271,
-				HIERRO			= 542) */
-			respawn_time = 10
+
+			level = 24
+			health = new/datum/stat(2500)
+			reiatsu = new/datum/stat(300)
+			attack = new/datum/stat(813)
+			reishi = new/datum/stat(271)
+			hierro = new/datum/stat(542)
 
 			reward_experience = 120
 			reward_attack = 24
@@ -219,37 +181,38 @@ mob
 				..(killer)
 				Reward(killer)
 
-		// @Menos Grande
-		MenosGrande
-			icon_state = "menos"
+			var/obj/overlay/largehollow/upleft/ul = new
+			var/obj/overlay/largehollow/upright/ur = new
+			var/obj/overlay/largehollow/up/u = new
+			var/obj/overlay/largehollow/downleft/dl = new
+			var/obj/overlay/largehollow/downright/dr = new
 
-			var/obj/overlay/menosgrande/upup/two = new
-			var/obj/overlay/menosgrande/up/one = new
-			
 			New()
 				..()
-				overlays += one
-				overlays += two
+				overlays += ul
+				overlays += u
+				overlays += ur
+				overlays += dl
+				overlays += dr
 
+		// @Menos Grande
+		MenosGrande
 			name = "Menos Grande"
-			level = 35
+			icon_state = "menos"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 2
+			respawn_time = 60
 
 			bounds = "1,1 to 32,32"
-/* 
-			Stats = list(
-				HEALTH_MAX		= 12000,
-				HEALTH_CUR 		= 12000,
-				REIATSU_MAX 	= 300,
-				REIATSU_CUR 	= 300,
-				ATTACK			= 2200,
-				CRIT			= 20,
-				REISHI			= 2200,
-				HIERRO			= 2000) */
-			respawn_time = 60
+
+			level = 35
+			health = new/datum/stat(12000)
+			reiatsu = new/datum/stat(300)
+			attack = new/datum/stat(2200)
+			reishi = new/datum/stat(2200)
+			hierro = new/datum/stat(2000)
 
 			reward_experience = 120 * 3
 			reward_attack = 24 * 3
@@ -284,27 +247,30 @@ mob
 				..(killer)
 				Reward(killer)
 
+			var/obj/overlay/menosgrande/upup/two = new
+			var/obj/overlay/menosgrande/up/one = new
+
+			New()
+				..()
+				overlays += one
+				overlays += two
+
 		// @AttackArrancar
 		AttackArrancar
-			icon_state = "arrancarattack"
-
 			name = "Arrancar"
-			level = 100
+			icon_state = "arrancarattack"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 3
-/* 
-			Stats = list(
-				HEALTH_MAX		= 155000,
-				HEALTH_CUR 		= 155000,
-				REIATSU_MAX 	= 60000,
-				REIATSU_CUR 	= 60000,
-				ATTACK			= 80000,
-				CRIT			= 20,
-				REISHI			= 22000,
-				HIERRO			= 50000) */
 			respawn_time = 600
+
+			level = 100
+			health = new/datum/stat(155000)
+			reiatsu = new/datum/stat(60000)
+			attack = new/datum/stat(80000)
+			reishi = new/datum/stat(22000)
+			hierro = new/datum/stat(50000)
 
 			reward_experience = 5800
 			reward_attack = 630
@@ -313,31 +279,26 @@ mob
 			reward_health = 1750
 			reward_reiatsu = 680
 
-
 			Death(mob/killer)
 				..(killer)
 				Reward(killer)
+
 		// @ReishiArrancar
 		ReishiArrancar
-			icon_state = "arrancarreishi"
-
 			name = "Arrancar"
-			level = 100
+			icon_state = "arrancarreishi"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 3
-/* 
-			Stats = list(
-				HEALTH_MAX		= 155000,
-				HEALTH_CUR 		= 155000,
-				REIATSU_MAX 	= 60000,
-				REIATSU_CUR 	= 60000,
-				ATTACK			= 80000,
-				CRIT			= 20,
-				REISHI			= 22000,
-				HIERRO			= 50000) */
 			respawn_time = 600
+
+			level = 100
+			health = new/datum/stat(155000)
+			reiatsu = new/datum/stat(60000)
+			attack = new/datum/stat(80000)
+			reishi = new/datum/stat(22000)
+			hierro = new/datum/stat(50000)
 
 			reward_experience = 5800
 			reward_attack = 65
@@ -346,32 +307,26 @@ mob
 			reward_health = 1750
 			reward_reiatsu = 680
 
-
 			Death(mob/killer)
 				..(killer)
 				Reward(killer)
 
 		// @Grimjow
 		Grimjow
-			icon_state = "grimjow"
-
 			name = "Grimjow Jaggerjack"
-			level = 120
+			icon_state = "grimjow"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 4
-/* 
-			Stats = list(
-				HEALTH_MAX		= 225000,
-				HEALTH_CUR 		= 225000,
-				REIATSU_MAX 	= 60000,
-				REIATSU_CUR 	= 60000,
-				ATTACK			= 120000,
-				CRIT			= 20,
-				REISHI			= 22000,
-				HIERRO			= 80000) */
 			respawn_time = 600
+
+			level = 120
+			health = new/datum/stat(225000)
+			reiatsu = new/datum/stat(60000)
+			attack = new/datum/stat(120000)
+			reishi = new/datum/stat(22000)
+			hierro = new/datum/stat(80000)
 
 			reward_experience = 12000
 			reward_attack = 2000
@@ -380,18 +335,14 @@ mob
 			reward_health = 17500
 			reward_reiatsu = 8500
 
-
 			Death(mob/killer)
 				..(killer)
 				Reward(killer)
 
-
 		// @Ulquiorra
 		Ulquiorra
-			icon_state = "ulquiorra"
-
 			name = "Ulquiorra Cifer"
-			level = 120
+			icon_state = "ulquiorra"
 
 			aggro_dist=10
 			attack_reach = 1
@@ -408,13 +359,19 @@ mob
 				HIERRO			= 56000) */
 			respawn_time = 10
 
+			level = 120
+			health = new/datum/stat(2200000)
+			reiatsu = new/datum/stat(1000000)
+			attack = new/datum/stat(73000)
+			reishi = new/datum/stat(40000)
+			hierro = new/datum/stat(56000)
+
 			reward_experience = 12000
 			reward_attack = 600
 			reward_reishi = 2000
 			reward_hierro = 1000
 			reward_health = 17500
 			reward_reiatsu = 8500
-
 
 			Death(mob/killer)
 				..(killer)

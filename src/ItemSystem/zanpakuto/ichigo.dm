@@ -24,17 +24,6 @@ mob/player/zanpakuto/ichigo/verb
 		one.set_damage( damage )
 		center.set_damage( damage )
 		two.set_damage( damage )
-
-		#ifdef DEBUG
-		ASSERT(one)
-		ASSERT(center)
-		ASSERT(two)
-		world.log << "[src]: mob/player/zanpakuto/ichigo/verb/getsuga_tensho()"
-		world.log << "created /datum/spell/getsuga_tensho/one"
-		world.log << "created /datum/spell/getsuga_tensho/center"
-		world.log << "created /datum/spell/getsuga_tensho/two"
-		#endif
-
 		
 		center.Initialize(src.dir, locate(x,y,z), src.step_x, src.step_y)
 		switch(dir)
