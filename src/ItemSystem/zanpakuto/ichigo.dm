@@ -26,6 +26,9 @@ mob/player/zanpakuto/ichigo/verb
 		two.set_damage( damage )
 
 		#ifdef _TEST_
+		ASSERT(one)
+		ASSERT(center)
+		ASSERT(two)
 		world.log << "[src]: mob/player/zanpakuto/ichigo/verb/getsuga_tensho()"
 		world.log << "created /datum/spell/getsuga_tensho/one"
 		world.log << "created /datum/spell/getsuga_tensho/center"
@@ -47,5 +50,6 @@ datum/spell/getsuga_tensho
 datum/spell/getsuga_tensho/one
 	icon_state = "1"
 datum/spell/getsuga_tensho/center
+	icon_state = ""
 datum/spell/getsuga_tensho/two
 	icon_state = "2"
