@@ -35,6 +35,7 @@ mob/player/zanpakuto/ichigo/verb
 		world.log << "created /datum/spell/getsuga_tensho/two"
 		#endif
 
+		// TODO: switch into 'dir' and spawn 'one' and 'two' x/y = +/-1. also, arg 2 src.loc -> locate(x,y,z)
 		one.Initialize(src.dir, src.loc, src.step_x, src.step_y)
 		center.Initialize(src.dir, src.loc, src.step_x, src.step_y)
 		two.Initialize(src.dir, src.loc, src.step_x, src.step_y)
