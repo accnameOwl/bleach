@@ -88,7 +88,7 @@
 #include "src\SquadSystem\shinigami.dm"
 #include "src\StatSystem\handlers.dm"
 #include "src\StatSystem\stat.dm"
-#include "src\StatSystem\stat_definitions.dm"
+#include "src\StatSystem\stat_mob_declaration.dm"
 #include "src\StatSystem\stat_points.dm"
 #include "src\WorldCreation\new.dm"
 // END_INCLUDE

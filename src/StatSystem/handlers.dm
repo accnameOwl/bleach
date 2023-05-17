@@ -27,8 +27,11 @@ mob/player/proc/GiveExperience(value)
 		#endif
 		
 		// award statpoints?
-		#ifdef SYS_LEVELING_POINTS
+		#ifdef SYS_LEVELING_POINTS 
 		AwardStatPoint(6)
+		#endif
+		#ifdef SYS_LEVELING_POINTS_OVERRULE
+		AwardStatPoint(SYS_LEVELING_AWARED_STAT_POINTS)
 		#endif
 
 		health.value = health.limit
