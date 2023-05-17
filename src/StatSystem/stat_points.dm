@@ -44,21 +44,27 @@ mob/player/verb/SpendStatPoints()
 					. = dodge
 					if(. < SYS_COMBAT_DODGE_LIMIT)
 						. += amount*0.5
+						statpoints -= amount
 						if(.>SYS_COMBAT_DODGE_LIMIT)
+							statpoints += . % SYS_COMBAT_DODGE_LIMIT * 2
 							.=SYS_COMBAT_DODGE_LIMIT
 						dodge = .
 				if("Mitigation")
 					. = mitigation
 					if(. < SYS_COMBAT_MITIGATION_LIMIT)
 						. += amount*0.5
+						statpoints -= amount
 						if(.>SYS_COMBAT_MITIGATION_LIMIT)
+							statpoints += . % SYS_COMBAT_MITIGATION_LIMIT * 2
 							.=SYS_COMBAT_MITIGATION_LIMIT
 						mitigation = .
 				if("Regeneration")
 					. = regeneration
 					if(. < SYS_COMBAT_REGENERATION_LIMIT)
 						. += amount*0.5
+						statpoints -= amount
 						if(.>SYS_COMBAT_REGENERATION_LIMIT)
+							statpoints += . % SYS_COMBAT_REGENERATION_LIMIT * 2
 							.=SYS_COMBAT_REGENERATION_LIMIT
 						regeneration = .
 #endif
