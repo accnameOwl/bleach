@@ -1,14 +1,14 @@
-datum/item
+datum/item/zanpakuto
+	layer = SWORD_LAYER
+	icon = 'sword.dmi'
+	name = "Zanpakuto"
+	id = "Zanpakuto"
 
-	zanpakuto
-		layer = SWORD_LAYER
-		icon = 'sword.dmi'
+datum/item/Clothing
+	layer = CLOTHING_LAYER
 
-
-	Clothing
-		layer = CLOTHING_LAYER
-
-		//Shinigami clothing
-		Shihakusho
-			icon = 'shinigamicloth.dmi'
-			name = "Shihakusho"
+//Shinigami clothing
+datum/item/Clothing/Shihakusho
+	icon = 'shinigamicloth.dmi'
+	name = "Shihakusho"
+	id = "Shihakusho"

@@ -3,6 +3,7 @@ datum/item
 	layer = MOB_LAYER+1
 	var
 		equipped = 0
+		id = ""
 
 
 datum/item/verb/Equip()
