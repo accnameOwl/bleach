@@ -2,6 +2,7 @@
 	These are simple defaults for your project.
  */
  #define TEST_BUILD
+ #define LIB_PATH "G:/Github/dream maker/CharacterAPI"
 
 world
 	fps = 25		// 25 frames per second

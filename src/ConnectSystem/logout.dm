@@ -1,3 +1,0 @@
-mob/Logout()
-	. = ..()
-	OnlinePlayers -= src

@@ -1,0 +1,5 @@
+/proc/check_verbs(mob/m)
+	if(m.race == "Shinigami")
+		give_squad_verbs(m)
+	if(m.in_guild)
+		give_guild_verbs(src)
