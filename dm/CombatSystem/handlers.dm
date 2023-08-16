@@ -33,22 +33,28 @@
 	m.Target = FALSE
 	//TODO: Regenerate a larger portion of health out of combat
 
-mob/proc/Death(mob/killer)
+mob/proc/DeathCheck(mob/killer)
+	if(health>=0) return FALSE
 	ExitCombat(src)
-	switch(race)
+		// TODO:race not found
+	switch(src.race)
 		if("Soul")
 			if(killer.race == "Hollow" && level >= LEVELREQ_HOLLOW)
 				race = "Hollow"
 		if("Human")
 			MakeSoul()
-			
-	world << Bold(Red("[src.name] Killed by [killer]"))
-
+	
 	combat_flag.dead = TRUE
 	spawn Respawn()
 	src.loc = null
 
 	return TRUE
+
+mob/player/DeathCheck(mob/killer)
+	.=..()
+	if(.)
+		world << Bold(Red("[killer] killed [src.name]."))
+
 
 mob/proc/Respawn()
 	var/spawn_loc
@@ -73,7 +79,7 @@ mob/proc/Respawn()
 	*/
 	spawn_loc = locate(SPAWN_LOC_HUMAN)
 
-	health.value = health.limit
+	health = max_health
 
 	if(!spawn_delay)
 		return
@@ -101,3 +107,51 @@ mob/proc/Respawn()
 
 
 */
+
+/*
+TODO:
+runtime error: type mismatch: /datum/stat (/datum/stat) - 230
+proc name: DealDamage (/mob/proc/DealDamage)
+  usr: 0
+  src: Tafe (/mob/player)
+  src.loc: the purple (56,23,4) 
+
+*/
+
+mob/proc/TakeDamage(mob/damage_dealer, _damage, damage_type = null, spell_name = null)
+	if(damage_dealer == src) return
+	if(NONE_DAMAGEABLE(src)) return
+	EnterCombat(damage_dealer)
+	EnterCombat(src, damage_dealer)
+	var/value = round(_damage - src.hierro)
+	if(value <= 0)
+		value = 0
+
+	spawn
+		//DamageText(round(value), target.loc, 20, 16)
+		src.RemoveHealth(damage_dealer, value)
+		src.DeathCheck(damage_dealer)
+
+	switch(damage_type)
+		if(null) 
+			value = Yellow(value)
+		if(MELEE_TYPE)
+			value = Melee(value)
+		if(MAGIC_TYPE)
+			value = Magic(value)
+		if(DARKMAGIC_TYPE)
+			value = DarkMagic(value)
+		if(BLEED_TYPE)
+			value = Bleed(value)
+		if(BURN_TYPE)
+			value = Burn(value)
+		if(TOXIC_TYPE)
+			value = Toxin(value)
+		if(FREEZE_TYPE)
+			value = Freeze(value)
+	if(spell_name)
+		damage_dealer << Bold(Red("You damaged [src.name] with [spell_name] for [value]!"))
+		src << Bold(Red("[src.name] damaged you with [spell_name] for [value]!"))
+	else
+		damage_dealer << Bold(Red("You damaged [src.name] for [value]!"))
+		src << Bold(Red("[src.name] damaged you for [value]!"))

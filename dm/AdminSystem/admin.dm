@@ -307,6 +307,15 @@ mob/Creator/verb/Delete(atom/o in world)
 	if(o)
 		del o
 
+mob/Creator/verb/NewItem()
+	set category = "Admin"
+	var/list/ilist = typesof(/obj/item)
+	var/selected_item = input("Please select an item") in ilist + list("Cancel")
+	if(selected_item == "Cancel")
+		return
+	if(selected_item)
+		add_item(new selected_item(src))
+
 mob/Creator/verb/Edit(atom/O in world)
 	set category = "Admin"
 	var/variable = input("Which var?","Var") in O:vars + list("Cancel")

@@ -3,7 +3,7 @@
 mob/monster
 	step_size = MONSTER_STEP_SIZE
 	var/mob/target = null
-	var/datum/trigger/ai_trigger
+	var/trigger/ai_trigger
 	var/tmp/turf/home_loc
 	var/aggro_dist=4
 	var/attack_reach = 22 //pixels
@@ -21,13 +21,8 @@ mob/monster/Trigger(mob/m)
 	if(m.client)
 		TargetState(m)
 
-mob/monster/Attack()
-	for(var/mob/m in obounds(src, attack_reach))
-		if(m.client)
-			DealDamage(m, attack.value)
-
-mob/monster/Death(mob/killer)
-	..(killer)
+mob/monster/DeathCheck(mob/killer)
+	. = ..(killer)
 	target = null
 	if(ai_trigger && ai_trigger.loc)
 		ai_trigger.loc = null
@@ -47,7 +42,7 @@ mob/monster/Respawn()
 	n.combat_flag.dead = 1
 	n.loc = null
 	spawn(_delay)
-		n.health.value = n.health.limit
+		n.health = n.max_health
 		n.combat_flag.dead = 0
 		n.loc = _loc
 		n.RestingState()
@@ -56,7 +51,7 @@ mob/monster/Respawn()
 
 mob/monster/proc/RestingState()
 	if(!ai_trigger)
-		ai_trigger = new/datum/trigger(src)
+		ai_trigger = new/trigger(src)
 		ai_trigger.Scale(aggro_dist, aggro_dist)
 		ai_trigger.ChangeBounds((aggro_dist * world.icon_size/2)*-1, (aggro_dist * world.icon_size / 2)*-1, aggro_dist, aggro_dist)
 	ai_trigger.loc = src.loc

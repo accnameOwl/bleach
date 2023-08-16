@@ -29,8 +29,3 @@ mob/player/verb/Check_Ranks()
 		src << Yellow(Bold("Squad: [squad.squad]"))
 		src << Small("\tCaptain: [squad.cap] [squad.cap_level]")
 		src << Small("\tLeutenant:[squad.leut] [squad.leut_level]")
-
-mob/player/verb/Check_Stats()
-	var/datum/stat/statlist = list(src.attack, src.reishi, src.hierro)
-	for(var/datum/stat/s in statlist)
-		src << json_encode(s.vars)

@@ -5,7 +5,7 @@
 #define DARKMAGIC_TYPE "darkmagic"
 #define BLEED_TYPE "bleed"
 #define BURN_TYPE "burn"
-#define TOXIN_TYPE "toxin"
+#define TOXIC_TYPE "toxic"
 #define FREEZE_TYPE "freeze"
 
 #define EFFECT_CAN_STACK "stack"

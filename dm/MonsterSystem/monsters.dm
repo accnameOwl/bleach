@@ -24,11 +24,11 @@ mob
 			respawn_time = 10
 
 			level = 85
-			health = new/datum/stat(1000,1000)
-			reiatsu = new/datum/stat(500,500)
-			attack = new/datum/stat(10)
-			reishi = new/datum/stat(10)
-			hierro = new/datum/stat(10)
+			health = 1000
+			reiatsu =500
+			attack = 10
+			reishi = 10
+			hierro = 10
 
 			reward_experience = 3500
 			reward_attack = 310
@@ -38,9 +38,10 @@ mob
 			reward_reiatsu = 750
 
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 		// @Byakuya
 		Byakuya
@@ -53,11 +54,11 @@ mob
 			respawn_time = 10
 
 			level = 85
-			health = new/datum/stat(1000,1000)
-			reiatsu = new/datum/stat(500,500)
-			attack = new/datum/stat(10)
-			reishi = new/datum/stat(10)
-			hierro = new/datum/stat(10)
+			health = 1000
+			reiatsu =500
+			attack = 10
+			reishi = 10
+			hierro = 10
 
 			reward_experience = 100000
 			reward_attack = 42
@@ -67,13 +68,14 @@ mob
 			reward_reiatsu = 1000
 
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 		// @Demihollow
 		Demihollow
-			name = "Demi"
+			name = "Demi hollow"
 			icon_state = "demihollow"
 
 			aggro_dist=10
@@ -82,11 +84,11 @@ mob
 			respawn_time = 60
 
 			level = 6
-			health = new/datum/stat(860)
-			reiatsu = new/datum/stat(300)
-			attack = new/datum/stat(230)
-			reishi = new/datum/stat(41)
-			hierro = new/datum/stat(60)
+			health = 860
+			reiatsu =300
+			attack = 230
+			reishi = 41
+			hierro = 60
 
 			reward_experience = 32
 			reward_attack = 5
@@ -96,26 +98,28 @@ mob
 			reward_reiatsu = 8
 
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 		// @Hollow
 		Hollow
 			icon_state = "hollow"
 
 			name = "Hollow"
 			level = 15
+			race = "Hollow"
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 2
 			respawn_time = 120
 
-			health = new/datum/stat(1200)
-			reiatsu = new/datum/stat(300)
-			attack = new/datum/stat(320)
-			reishi = new/datum/stat(230)
-			hierro = new/datum/stat(230)
+			health = 1200
+			reiatsu =300
+			attack = 320
+			reishi = 230
+			hierro = 230
 
 			reward_experience = 56
 			reward_attack = 11
@@ -125,9 +129,10 @@ mob
 			reward_reiatsu = 18
 
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 		// @Large Hollow
 		LargeHollow
@@ -142,11 +147,11 @@ mob
 			bounds = "1,1 to 32,32"
 
 			level = 24
-			health = new/datum/stat(2500)
-			reiatsu = new/datum/stat(300)
-			attack = new/datum/stat(813)
-			reishi = new/datum/stat(271)
-			hierro = new/datum/stat(542)
+			health = 2500
+			reiatsu =300
+			attack = 813
+			reishi = 271
+			hierro = 542
 
 			reward_experience = 120
 			reward_attack = 24
@@ -177,9 +182,10 @@ mob
 						ai_trigger.loc = loc
 					sleep(rand(50,110))
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 			var/obj/overlay/largehollow/upleft/ul = new
 			var/obj/overlay/largehollow/upright/ur = new
@@ -208,11 +214,11 @@ mob
 			bounds = "1,1 to 32,32"
 
 			level = 35
-			health = new/datum/stat(12000)
-			reiatsu = new/datum/stat(300)
-			attack = new/datum/stat(2200)
-			reishi = new/datum/stat(2200)
-			hierro = new/datum/stat(2000)
+			health = 12000
+			reiatsu =300
+			attack = 2200
+			reishi = 2200
+			hierro = 2000
 
 			reward_experience = 120 * 3
 			reward_attack = 24 * 3
@@ -243,9 +249,10 @@ mob
 						ai_trigger.loc = loc
 					sleep(rand(50,110))
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 			var/obj/overlay/menosgrande/upup/two = new
 			var/obj/overlay/menosgrande/up/one = new
@@ -266,11 +273,11 @@ mob
 			respawn_time = 600
 
 			level = 100
-			health = new/datum/stat(155000)
-			reiatsu = new/datum/stat(60000)
-			attack = new/datum/stat(80000)
-			reishi = new/datum/stat(22000)
-			hierro = new/datum/stat(50000)
+			health = 155000
+			reiatsu =60000
+			attack = 80000
+			reishi = 22000
+			hierro = 50000
 
 			reward_experience = 5800
 			reward_attack = 630
@@ -279,9 +286,10 @@ mob
 			reward_health = 1750
 			reward_reiatsu = 680
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 		// @ReishiArrancar
 		ReishiArrancar
@@ -294,11 +302,11 @@ mob
 			respawn_time = 600
 
 			level = 100
-			health = new/datum/stat(155000)
-			reiatsu = new/datum/stat(60000)
-			attack = new/datum/stat(80000)
-			reishi = new/datum/stat(22000)
-			hierro = new/datum/stat(50000)
+			health = 155000
+			reiatsu =60000
+			attack = 80000
+			reishi = 22000
+			hierro = 50000
 
 			reward_experience = 5800
 			reward_attack = 65
@@ -307,9 +315,10 @@ mob
 			reward_health = 1750
 			reward_reiatsu = 680
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 		// @Grimjow
 		Grimjow
@@ -322,11 +331,11 @@ mob
 			respawn_time = 600
 
 			level = 120
-			health = new/datum/stat(225000)
-			reiatsu = new/datum/stat(60000)
-			attack = new/datum/stat(120000)
-			reishi = new/datum/stat(22000)
-			hierro = new/datum/stat(80000)
+			health = 225000
+			reiatsu =60000
+			attack = 120000
+			reishi = 22000
+			hierro = 80000
 
 			reward_experience = 12000
 			reward_attack = 2000
@@ -335,9 +344,10 @@ mob
 			reward_health = 17500
 			reward_reiatsu = 8500
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 		// @Ulquiorra
 		Ulquiorra
@@ -350,11 +360,11 @@ mob
 			respawn_time = 10
 
 			level = 120
-			health = new/datum/stat(2200000)
-			reiatsu = new/datum/stat(1000000)
-			attack = new/datum/stat(73000)
-			reishi = new/datum/stat(40000)
-			hierro = new/datum/stat(56000)
+			health = 2200000
+			reiatsu =1000000
+			attack = 73000
+			reishi = 40000
+			hierro = 56000
 
 			reward_experience = 12000
 			reward_attack = 600
@@ -363,9 +373,10 @@ mob
 			reward_health = 17500
 			reward_reiatsu = 8500
 
-			Death(mob/killer)
-				..(killer)
-				Reward(killer)
+			DeathCheck(mob/killer)
+				.=..(killer)
+				if(.)
+					Reward(killer)
 
 obj/overlay/largehollow
 	icon = 'monsters.dmi'

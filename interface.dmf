@@ -40,20 +40,23 @@ window "default"
 	elem "default"
 		type = MAIN
 		pos = 281,0
-		size = 640x480
+		size = 919x548
 		anchor1 = -1,-1
 		anchor2 = -1,-1
 		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Project"
+		statusbar = false
+		can-resize = false
 		macro = "macro"
 		menu = "menu"
-		outer-size = 656x558
-		inner-size = 640x499
+		outer-size = 935x607
+		inner-size = 919x548
 	elem "info1"
 		type = INFO
-		pos = 360,0
-		size = 272x232
+		pos = 608,0
+		size = 307x265
 		anchor1 = 58,0
 		anchor2 = 99,48
 		text-color = #ffffff
@@ -64,8 +67,8 @@ window "default"
 		tab-background-color = #000000
 	elem "output1"
 		type = OUTPUT
-		pos = 360,232
-		size = 272x240
+		pos = 608,266
+		size = 309x286
 		anchor1 = 58,50
 		anchor2 = 99,98
 		text-color = #ffffff
@@ -74,8 +77,8 @@ window "default"
 		saved-params = "max-lines"
 	elem "map1"
 		type = MAP
-		pos = 0,0
-		size = 360x472
+		pos = 0,-15
+		size = 608x567
 		anchor1 = 0,0
 		anchor2 = 56,98
 		saved-params = "zoom;letterbox;zoom-mode"

@@ -33,7 +33,7 @@ mob
 		if(world.time >= end_time)
 			Del(src)
 		//if it deals tick_damage
-		if(damage_type == BLEED_TYPE|BURN_TYPE|TOXIN_TYPE)
+		if(damage_type == BLEED_TYPE|BURN_TYPE|TOXIC_TYPE)
 			if(world.time >= last_tick+tick_speed)
 				new_tick()
 		//if it's a slow effect. slow anchored mob
@@ -53,7 +53,7 @@ mob
 /datum/effect/proc/new_tick()	
 	if(!anchor) return
 	if(damage)
-		anchor.DealDamage(anchor, stack?(damage*(stack*stack_bonus_damage)) : damage, damage_type)
+		anchor.TakeDamage(anchor, stack?(damage*(stack*stack_bonus_damage)) : damage, damage_type)
 		last_tick = world.time
 
 /datum/effect/proc/attach_anchor_to(mob/__anchor)

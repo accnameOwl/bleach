@@ -8,4 +8,4 @@
 	var/trigger_regen = FALSE
 	var/invinsible = FALSE
 
-mob/var/datum/combat_flag/combat_flag = new /datum/combat_flag
+mob/var/tmp/datum/combat_flag/combat_flag = new /datum/combat_flag

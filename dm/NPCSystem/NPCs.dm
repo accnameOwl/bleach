@@ -19,7 +19,7 @@ mob/NPC/Barber/verb/Talk()
 
 	_icon.Blend(selected_color, ICON_ADD)
 
-	var/datum/hair/h = new/datum/hair()
+	var/obj/hair/h = new/obj/hair()
 	h.icon=_icon
 	if(usr.hair)
 		usr.overlays.Remove(usr.hair)
@@ -44,7 +44,7 @@ mob/NPC/Shopkeeper/verb/Talk()
 	var/icon/_icon = new(hairtypes[selected_hair])
 	_icon.Blend(selected_color, ICON_ADD)
 
-	var/datum/hair/h = new/datum/hair()
+	var/obj/hair/h = new/obj/hair()
 	h.icon=_icon
 	if(usr.hair)
 		usr.overlays.Remove(usr.hair)
@@ -114,7 +114,7 @@ mob/NPC/ShinigamiTeacher/verb/Talk()
 			alert("Kyōraku Akina: Message to squad 13, there has arrived a [usr.race] at the training facilities!")
 			alert("Kyōraku Akina: squad 13:'A message to all units! A [usr.race] has infiltrated Soul Society!'")
 			alert("Kyōraku Akina: To long... I will be sending you off myself!")
-			DealDamage(usr, usr.health.value)
+			src.TakeDamage(src, usr.health)
 		if("Vaizard")
 			alert("Kyōraku Akina: *Cough*", _title,"Greet")
 			alert("Kyōraku Akina: Oh, Hello there esteemed Vaizard! Pardon, but the apprentices are scared by your presence... *Bows*", _title, "I'll be on my leave.", "I don't care")
