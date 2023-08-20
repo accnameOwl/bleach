@@ -22,12 +22,12 @@
 #define	Yellow(t) 	"<font color=#ffff33>[t]</font>"
 #define	Gold(t) 	"<font color=#e3ae01>[t]</font>"
 
-#define Melee(t)	"<font color=#e3ae01>[t]</font>"
-#define Magic(t)    "<font color=#4287f5>[t]</font>"
-#define DarkMagic(t) "<font color =#324a36>[t]</font>"
-#define Bleed(t)	"<font color=#Bf0000>[t]</font>"
-#define Burn(t)		"<font color=#ffA500>[t]</font>"
-#define Toxin(t)	"<font color=#009200>[t]</font>"
-#define Freeze(t)	"<font color=#81d4fa>[t]</font>"
+proc/Melee(t)	return "<font color=#e3ae01>[t]</font>"
+proc/Magic(t)    return "<font color=#4287f5>[t]</font>"
+proc/DarkMagic(t) return "<font color =#324a36>[t]</font>"
+proc/Bleed(t)	return "<font color=#Bf0000>[t]</font>"
+proc/Burn(t)		return "<font color=#ffA500>[t]</font>"
+proc/Toxin(t)	return "<font color=#009200>[t]</font>"
+proc/Freeze(t)	return "<font color=#81d4fa>[t]</font>"
 
 #define Except(exception) 	world.log << Red(Bold("Error:\n")) + Red(exception) + Yellow("\n\t-> [exception.file]:[exception.line]")

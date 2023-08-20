@@ -23,17 +23,25 @@ mob/player/zanpakuto/ichigo/verb/getsuga_tensho()
 	
 	switch(dir)
 		if(NORTH)
-			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHEAST, src.loc, src.step_x, src.step_y)
-			trace_two=new/obj/spell/getsuga_tensho_flail(src, NORTHWEST, src.loc, src.step_x, src.step_y)
+			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHEAST, \
+				src.loc, src.step_x, src.step_y)
+			trace_two=new/obj/spell/getsuga_tensho_flail(src, NORTHWEST, \
+				src.loc, src.step_x, src.step_y)
 		if(SOUTH)
-			trace_one=new/obj/spell/getsuga_tensho_flail(src, SOUTHEAST, src.loc, src.step_x, src.step_y)
-			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHWEST, src.loc, src.step_x, src.step_y)
+			trace_one=new/obj/spell/getsuga_tensho_flail(src, SOUTHEAST, \
+				src.loc, src.step_x, src.step_y)
+			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHWEST, \
+				src.loc, src.step_x, src.step_y)
 		if(EAST)
-			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHEAST, src.loc, src.step_x, src.step_y)
-			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHEAST, src.loc, src.step_x, src.step_y)
+			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHEAST, \
+				src.loc, src.step_x, src.step_y)
+			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHEAST, \
+				src.loc, src.step_x, src.step_y)
 		if(WEST)
-			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHWEST, src.loc, src.step_x, src.step_y)
-			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHWEST, src.loc, src.step_x, src.step_y)
+			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHWEST, \
+				src.loc, src.step_x, src.step_y)
+			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHWEST, \
+				src.loc, src.step_x, src.step_y)
 	
 	var/damage = src.attack + src.reishi
 	spell_object.damage = damage

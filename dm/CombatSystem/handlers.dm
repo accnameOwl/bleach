@@ -108,16 +108,6 @@ mob/proc/Respawn()
 
 */
 
-/*
-TODO:
-runtime error: type mismatch: /datum/stat (/datum/stat) - 230
-proc name: DealDamage (/mob/proc/DealDamage)
-  usr: 0
-  src: Tafe (/mob/player)
-  src.loc: the purple (56,23,4) 
-
-*/
-
 mob/proc/TakeDamage(mob/damage_dealer, _damage, damage_type = null, spell_name = null)
 	if(damage_dealer == src) return
 	if(NONE_DAMAGEABLE(src)) return
