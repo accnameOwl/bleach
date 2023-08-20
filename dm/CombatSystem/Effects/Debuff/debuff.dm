@@ -7,7 +7,7 @@ effect/debuff
 		tick_speed = 10
 
 		New(mob/anchor)
-			. = ..()
+			.= ..()
 			if(.) 
 				Slow()
 		
@@ -21,10 +21,9 @@ effect/debuff
 		OnTrigger()
 			if(stack < 4)
 				Stack()
-		Stack()
-			.=..()
-			if(.)
 				Slow()
-				
-		CanStack()
-			return TRUE
+				RefreshDuration()
+
+		CanStack() {return TRUE}
+		RefreshTimer() {return TRUE}
+		

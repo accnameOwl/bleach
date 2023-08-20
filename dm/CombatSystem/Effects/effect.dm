@@ -57,8 +57,6 @@ effect
 			if(.)
 				src.stack++
 				
-		CanStack()
-			return FALSE
 
 		StackMultiplier()
 			//src.damage = 
@@ -71,7 +69,8 @@ effect
 		Freeze()
 		Slow()			
 		RefreshDuration()
+			end_time = RefreshDuration() ? world.time+duration : end_time
 
 		// GETTERS
-		RefreshTimer()
-			return FALSE
+		CanStack() {return FALSE}
+		RefreshTimer() {return FALSE}
