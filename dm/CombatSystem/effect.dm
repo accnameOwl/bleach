@@ -4,27 +4,27 @@ mob
 		tmp
 			list/effect_registry = list()
 		
-		proc
-			AddEffect(effect/e, time=world.time)
-				e.Add(src,time)
-			
-			RemoveEffect(effect/e, time=world.time)
-				e.Remove(src,time)
+	proc
+		AddEffect(effect/e, time=world.time)
+			e.Add(src,time)
 		
-		Read(savefile/F)
-			..()
-			var
-				list/l = effects
-				time_offset = (world.time - save_worldtime)
-				real_offset = (world.realtime - save_realtime) + time_offset
-			
-			effects = list()
-			for(var/effect/e in l)
-				switch(e.preserve)
-					if(PRESERVE_WORLDTIME)
-						e.Add(src,e.start_time+time_offset)
-					if(PRESERVE_REALTIME)
-						e.Add(src, e.start_time+real_offset)
+		RemoveEffect(effect/e, time=world.time)
+			e.Remove(src,time)
+	
+	Read(savefile/F)
+		..()
+		var
+			list/l = effects
+			time_offset = (world.time /*- save_worldtime*/)
+			real_offset = (world.realtime /*- save_realtime*/) + time_offset
+		
+		effects = list()
+		for(var/effect/e in l)
+			switch(e.preserve)
+				if(PRESERVE_WORLDTIME)
+					e.Add(src,e.start_time+time_offset)
+				if(PRESERVE_REALTIME)
+					e.Add(src, e.start_time+real_offset)
 
 effect
 	var
@@ -150,11 +150,11 @@ effect
 			
 			if(id)
 				var/list/group = registry[id]
-					group -= src
-					if(group.len==1)
-						registry[id] = group[1]
-					else if(group.len==0)
-						registry -= id
+				group -= src
+				if(group.len==1)
+					registry[id] = group[1]
+				else if(group.len==0)
+					registry -= id
 				else if(group==src)
 					registry -= id
 

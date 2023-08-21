@@ -16,16 +16,14 @@ atom/movable/proc/Step(dir, delay=step_delay)
 		else
 			return 0
 
-mob/Step(dir, delay=step_delay)
-	if(next_step - world.time >= world.tick_lag/10)
-		return 0
-	//slow effect
-	if(slowed && (cached_step_size == step_size))
-		if(step(src, dir))
-			cached_step_size = step_size
-			step_size = step_size / 100 * slow_amount
-	//normal
-	else
+mob
+	step_size = MOB_STEP_SIZE
+	monster
+		step_size = MONSTER_STEP_SIZE
+	
+	Step(dir, delay=step_delay)
+		if(next_step - world.time >= world.tick_lag/10)
+			return 0
 		if(step(src, dir))
 			last_step = world.time
 			next_step = last_step + step_delay
@@ -33,9 +31,8 @@ mob/Step(dir, delay=step_delay)
 		else
 			return 0
 
-mob/step_size = MOB_STEP_SIZE
-mob/monster/step_size = MONSTER_STEP_SIZE
-obj/step_size = OBJ_STEP_SIZE
+obj
+	step_size = OBJ_STEP_SIZE
 
 client
 	Move(atom/loc, dir)

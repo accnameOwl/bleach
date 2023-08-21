@@ -108,3 +108,8 @@ obj/spell
 					ChangeBounds(1,1,73,160)
 					y-=2
 					step_x -= round(bound_width/2)
+
+effect/spell/getsuga_dot
+	var
+		initial_damage = 0
+	
