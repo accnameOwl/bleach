@@ -109,17 +109,16 @@ mob/proc/Respawn()
 */
 
 mob/proc/TakeDamage(mob/damage_dealer, _damage, damage_type = null, spell_name = null)
-	if(damage_dealer == src) return
 	if(NONE_DAMAGEABLE(src)) return
+	EnterCombat(src)
 	EnterCombat(damage_dealer)
-	EnterCombat(src, damage_dealer)
 	var/value = round(_damage - src.hierro)
 	if(value <= 0)
 		value = 0
 
 	spawn
 		//DamageText(round(value), target.loc, 20, 16)
-		src.RemoveHealth(damage_dealer, value)
+		src.RemoveHealth(value)
 		src.DeathCheck(damage_dealer)
 
 	switch(damage_type)

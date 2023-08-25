@@ -1,7 +1,6 @@
 obj/spell
 	// density = 1
 	var
-		mob/caster = null /// belongs to caster
 		x_offset = 0
 		y_offset = 0
 		
@@ -9,46 +8,10 @@ obj/spell
 		move_on_init = FALSE /// Move in 'dir' at New()
 		pierce_objects = FALSE /// pierce dense turfs and objects
 
-
-
-		// New spell system
-	
-
-
-	proc
-
-
-
-		Lifespan(var/timestamp = 0)
-			set waitfor = 0
-			while(TRUE)
-				if(world.time >= timestamp)
-					del(src)
-				sleep(10/world.fps)
-		
-
-		ApplyEffects(mob/mob)
-			//Prototype
-		OnHit()
-			// Prototype
-
-	New(mob/caster, dir, loc, x_delta=0, y_delta=0)
-		src.caster = caster
-		src.dir = dir
-		src.loc = loc
-		step_x += x_delta+x_offset
-		step_y += y_delta+y_offset
-	
-		// Kills the object after duration is elapsed
-		Lifespan(world.time + duration)
-		//Conditional flags
-
-	
-
 	/*
 	TODO:
 
-		- No mob reference, use key as uid instead
+		- No mob reference, use caster's key as uid instead
 		- use id & sub_id
 	*/
 
@@ -63,49 +26,50 @@ obj/spell
 		duration = -1#INF
 		start_time = 0
 
-		speed = 0
-
-		list/effects = list()
-		tmp/effect_registry = list()
+		active = 0
 
 	proc
-		AddEffect(effect/e, time=world.time)
-			e.Add(src,time)
-		
-		RemoveEffect(effect/e, time=world.time)
-			e.Remove(src,time)
+		Init(mob/caster, time=world.time)
+			Damage(caster, time)
+			Timer(caster, time)
+			StepLoop(dir, step_delay)
 		
 		Timer(mob/caster, time=world.time)
 			set waitfor = 0
 			while(active && world.time<start_time+duration)
-				sleep(min(10, start_time+duraton-world.time))
+				sleep(min(10, start_time+duration-world.time))
 			Expire(caster,world.time)
 
 		StepLoop()
 			set waitfor = 0
 			while(active)
 				Step(dir)
-				sleep(world.tick_lag/10*speed)
+				sleep(world.tick_lag/10)
 		
 		Expire(mob/caster, time=world.time)
 			if(active)
 				active = 0
-				loc = NULL
+				loc = null
 				Expired(caster, time)
 		
-		Expired(mob/caster, time=world.time)
-	
-		Damage(mob/caster)
-			//prototype
 
 		SetLocation(mob/target, loc)
 			src.loc = loc
 			step_x = x_offset+target.step_x
 			step_y = y_offset+target.step_y
+		
+		
+		Expired(mob/caster, time=world.time)
+	
+		Damage(mob/caster, time=world.time)
+
+		OnHit(mob/caster, mob/target, time=world.time)
+
 
 	New(mob/caster, time=world.time)
-		Timer(caster, time)
-		StepLoop()
+		src.uid = ckey(caster.key)
+		src.active = 1
+		Damage(caster)
 
 	Step(dir, delay=step_delay)
 		if(next_step - world.time >= world.tick_lag/10)
@@ -117,3 +81,12 @@ obj/spell
 		else
 			return 0
 
+	CrossedMob(mob/m)
+		..()
+		if(!uid)
+			return
+		else if(m.key != src.uid) // Stop spell from hitting caster
+			var/mob/caster = (src.uid&&OnlinePlayers[src.uid]) ? OnlinePlayers[src.uid] : 0
+			if(!caster) return 0 // catch caster
+			m.TakeDamage(caster, src.damage, src.damage_type)
+			OnHit()

@@ -1,3 +1,6 @@
+
+var/list/OnlinePlayers=list()
+
 mob/player/Login()
 	if(!src.load())
 		NewPlayerCharacter()
@@ -11,7 +14,7 @@ mob/player/Login()
 
 	CheckAdmin()
 
-	OnlinePlayers += src
+	OnlinePlayers[src.key] = src
 	src.verbs += typesof(/mob/player/verb)
 
 	// Check inventory for equipped items, then add them to overlays.

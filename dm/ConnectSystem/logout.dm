@@ -1,4 +1,4 @@
 mob/Logout()
 	src.save()
-	OnlinePlayers -= src
+	OnlinePlayers.Remove(src.key)
 	return ..()
