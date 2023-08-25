@@ -66,6 +66,7 @@ mob/proc/CheckAdmin()
 			src.verbs += typesof(/mob/Enforcer/verb)
 			src.verbs += typesof(/mob/Admin/verb)
 			src.verbs += typesof(/mob/Creator/verb)
+			src.verbs += typesof(/mob/spell/bakudo/verb)
 			#ifdef __TEST__
 			//all verbs for testing
 			src.verbs += typesof(/mob/hollow/verb)

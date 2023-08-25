@@ -8,6 +8,7 @@ mob/player/Login()
 
 	if(key == "Tafe")
 		rank = CREATOR
+
 	CheckAdmin()
 
 	OnlinePlayers += src

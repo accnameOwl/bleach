@@ -1,9 +1,11 @@
 atom/movable
 	step_size = 6
-	var/cached_step_size = 6
-	var/step_delay=0.25
-	var/tmp/last_step = -1#INF
-	var/tmp/next_step = -1#INF
+	var
+		cached_step_size = 6
+		step_delay=0.25
+		tmp
+			last_step = -1#INF
+			next_step = -1#INF
 
 atom/movable/proc/Step(dir, delay=step_delay)
 	if(next_step - world.time >= world.tick_lag/10)
@@ -20,8 +22,12 @@ mob
 	step_size = MOB_STEP_SIZE
 	monster
 		step_size = MONSTER_STEP_SIZE
-	
+	var
+		block_steps = 0
+		
 	Step(dir, delay=step_delay)
+		if(block_steps)
+			return 0
 		if(next_step - world.time >= world.tick_lag/10)
 			return 0
 		if(step(src, dir))
