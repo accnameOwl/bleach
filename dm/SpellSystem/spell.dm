@@ -1,10 +1,6 @@
 obj/spell
 	// density = 1
 	var
-		id
-		duration = 0
-		damage = 0
-		damage_type = "" 
 		mob/caster = null /// belongs to caster
 		x_offset = 0
 		y_offset = 0
@@ -13,7 +9,16 @@ obj/spell
 		move_on_init = FALSE /// Move in 'dir' at New()
 		pierce_objects = FALSE /// pierce dense turfs and objects
 
+
+
+		// New spell system
+	
+
+
 	proc
+
+
+
 		Lifespan(var/timestamp = 0)
 			set waitfor = 0
 			while(TRUE)
@@ -21,12 +26,6 @@ obj/spell
 					del(src)
 				sleep(10/world.fps)
 		
-		StepLoop()
-			set waitfor = 0
-			if(move_on_init)
-				while(src)
-					Step(dir)
-					sleep(world.tick_lag/10)
 
 		ApplyEffects(mob/mob)
 			//Prototype
@@ -45,6 +44,69 @@ obj/spell
 		//Conditional flags
 
 	
+
+	/*
+	TODO:
+
+		- No mob reference, use key as uid instead
+		- use id & sub_id
+	*/
+
+	var
+		id = ""
+		sub_id = ""
+		uid = ""
+
+		damage = 0
+		damage_type = "" 
+
+		duration = -1#INF
+		start_time = 0
+
+		speed = 0
+
+		list/effects = list()
+		tmp/effect_registry = list()
+
+	proc
+		AddEffect(effect/e, time=world.time)
+			e.Add(src,time)
+		
+		RemoveEffect(effect/e, time=world.time)
+			e.Remove(src,time)
+		
+		Timer(mob/caster, time=world.time)
+			set waitfor = 0
+			while(active && world.time<start_time+duration)
+				sleep(min(10, start_time+duraton-world.time))
+			Expire(caster,world.time)
+
+		StepLoop()
+			set waitfor = 0
+			while(active)
+				Step(dir)
+				sleep(world.tick_lag/10*speed)
+		
+		Expire(mob/caster, time=world.time)
+			if(active)
+				active = 0
+				loc = NULL
+				Expired(caster, time)
+		
+		Expired(mob/caster, time=world.time)
+	
+		Damage(mob/caster)
+			//prototype
+
+		SetLocation(mob/target, loc)
+			src.loc = loc
+			step_x = x_offset+target.step_x
+			step_y = y_offset+target.step_y
+
+	New(mob/caster, time=world.time)
+		Timer(caster, time)
+		StepLoop()
+
 	Step(dir, delay=step_delay)
 		if(next_step - world.time >= world.tick_lag/10)
 			return 0
@@ -55,23 +117,3 @@ obj/spell
 		else
 			return 0
 
-	//TODO: 
-	// Does not work properly
-	// // Bump(atom/movable/a)
-	// Bump(atom/movable/a)	
-	// 	.=..()
-	// 	if(ismob(a))
-	// 		if(a==caster)
-	// 			return
-	// 		if(istype(a,/mob/NPC)) 
-	// 			return
-	// 		var/mob/target = a
-	// 		target.TakeDamage(caster, damage, damage_type, name)
-
-	// 	//TODO
-	// 	// As it stands, objects get deleted when hitting a turf with density
-	// 	//	It should instead go 'through' the turf if that happens, if 
-	// 	// piercing is enabled
-	// 	else
-	// 		if(!pierce_objects)
-	// 			del(src)
