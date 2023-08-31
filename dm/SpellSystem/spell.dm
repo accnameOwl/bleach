@@ -1,11 +1,10 @@
+mob
+	var/list/spell_mastery = new
+	var/list/spell_cd = new
+
 obj/spell
 	// density = 1
 	var
-		id
-		duration = 0
-		damage = 0
-		damage_type = "" 
-		mob/caster = null /// belongs to caster
 		x_offset = 0
 		y_offset = 0
 		
@@ -13,38 +12,74 @@ obj/spell
 		move_on_init = FALSE /// Move in 'dir' at New()
 		pierce_objects = FALSE /// pierce dense turfs and objects
 
+	/*
+	TODO:
+
+		- No mob reference, use caster's key as uid instead
+		- use id & sub_id
+	*/
+
+	var
+		id = ""
+		sub_id = ""
+		uid = ""
+
+		damage = 0
+		damage_type = "" 
+
+		duration = -1#INF
+		start_time = 0
+
+		active = 0
+
 	proc
-		Lifespan(var/timestamp = 0)
-			set waitfor = 0
-			while(TRUE)
-				if(world.time >= timestamp)
-					del(src)
-				sleep(10/world.fps)
+		Init(mob/caster, time=world.time)
+			Damage(caster, time)
+			Timer(caster, time)
+			active = 1
+			if(move_on_init) // if supposed to move on init, spawn movement loop
+				SetLocation(caster, locate(caster.x, caster.y, caster.z))
+				MovementLoop(dir, step_delay)
 		
-		StepLoop()
+		Timer(mob/caster, time=world.time)
 			set waitfor = 0
-			if(move_on_init)
-				while(src)
-					Step(dir)
-					sleep(world.tick_lag/10)
+			while(active && world.time<start_time+duration)
+				sleep(min(10, start_time+duration-world.time))
+			Expire(caster,world.time)
 
-		ApplyEffects(mob/mob)
-			//Prototype
-		OnHit()
-			// Prototype
+		MovementLoop()
+			set waitfor = 0
+			while(active)
+				Step(dir)
+				sleep(world.tick_lag/10)
+		
+		Expire(mob/caster, time=world.time)
+			if(active)
+				active = 0
+				loc = null
+				Expired(caster, time)
+		
 
-	New(mob/caster, dir, loc, x_delta=0, y_delta=0)
-		src.caster = caster
-		src.dir = dir
-		src.loc = loc
-		step_x += x_delta+x_offset
-		step_y += y_delta+y_offset
+		SetLocation(mob/caster, turf/loc)
+			src.loc = loc
+
+		PixelOffset(_step_x, _step_y)
+			if(x_offset && _step_x)
+				step_x = x_offset+_step_x
+			if(y_offset && _step_y)
+				step_y = y_offset+_step_y
+		
+		Expired(mob/caster, time=world.time)
 	
-		// Kills the object after duration is elapsed
-		Lifespan(world.time + duration)
-		//Conditional flags
+		Damage(mob/caster, time=world.time)
 
-	
+		OnHit(mob/caster, mob/target, time=world.time)
+
+
+	New(mob/caster, time=world.time)
+		..()
+		src.uid = caster.key
+
 	Step(dir, delay=step_delay)
 		if(next_step - world.time >= world.tick_lag/10)
 			return 0
@@ -55,23 +90,14 @@ obj/spell
 		else
 			return 0
 
-	//TODO: 
-	// Does not work properly
-	// // Bump(atom/movable/a)
-	// Bump(atom/movable/a)	
-	// 	.=..()
-	// 	if(ismob(a))
-	// 		if(a==caster)
-	// 			return
-	// 		if(istype(a,/mob/NPC)) 
-	// 			return
-	// 		var/mob/target = a
-	// 		target.TakeDamage(caster, damage, damage_type, name)
-
-	// 	//TODO
-	// 	// As it stands, objects get deleted when hitting a turf with density
-	// 	//	It should instead go 'through' the turf if that happens, if 
-	// 	// piercing is enabled
-	// 	else
-	// 		if(!pierce_objects)
-	// 			del(src)
+	CrossedMob(mob/m)
+		..()
+		if(!src.uid)
+			return
+		else if(m.key == src.uid) 
+			return 0 // Stop spell from hitting caster
+		var/mob/caster = OnlinePlayers[src.uid]
+		if(!caster) 
+			return 0 // no caster found.
+		m.TakeDamage(caster, src.damage, src.damage_type)
+		OnHit(caster, m, world.time)

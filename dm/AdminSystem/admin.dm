@@ -5,7 +5,6 @@ var/list/reports = list()
 var/list/MuteList=list()
 var/list/MuteListKey=list()
 var/list/JailList=list()
-var/list/OnlinePlayers=list()
 var/list/afk_check_cleared=list() // list of players who isn't afk, by talking through OOC
 var/afk_check_running = FALSE
 //Ban list

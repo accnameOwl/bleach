@@ -12,7 +12,7 @@
 #define PRESERVE_WORLDTIME "worldtime"
 #define PRESERVE_REALTIME "realtime"
 
-#define MILLI	1
-#define SECOND	10
-#define MINUTE 	600
-#define HOUR 	36000
+#define MILLI(x)	x
+#define SECOND(x)	10*x
+#define MINUTE(x) 	600*x
+#define HOUR(x) 	36000*x

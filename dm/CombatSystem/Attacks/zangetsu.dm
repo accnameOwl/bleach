@@ -8,58 +8,31 @@ mob/player/zanpakuto/ichigo/verb/getsuga_tensho()
 	set name = "Getsuga Tensho"
 	set category = "Attacks"
 
-	var/obj/spell/getsuga_charge/effect = new
+	var/obj/spell/getsuga_charge/effect = new/obj/spell/getsuga_charge(src, world.time)
 	src.overlays += effect
 	flick("attack",src)
-	sleep(10/world.fps * 3)
-	src.overlays -= effect
+	sleep(3)
+	src.overlays-=effect
 
-	var/obj/spell/getsuga_tensho/spell_object = \
-			new/obj/spell/getsuga_tensho(src, src.dir, src.loc, src.step_x, src.step_y)
-
-	var/obj/spell/trace_one
-	var/obj/spell/trace_two
-
+	var/obj/spell/getsuga_tensho/spell_object = new/obj/spell/getsuga_tensho(src, world.time)
+	spell_object.Init(src)
+	spell_object.dir = src.dir	
 	
-	switch(dir)
-		if(NORTH)
-			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHEAST, \
-				src.loc, src.step_x, src.step_y)
-			trace_two=new/obj/spell/getsuga_tensho_flail(src, NORTHWEST, \
-				src.loc, src.step_x, src.step_y)
-		if(SOUTH)
-			trace_one=new/obj/spell/getsuga_tensho_flail(src, SOUTHEAST, \
-				src.loc, src.step_x, src.step_y)
-			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHWEST, \
-				src.loc, src.step_x, src.step_y)
-		if(EAST)
-			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHEAST, \
-				src.loc, src.step_x, src.step_y)
-			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHEAST, \
-				src.loc, src.step_x, src.step_y)
-		if(WEST)
-			trace_one=new/obj/spell/getsuga_tensho_flail(src, NORTHWEST, \
-				src.loc, src.step_x, src.step_y)
-			trace_two=new/obj/spell/getsuga_tensho_flail(src, SOUTHWEST, \
-				src.loc, src.step_x, src.step_y)
-	
-	var/damage = src.attack + src.reishi
-	spell_object.damage = damage
-	trace_one.damage = damage*0.3
-	trace_two.damage = damage*0.3
-	spell_object.StepLoop()
-	trace_one.StepLoop()
-	trace_two.StepLoop()
 
 
 obj/spell
 	getsuga_charge
+		id="aura"
+		sub_id="getsuga_charge"
 		icon = 'getsuga_charge.dmi'
 		layer = AURA_LAYER
+		duration = 3
+
 
 	getsuga_tensho_flail
 		name = "Getsuga Tensho"
-		id="getsugatenshoflail"
+		id="spell"
+		sub_id="getsuga_flail"
 
 		icon = 'getsugatenshoflail.dmi'
 		bound_y = 1
@@ -74,14 +47,18 @@ obj/spell
 		duration = SPELL_TIMEOUT_GETSUGATENSHO*0.2
 		damage_type = MAGIC_TYPE 
 
+		Damage(mob/caster, time=world.time)
+			src.damage = ((caster.attack * 0.5) + caster.reiatsu) * 0.5
+
 	getsuga_tensho
 		name = "Getsuga Tensho"
-		id="getsugatensho"
+		id="spell"
+		sub_id="getsuga_tensho"
 
 		icon = 'getsugatensho.dmi'
 		bound_y = 1
 		bound_x = 1
-		step_size = 10
+		step_size = 15
 		step_delay = 0.25
 
 		move_on_init = TRUE
@@ -89,27 +66,27 @@ obj/spell
 		duration = SPELL_TIMEOUT_GETSUGATENSHO
 		damage_type = MAGIC_TYPE 
 
-		New(mob/caster, dir, loc, x_delta=0, y_delta=0)
-			..()
+		Init(mob/caster, time=world.time)
+			..(caster, time)
 			switch(dir)
 				if(NORTH)
 					ChangeBounds(1,1,160,73)
+					y_offset = bound_height/2
 					x -=2
-					step_y -= round(bound_height/2)
+					y+=2
 				if(SOUTH)
 					ChangeBounds(1,1,160,73)
 					x-=2
-					step_y -= round(bound_height/2)
 				if(EAST)
 					ChangeBounds(1,1,73,160)
-					y-=2
-					step_x -= round(bound_width/2)
+					x_offset = bound_width/2
+					y -= 2
+					// x += 2 
 				if(WEST)
 					ChangeBounds(1,1,73,160)
-					y-=2
-					step_x -= round(bound_width/2)
+					y -= 2
+			PixelOffset(caster.step_x, caster.step_y)
 
-effect/spell/getsuga_dot
-	var
-		initial_damage = 0
-	
+		Damage(mob/caster, time=world.time)
+			src.damage = (caster.attack * 0.5) + caster.reiatsu
+			

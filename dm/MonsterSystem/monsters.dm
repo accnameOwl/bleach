@@ -85,7 +85,9 @@ mob
 
 			level = 6
 			health = 860
+			max_health = 860
 			reiatsu =300
+			max_reiatsu = 300
 			attack = 230
 			reishi = 41
 			hierro = 60
@@ -98,10 +100,6 @@ mob
 			reward_reiatsu = 8
 
 
-			DeathCheck(mob/killer)
-				.=..(killer)
-				if(.)
-					Reward(killer)
 		// @Hollow
 		Hollow
 			icon_state = "hollow"
@@ -128,11 +126,6 @@ mob
 			reward_health = 28
 			reward_reiatsu = 18
 
-
-			DeathCheck(mob/killer)
-				.=..(killer)
-				if(.)
-					Reward(killer)
 
 		// @Large Hollow
 		LargeHollow
@@ -182,10 +175,6 @@ mob
 						ai_trigger.loc = loc
 					sleep(rand(50,110))
 
-			DeathCheck(mob/killer)
-				.=..(killer)
-				if(.)
-					Reward(killer)
 
 			var/obj/overlay/largehollow/upleft/ul = new
 			var/obj/overlay/largehollow/upright/ur = new
@@ -249,10 +238,6 @@ mob
 						ai_trigger.loc = loc
 					sleep(rand(50,110))
 
-			DeathCheck(mob/killer)
-				.=..(killer)
-				if(.)
-					Reward(killer)
 
 			var/obj/overlay/menosgrande/upup/two = new
 			var/obj/overlay/menosgrande/up/one = new
@@ -286,10 +271,6 @@ mob
 			reward_health = 1750
 			reward_reiatsu = 680
 
-			DeathCheck(mob/killer)
-				.=..(killer)
-				if(.)
-					Reward(killer)
 
 		// @ReishiArrancar
 		ReishiArrancar
@@ -344,11 +325,6 @@ mob
 			reward_health = 17500
 			reward_reiatsu = 8500
 
-			DeathCheck(mob/killer)
-				.=..(killer)
-				if(.)
-					Reward(killer)
-
 		// @Ulquiorra
 		Ulquiorra
 			name = "Ulquiorra Cifer"
@@ -373,10 +349,6 @@ mob
 			reward_health = 17500
 			reward_reiatsu = 8500
 
-			DeathCheck(mob/killer)
-				.=..(killer)
-				if(.)
-					Reward(killer)
 
 obj/overlay/largehollow
 	icon = 'monsters.dmi'
