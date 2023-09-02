@@ -1,6 +1,5 @@
 atom/movable
 	proc
-	proc
 		ChangeBounds(x, y, width, height)
 			bound_x = x
 			bound_y = y
