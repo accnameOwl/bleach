@@ -93,7 +93,7 @@ obj/spell
 					y-=2
 			StepOffset(x_offset, y_offset)
 			var/list/new_overlap = bounds()
-			CrossedBounds(old_overlap, new_overlap)
+			CompareCrossedBounds(old_overlap, new_overlap)
 
 		Damage(mob/caster, time=world.time)
 			src.damage = (caster.attack * 0.5) + caster.reiatsu

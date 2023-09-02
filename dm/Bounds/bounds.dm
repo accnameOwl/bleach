@@ -9,7 +9,7 @@ atom/movable
 			//if there's changes to bounds() contents
 			//  call Uncrossed and Crossed
 
-		CrossedBounds(old_overlap, new_overlap)
+		CompareCrossedBounds(old_overlap, new_overlap)
 			if(old_overlap != new_overlap)
 				for(var/atom/atom as anything in (old_overlap - new_overlap))
 					atom.Uncrossed(src)
