@@ -93,8 +93,8 @@
 #include "dm\SquadSystem\shinigami.dm"
 #include "dm\StatSystem\handlers.dm"
 #include "dm\StatSystem\stat_mob_declaration.dm"
-#include "dm\World\tick.dm"
 #include "dm\World\new.dm"
+#include "dm\World\tick.dm"
 #include "G:\Github\dream maker\CharacterAPI\DM\include_me.dm"
 // END_INCLUDE
 

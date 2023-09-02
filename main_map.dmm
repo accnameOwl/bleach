@@ -106,7 +106,7 @@
 "cb" = (/turf/earth/outside/tile/small,/turf/earth/outside/dirt/bl,/turf/void/no_icon/density,/area)
 "cc" = (/turf/earth/outside/tile/small,/turf/warp/earth/shopkeeper/inn,/area)
 "cd" = (/turf/earth/outside/dirt,/turf/warp/huecomundo/urahara_basement/inn,/area)
-"ce" = (/turf/earth/outside/grass,/mob/monster/Hollow,/turf/earth/outside/grass/flower,/area)
+"ce" = (/mob/monster/Hollow,/turf/earth/outside/grass,/turf/earth/outside/grass/flower,/area)
 "cf" = (/turf/earth/outside/tile/large,/area)
 "cg" = (/turf/earth/inside/floor/wood,/turf/earth/inside/wall/white/door,/turf/warp/earth/barber/out,/area)
 "ch" = (/turf/earth/inside/floor/wood,/turf/earth/inside/wall/white/door,/turf/warp/earth/shopkeeper/out,/area)
@@ -122,11 +122,11 @@
 "cr" = (/turf/huecomundo/outside/mountain,/turf/huecomundo/outside/cave/caver1,/area)
 "cs" = (/turf/huecomundo/outside/sand/purple,/turf/huecomundo/outside/rock/two,/area)
 "ct" = (/turf/huecomundo/outside/sand/white,/turf/huecomundo/outside/rock/three,/area)
-"cu" = (/turf/earth/outside/tarmac,/turf/earth/outside/tarmac/top,/mob/monster/Demihollow,/turf/earth/outside/roadline/top,/area)
-"cv" = (/turf/earth/outside/tarmac,/turf/earth/outside/roadline/left,/mob/monster/Demihollow,/turf/earth/outside/roadline/bottom,/area)
+"cu" = (/mob/monster/Demihollow,/turf/earth/outside/dirt,/area)
+"cv" = (/turf/earth/outside/grass,/turf/earth/outside/dirt/patch2,/area)
 "cw" = (/turf/huecomundo/outside/sand/white,/turf/warp/huecomundo/urahara_basement/out,/area)
-"cx" = (/turf/earth/outside/tarmac,/turf/earth/outside/tarmac/left,/mob/monster/Demihollow,/turf/earth/outside/roadline/right,/area)
-"cy" = (/turf/earth/outside/tarmac,/turf/earth/outside/tarmac/bottom,/mob/monster/Demihollow,/turf/earth/outside/roadline/bottom,/area)
+"cx" = (/mob/monster/Demihollow,/turf/earth/outside/tarmac,/turf/earth/outside/tarmac/top,/turf/earth/outside/roadline/top,/area)
+"cy" = (/mob/monster/Demihollow,/turf/earth/outside/tarmac,/turf/earth/outside/roadline/left,/turf/earth/outside/roadline/bottom,/area)
 "cz" = (/turf/earth/outside/tile/large,/turf/earth/outside/tarmac/bottom,/turf/earth/outside/tarmac/right,/area)
 "cA" = (/turf/earth/outside/tile/large,/turf/earth/outside/tarmac/left,/area)
 "cB" = (/turf/earth/outside/tile/large,/turf/void/no_icon/density,/area)
@@ -181,7 +181,7 @@
 "dy" = (/turf/earth/outside/grass,/turf/earth/outside/tarmac/left,/area)
 "dz" = (/turf/earth/outside/grass,/turf/earth/outside/tarmac/right,/area)
 "dA" = (/turf/earth/outside/tile/large,/turf/houses/house8,/turf/void/no_icon/density,/area)
-"dB" = (/turf/earth/outside/dirt,/obj/huge_gargantua,/turf/warp/huecomundo/urahara_basement/inn,/area)
+"dB" = (/obj/huge_gargantua,/turf/earth/outside/dirt,/turf/warp/huecomundo/urahara_basement/inn,/area)
 "dC" = (/mob/monster/Demihollow,/turf/huecomundo/outside/sand/purple,/area)
 "dD" = (/turf/huecomundo/outside/cave/cavem1,/turf/warp/huecomundo/fortress/down/firstfloor,/area)
 "dE" = (/turf/huecomundo/outside/sand/purple,/turf/huecomundo/outside/rock/one,/area)
@@ -224,14 +224,16 @@
 "ep" = (/turf/earth/inside/floor/tile_med,/turf/earth/inside/wall/white/left,/turf/warp/huecomundo/LasNoches/out,/area)
 "eq" = (/turf/earth/inside/floor/tile_med,/turf/warp/huecomundo/LasNoches/out,/area)
 "er" = (/turf/earth/inside/floor/tile_med,/turf/earth/inside/wall/white/right,/turf/warp/huecomundo/LasNoches/out,/area)
-"es" = (/turf/earth/outside/grass,/obj/training/GMTraining/Attack,/turf/earth/outside/dirt/tr,/area)
+"es" = (/obj/training/GMTraining/Attack,/turf/earth/outside/grass,/turf/earth/outside/dirt/tr,/area)
 "et" = (/turf/earth/outside/dirt,/turf/huecomundo/outside/rock/three,/turf/earth/outside/fence,/area)
 "eu" = (/turf/earth/outside/dirt,/turf/earth/outside/dirt/patch2,/turf/earth/outside/fence/right,/area)
-"ev" = (/turf/earth/inside/floor/wood,/mob/NPC/Barber,/turf/earth/inside/chair,/area)
-"ew" = (/turf/earth/inside/floor/wood,/mob/NPC/Shopkeeper,/turf/earth/inside/chair,/area)
-"ex" = (/turf/huecomundo/outside/sand/purple,/mob/monster/Hollow,/turf/huecomundo/outside/rock/three,/area)
-"ey" = (/turf/huecomundo/outside/sand/white,/obj/huge_gargantua,/turf/warp/huecomundo/urahara_basement/out,/area)
-"ez" = (/turf/huecomundo/outside/sand/purple,/mob/monster/LargeHollow,/turf/huecomundo/outside/rock/two,/area)
+"ev" = (/mob/NPC/Barber,/turf/earth/inside/floor/wood,/turf/earth/inside/chair,/area)
+"ew" = (/mob/NPC/Shopkeeper,/turf/earth/inside/floor/wood,/turf/earth/inside/chair,/area)
+"ex" = (/mob/monster/Hollow,/turf/huecomundo/outside/sand/purple,/turf/huecomundo/outside/rock/three,/area)
+"ey" = (/obj/huge_gargantua,/turf/huecomundo/outside/sand/white,/turf/warp/huecomundo/urahara_basement/out,/area)
+"ez" = (/mob/monster/LargeHollow,/turf/huecomundo/outside/sand/purple,/turf/huecomundo/outside/rock/two,/area)
+"eA" = (/mob/monster/Demihollow,/turf/earth/outside/tarmac,/turf/earth/outside/tarmac/left,/turf/earth/outside/roadline/right,/area)
+"eB" = (/mob/monster/Demihollow,/turf/earth/outside/tarmac,/turf/earth/outside/tarmac/bottom,/turf/earth/outside/roadline/bottom,/area)
 
 (1,1,1) = {"
 ababababababababababaDcfcfcfcfcfcfcfcfcfcfcfcfaDabababababababababababababaDaDaDaDabababababababababababababababababababababababab
@@ -262,20 +264,20 @@ blblblblblblblblblblblblblblblblblblblblblblaDabblblblblblblabababababababababab
 agababblblblblblblblblblblblblblblblblblblblaDblblblblblblabababababababababababababababdoabababababababababababababababababababab
 ababababagagblblblblblblblblblblblblblblblblaDabblblblabababababababababababababababababababababababababababababababababababababab
 ababababababababababababababababagabababababaDabababababababababababababababababababababababababababababababababababababababababab
-ababababababababagababababagabababababaDaDaDaDabababagabababababababababababababababababababababababababababababababababababababab
-abababababababababababababababababababaDabbsababababababababababababababababamadadadadadadadadadadadadadadadadaeababababababababab
-abagabababababababababababababafabababcNabababagababacadadadadadadadadadadadaeabanananananananananananananancHaeabababbsababababab
+ababababababababagababababagababababababcNalaDabababagabababababababababababababababababababababababababababababababababababababab
+ababababababababababababababababababababalcuaHabababababababababababababababamadadadadadadadadadadadadadadadadaeababababababababab
+abagabababababababababababababafabababcNcNababagababacadadadadadadadadadadadaeabanananananananananananananancHaeabababbsababababab
 abababababababababababababababababababcNafabababababaccHababababababababafcIaeabaoapaqapaqapaqapaqapaqapaqarcHaeababababababababab
-abababababalaDaDaDaDaDaDaDaEabababababcNababababababaccIafababababababababcJaeabaoapaqapaqapaqapaqapaqapaqarcHaeababababababababab
-abababababaDaiaiaiaiaiaiaiaDabababababcNababceabababaccJabaIaIaIaIaIaIaIabcHaeabaoapapapapapapapapapapapaparcHaeababababababababab
-abababababaDaYaYaYaYaYaYaYaDababafababcNababababababaccHabaIaIaIaIaIaIaIababababaoapatatatatatatatatatataparcHaeababababababababab
-abababababaDbWaYaYbXaYaYaYaDabababababcNabababababagaccHabasaIaIbIaIaIaIabababafaoapauauauauavawauauauauaparcHaeababababababababab
-abababababaGaDaDaDahajakaDaHabafabababcNababababababaccHagafaLaMaIababababcHaeabaoapaqapaqaxaxaqaqapaqapaqarcHaeababababababababab
-ababababababababaGahaHabababababagababcNababagabababaccHababababaIababafagcHaeabaoapaqapaqaxaxaqaqapaqapaqarcHaeababababababababab
+abababababalaDaDaDaDaDaDaDaEababababababababababababaccIafababababababababcJaeabaoapaqapaqapaqapaqapaqapaqarcHaeababababababababab
+abababababaDaiaiaiaiaiaiaiaDabababababcvababceabababaccJabaIaIaIaIaIaIaIabcHaeabaoapapapapapapapapapapapaparcHaeababababababababab
+abababababaDaYaYaYaYaYaYaYaDababafababcvababababababaccHabaIaIaIaIaIaIaIababababaoapatatatatatatatatatataparcHaeababababababababab
+abababababaDbWaYaYbXaYaYaYaDabababababababababababagaccHabasaIaIbIaIaIaIabababafaoapauauauauavawauauauauaparcHaeababababababababab
+abababababaGaDaDaDahajakaDaHabafabababcvababababababaccHagafaLaMaIababababcHaeabaoapaqapaqaxaxaqaqapaqapaqarcHaeababababababababab
+ababababababababaGahaHabababababagabababababagabababaccHababababaIababafagcHaeabaoapaqapaqaxaxaqaqapaqapaqarcHaeababababababababab
 abababababababdoabahababagababababafababababababababaccKadadadadaIadadadadadaeagayazazazazazaAaBazazazazaCaycHaeababababababababab
 abababababbsababahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaAaBahahahahahahahahahahahahahahahahah
 ababababababababahbObPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbQbRbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbP
-ababababababababahbSbTbTbTbTbTbTbTbTavawbTbTbTbTbTcubTbTbTbTbTbTavawbTbTbTbTbTbTbTbTbTbTbTbTavawbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbT
+ababababababababahbSbTbTbTbTbTbTbTbTavawbTbTbTbTbTcxbTbTbTbTbTbTavawbTbTbTbTbTbTbTbTbTbTbTbTavawbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbT
 ababababababababahahahahahahahahahahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahahahahahah
 abababababababababababababababababahaAaBahagababababababababagahaAaBahagababababababababagahaAaBahagababababababababagahagabababab
 abababababababababababababababababahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahababababab
@@ -284,15 +286,15 @@ abababababababaDcaaYaYaYaYaYcbaDabahaAaBcDcHababaiaiaiaiaiaiaicFaAaBcDcHafabaiai
 abababababababaDbWaYaYccaYaYahaDabahaAaBcDcHafabcGaDaiaYaiaDaicFaAaBcDcJafabcGaDaiaYaiaDaicFaAaBcDcJafabcGaDaiaYaiaDaicFababababab
 abababababababaGbYahahahbUbVbZaHabahaAaBcDadadadcEcEcEahcEcEcEcFaAaBcDadadadcEcEcEahcEcEcEcFaAaBcDadadadcEcEcEahcEcEcEcFababababab
 ababababababababaGaDaDahaDaDaHababahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahahahahahah
-abababababababababababahahahahahahahaAcLbPbPbPbPbPbPbPbPbPbPbPbPcMcvbPbPbPbPbPbPbPbPbPbPbPbPcMcLbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbP
-abababababababababababababababababahaAawbTbTbTbTbTbTbTbTbTbTbTbTavawbTbTbTbTbTbTbTbTbTbTbTbTavawbTbTbTcubTbTbTbTbTbTbTbTbTbTbTbTbT
-abababababababababababababdoabababahcxaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahahahahahah
+abababababababababababahahahahahahahaAcLbPbPbPbPbPbPbPbPbPbPbPbPcMcybPbPbPbPbPbPbPbPbPbPbPbPcMcLbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbPbP
+abababababababababababababababababahaAawbTbTbTbTbTbTbTbTbTbTbTbTavawbTbTbTbTbTbTbTbTbTbTbTbTavawbTbTbTcxbTbTbTbTbTbTbTbTbTbTbTbTbT
+abababababababababababababdoabababaheAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahahahahahah
 abababababababababababababababababahaAaBcDadadadcEcEcEcEcEcEcEcFaAaBcDadadadcEcEcEcEcEcEcEcFaAaBahacadadadadadadadadadadadadadadae
 abababababababababababababababababahaAaBcDcIababaiaiaiaiaiaiaicFaAaBcDcIababaiaiaiaiaiaiaicFaAaBahacababafabababababababababababae
 abababababababababababababababababahaAaBcDcHababcGaDaiaYaiaDaicFaAaBcDcHabafcGaDaiaYaiaDaicFaAaBahacababababalaDaDaDaDaDaEabababae
 abababababababababababababababababahaAaBcDadadadcEcEcEahcEcEcEcFaAaBcDadadadcEcEcEahcEcEcEcFaAaBahacababababaDaFbdbdaDaDaDabafabae
 abababababababababababababababababahaAaBahahahahahahahahahahahahaAaBahahahahahahahahahahahahaAaBahacagaJaKalaDaDaDaDaDaDaDabababae
-abababababababababababababababababahaAcLbPbPbPbPbPbPbPbPbPcybPbPcMcLbPbPbPbPbPbPbPbPbPbPbPbPcMaBahaDaDaDaDaDaDaDaDaDaDaDaDabababae
+abababababababababababababababababahaAcLbPbPbPbPbPbPbPbPbPeBbPbPcMcLbPbPbPbPbPbPbPbPbPbPbPbPcMaBahaDaDaDaDaDaDaDaDaDaDaDaDabababae
 abababababababababababababababababahbSbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTbTavaBahacagababaGaDaDaDaDaDaDaHabababae
 abababababababababababababababababahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaAaBahacabababafabababababababafababae
 abababababababababababababababababababababababababababababababababababababababababababababahaAaBahacababababababafabababababababae

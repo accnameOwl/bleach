@@ -22,16 +22,15 @@ obj/spell
 		
 		Step(dir,delay=step_delay)
 			//store prev x and y loc
-			var/prev_x = x
-			var/prev_y = y
-			//make sure it exists
-			//run ..Step()
-			. = ..(dir, delay)
-			if(.)
-				//if moved one tile
-				if(prev_x != x || prev_y != y)
-					var/obj/spell/cero_trail/left/trail = new/obj/spell/cero_trail(null, src.dir, src.loc, src.step_x, src.step_y)
-
+			// var/prev_x = x
+			// var/prev_y = y
+			// //make sure it exists
+			// //run ..Step()
+			// . = ..(dir, delay)
+			// if(.)
+			// 	//if moved one tile
+			// 	if(prev_x != x || prev_y != y)
+						
 
 	cero_trail
 		icon = 'cero.dmi'
@@ -87,16 +86,16 @@ obj/spell
 				if(.)
 					//if moved one tile
 					if(prev_x != x || prev_y != y)
-					var/obj/spell/granreycero_trail/center/trail = new/obj/spell/granreycero_trail/center(null, src.dir, src.loc, src.step_x, src.step_y)
-					switch(dir)
-						if(NORTH)
-							trail.step_y = src.step_y-(TILE_HEIGHT/4)
-						if(SOUTH)
-							trail.step_y = src.step_y+(TILE_HEIGHT/4)
-						if(EAST)
-							trail.step_x = src.step_x-(TILE_WIDTH/4)
-						if(WEST)
-							trail.step_x = src.step_x+(TILE_WIDTH/4)
+						var/obj/spell/granreycero_trail/center/trail = new/obj/spell/granreycero_trail/center(null, src.dir, src.loc, src.step_x, src.step_y)
+						switch(dir)
+							if(NORTH)
+								trail.step_y = src.step_y-(TILE_HEIGHT/4)
+							if(SOUTH)
+								trail.step_y = src.step_y+(TILE_HEIGHT/4)
+							if(EAST)
+								trail.step_x = src.step_x-(TILE_WIDTH/4)
+							if(WEST)
+								trail.step_x = src.step_x+(TILE_WIDTH/4)
 
 	granreycero/right
 		icon_state = "grc_right"

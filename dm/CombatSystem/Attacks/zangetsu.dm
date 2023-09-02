@@ -15,8 +15,8 @@ mob/player/zanpakuto/ichigo/verb/getsuga_tensho()
 	src.overlays-=effect
 
 	var/obj/spell/getsuga_tensho/spell_object = new/obj/spell/getsuga_tensho(src, world.time)
-	spell_object.Init(src)
 	spell_object.dir = src.dir	
+	spell_object.Init(src)
 	
 
 
@@ -68,24 +68,23 @@ obj/spell
 
 		Init(mob/caster, time=world.time)
 			..(caster, time)
+			var/x_offset = caster.step_x
+			var/y_offset = caster.step_y
+
 			switch(dir)
-				if(NORTH)
-					ChangeBounds(1,1,160,73)
-					y_offset = bound_height/2
-					x -=2
-					y+=2
 				if(SOUTH)
-					ChangeBounds(1,1,160,73)
+					ChangeBounds(1,1,160,65)
+					x-=2
+				if(NORTH)
+					ChangeBounds(1,97,160,63)
 					x-=2
 				if(EAST)
-					ChangeBounds(1,1,73,160)
-					x_offset = bound_width/2
-					y -= 2
-					// x += 2 
+					ChangeBounds(97,1,63,160)
+					y-=2
 				if(WEST)
-					ChangeBounds(1,1,73,160)
-					y -= 2
-			PixelOffset(caster.step_x, caster.step_y)
+					ChangeBounds(1,64,63,160)
+					y-=2
+			StepOffset(x_offset, y_offset)
 
 		Damage(mob/caster, time=world.time)
 			src.damage = (caster.attack * 0.5) + caster.reiatsu

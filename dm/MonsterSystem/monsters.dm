@@ -130,14 +130,14 @@ mob
 		// @Large Hollow
 		LargeHollow
 			name = "Hollow"
-			icon_state = "largehollow"
+			icon = 'largehollow.dmi'
 
 			aggro_dist=10
 			attack_reach = 1
 			chase_speed = 2
 			respawn_time = 10
 
-			bounds = "1,1 to 32,32"
+			bounds = "32,1 to 64,32"
 
 			level = 24
 			health = 2500
@@ -174,21 +174,6 @@ mob
 					if(ai_trigger)
 						ai_trigger.loc = loc
 					sleep(rand(50,110))
-
-
-			var/obj/overlay/largehollow/upleft/ul = new
-			var/obj/overlay/largehollow/upright/ur = new
-			var/obj/overlay/largehollow/up/u = new
-			var/obj/overlay/largehollow/downleft/dl = new
-			var/obj/overlay/largehollow/downright/dr = new
-
-			New()
-				..()
-				overlays += ul
-				overlays += u
-				overlays += ur
-				overlays += dl
-				overlays += dr
 
 		// @Menos Grande
 		MenosGrande
@@ -238,14 +223,6 @@ mob
 						ai_trigger.loc = loc
 					sleep(rand(50,110))
 
-
-			var/obj/overlay/menosgrande/upup/two = new
-			var/obj/overlay/menosgrande/up/one = new
-
-			New()
-				..()
-				overlays += one
-				overlays += two
 
 		// @AttackArrancar
 		AttackArrancar
@@ -349,26 +326,6 @@ mob
 			reward_health = 17500
 			reward_reiatsu = 8500
 
-
-obj/overlay/largehollow
-	icon = 'monsters.dmi'
-	upleft
-		icon_state = "largehollowupleft"
-		pixel_y = 32
-		pixel_x = -32
-	up
-		icon_state = "largehollowup"
-		pixel_y = 32
-	upright
-		icon_state = "largehollowupright"
-		pixel_y = 32
-		pixel_x = 32
-	downleft
-		icon_state = "largehollowdownleft"
-		pixel_x = -32
-	downright
-		icon_state = "largehollowdownright"
-		pixel_x = 32
 
 obj/overlay/menosgrande
 	icon = 'monsters.dmi'

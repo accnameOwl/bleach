@@ -99,9 +99,9 @@ mob/Host/verb/Reboot()
 		rebooting = TRUE
 		world << Bold(Center(Red(H2("World Reboot"))))
 		world << Bold(Center(Red(H4("World is rebooting in 30 seconds!"))))
-		var/ten_seconds = 10 * SECOND + world.time
-		var/twenty_seconds = 20 * SECOND + world.time
-		var/thirty_seconds = 30 * SECOND + world.time
+		var/ten_seconds = 10 * SECOND(1) + world.time
+		var/twenty_seconds = 20 * SECOND(1) + world.time
+		var/thirty_seconds = 30 * SECOND(1) + world.time
 		while(rebooting)
 			if(world.time == ten_seconds)
 				world << Bold(Center(Red(H4("World is rebooting in 20 seconds!"))))
@@ -277,7 +277,7 @@ mob/Admin/verb/Ban()
 		return 0
 	var/duration = input("How long do you wish to ban [player.name], In hours", "Duration") as num
 	player << Bold(Red("You have been banned for [duration] hours!"))
-	duration = world.realtime + (duration * HOUR)
+	duration = world.realtime + HOUR(duration)
 	BanList[player.ckey] = duration
 	var/ok = SaveBanlist()
 	if(ok) world << "SaveBanlist() OK"

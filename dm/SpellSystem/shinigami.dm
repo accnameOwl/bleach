@@ -6,6 +6,6 @@ mob/spell/verb
 		var/shunpo = src.spell_mastery["shunpo"]
 		if(!shunpo)
 			shunpo = 1
-		spell_cd["shunpo"] = SPELL_COOLDOWN_SHUNPO-src.spell_mastery["shunpo"]
+		spell_cd["shunpo"] = SPELL_TIMEOUT_SHUNPO-src.spell_mastery["shunpo"]
 		if(shunpo <= 80)
-
+			return 0

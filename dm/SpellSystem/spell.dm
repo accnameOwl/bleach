@@ -5,8 +5,6 @@ mob
 obj/spell
 	// density = 1
 	var
-		x_offset = 0
-		y_offset = 0
 		
 		// Behaviour flags
 		move_on_init = FALSE /// Move in 'dir' at New()
@@ -62,12 +60,14 @@ obj/spell
 
 		SetLocation(mob/caster, turf/loc)
 			src.loc = loc
+			// ? didn't register damage for mobs in bound() at desired loc
+			// x Fix:
+			for(var/atom/a as anything in bounds())
+				a.Crossed(src)
 
-		PixelOffset(_step_x, _step_y)
-			if(x_offset && _step_x)
-				step_x = x_offset+_step_x
-			if(y_offset && _step_y)
-				step_y = y_offset+_step_y
+		StepOffset(x_offset, y_offset)
+			step_x = x_offset
+			step_y = y_offset
 		
 		Expired(mob/caster, time=world.time)
 	

@@ -91,7 +91,7 @@ mob/monster/proc/ChaseState()
 						last_attack_timestamp = world.time
 					if(world.time > last_attack_timestamp)
 						Attack()
-						last_attack_timestamp = world.time + SECOND
+						last_attack_timestamp = world.time + SECOND(1)
 			else
 				. = step(src, _dir, chase_step_size)
 				if(!.)
