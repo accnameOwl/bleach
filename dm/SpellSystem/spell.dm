@@ -60,10 +60,6 @@ obj/spell
 
 		SetLocation(mob/caster, turf/loc)
 			src.loc = loc
-			// ? didn't register damage for mobs in bound() at desired loc
-			// x Fix:
-			for(var/atom/a as anything in bounds())
-				a.Crossed(src)
 
 		StepOffset(x_offset, y_offset)
 			step_x = x_offset
