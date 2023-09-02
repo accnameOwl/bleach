@@ -1,6 +1,6 @@
 mob/proc/MakeShinigami()
 	race = "Shinigami"
-	var/obj/item/Clothing/Shihakusho/suit = new /obj/item/Clothing/Shihakusho
+	var/obj/item/Clothing/suit_shinigami/suit = new /obj/item/Clothing/suit_shinigami
 	var/obj/item/zanpakuto/sword = new /obj/item/zanpakuto
 	contents += suit
 	contents += sword

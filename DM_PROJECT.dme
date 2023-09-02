@@ -68,6 +68,7 @@
 #include "dm\ItemSystem\item.dm"
 #include "dm\ItemSystem\shinigami.dm"
 #include "dm\ItemSystem\vaizard.dm"
+#include "dm\ItemSystem\hair.dm"
 #include "dm\MonsterSystem\monster.dm"
 #include "dm\MonsterSystem\monsters.dm"
 #include "dm\NPCSystem\NPCs.dm"

@@ -10,7 +10,7 @@ obj/item/Clothing
 		name="Flower Cape"
 		id="cloth_flowercape"
 	cloth_glass
-		icon='cloth_glass'
+		icon='cloth_glass.dmi'
 		name="Glasses"
 		id="cloth_glass"
 	cloth_jacket
