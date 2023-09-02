@@ -5,6 +5,11 @@ mob
 obj/spell
 	// density = 1
 	var
+<<<<<<< HEAD
+=======
+		x_offset = 0
+		y_offset = 0
+>>>>>>> refs/remotes/origin/trunk
 		
 		// Behaviour flags
 		move_on_init = FALSE /// Move in 'dir' at New()
@@ -34,6 +39,7 @@ obj/spell
 		Init(mob/caster, time=world.time)
 			Damage(caster, time)
 			Timer(caster, time)
+<<<<<<< HEAD
 			active = 1
 			if(move_on_init) // if supposed to move on init, spawn movement loop
 				SetLocation(caster, locate(caster.x, caster.y, caster.z))
@@ -64,6 +70,34 @@ obj/spell
 		StepOffset(x_offset, y_offset)
 			step_x = x_offset
 			step_y = y_offset
+=======
+			StepLoop(dir, step_delay)
+		
+		Timer(mob/caster, time=world.time)
+			set waitfor = 0
+			while(active && world.time<start_time+duration)
+				sleep(min(10, start_time+duration-world.time))
+			Expire(caster,world.time)
+
+		StepLoop()
+			set waitfor = 0
+			while(active)
+				Step(dir)
+				sleep(world.tick_lag/10)
+		
+		Expire(mob/caster, time=world.time)
+			if(active)
+				active = 0
+				loc = null
+				Expired(caster, time)
+		
+
+		SetLocation(mob/target, loc)
+			src.loc = loc
+			step_x = x_offset+target.step_x
+			step_y = y_offset+target.step_y
+		
+>>>>>>> refs/remotes/origin/trunk
 		
 		Expired(mob/caster, time=world.time)
 	
@@ -73,8 +107,14 @@ obj/spell
 
 
 	New(mob/caster, time=world.time)
+<<<<<<< HEAD
 		..()
 		src.uid = caster.key
+=======
+		src.uid = ckey(caster.key)
+		src.active = 1
+		Damage(caster)
+>>>>>>> refs/remotes/origin/trunk
 
 	Step(dir, delay=step_delay)
 		if(next_step - world.time >= world.tick_lag/10)
@@ -88,6 +128,7 @@ obj/spell
 
 	CrossedMob(mob/m)
 		..()
+<<<<<<< HEAD
 		if(!src.uid)
 			return
 		else if(m.key == src.uid) 
@@ -97,3 +138,12 @@ obj/spell
 			return 0 // no caster found.
 		m.TakeDamage(caster, src.damage, src.damage_type)
 		OnHit(caster, m, world.time)
+=======
+		if(!uid)
+			return
+		else if(m.key != src.uid) // Stop spell from hitting caster
+			var/mob/caster = (src.uid&&OnlinePlayers[src.uid]) ? OnlinePlayers[src.uid] : 0
+			if(!caster) return 0 // catch caster
+			m.TakeDamage(caster, src.damage, src.damage_type)
+			OnHit()
+>>>>>>> refs/remotes/origin/trunk

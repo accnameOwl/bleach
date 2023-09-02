@@ -64,6 +64,7 @@
 #include "dm\Effects\getsugatrail.dm"
 #include "dm\GuildSystem\guild.dm"
 #include "dm\html_contents\statpoints_panel.dm"
+#include "dm\ItemSystem\clothing.dm"
 #include "dm\ItemSystem\item.dm"
 #include "dm\ItemSystem\shinigami.dm"
 #include "dm\ItemSystem\vaizard.dm"
