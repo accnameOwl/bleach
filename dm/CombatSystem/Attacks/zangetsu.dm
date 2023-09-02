@@ -71,6 +71,13 @@ obj/spell
 			var/x_offset = caster.step_x
 			var/y_offset = caster.step_y
 
+			// ! Error
+			// 		Issue not calling Crossed() for mobs in bounds()
+			// x Fix
+			// 		get bounds() before ChangeBounds(), then compare with
+			//		CrossedBounds()
+			var/list/old_overlap = bounds()
+			
 			switch(dir)
 				if(SOUTH)
 					ChangeBounds(1,1,160,65)
@@ -85,6 +92,8 @@ obj/spell
 					ChangeBounds(1,64,63,160)
 					y-=2
 			StepOffset(x_offset, y_offset)
+			var/list/new_overlap = bounds()
+			CrossedBounds(old_overlap, new_overlap)
 
 		Damage(mob/caster, time=world.time)
 			src.damage = (caster.attack * 0.5) + caster.reiatsu

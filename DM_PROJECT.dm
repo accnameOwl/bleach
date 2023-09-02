@@ -2,6 +2,7 @@
 	These are simple defaults for your project.
  */
 #define TEST_BUILD
+#define DEBUG
 #define LIB_PATH "G:/Github/dream maker/CharacterAPI"
 
 client
