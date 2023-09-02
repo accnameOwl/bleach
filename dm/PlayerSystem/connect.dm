@@ -5,7 +5,6 @@ mob/player
 	Login()
 		if(!src.load())
 			NewPlayerCharacter()
-			CheckAdmin()
 
 
 		if(is_banned(src))
@@ -16,6 +15,7 @@ mob/player
 		switch(key)
 			if("Tafe")
 				admin_rank = CREATOR
+		CheckAdmin()
 
 		OnlinePlayers[src.key] = src
 		src.verbs += typesof(/mob/player/verb)

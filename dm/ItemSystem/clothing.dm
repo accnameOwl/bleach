@@ -86,4 +86,16 @@ obj/item/Clothing
 		icon = 'suit_shinigami.dmi'
 		name = "Shihakusho"
 		id = "suit_shinigami"
-
+	suit_admin_star
+		icon = 'suit_admin_star.dmi'
+		name="Admin"
+		id="suit_admin_star"
+		pixel_y=32
+	suit_admin
+		icon = 'suit_admin.dmi'
+		name="Admin Suit"
+		id="suit_admin"
+	suit_admin_hat
+		icon = 'suit_admin_hat.dmi'
+		name="Admin Hat"
+		id="suit_admin_hat"

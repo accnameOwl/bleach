@@ -5,33 +5,27 @@ obj/spell
 		icon = 'cero.dmi'
 		icon_state = "bala"
 		duration = SPELL_TIMEOUT_BALA
+		step_size = SPELL_STEPSIZE_BALA
 		step_size = 8
 		move_on_init = TRUE
-		density = 1
 		damage_type = DARKMAGIC_TYPE
+
+		Damage(mob/caster, time=world.time)
+			src.damage = caster.reishi * SPELL_MULTIPL_CERO
+
 
 	cero
 		name = "Cero"
 		icon = 'cero.dmi'
 		icon_state = "cero"
 		duration = SPELL_TIMEOUT_CERO
-		step_size = SPELL_CERO_STEP_SIZE
+		step_size = SPELL_STEPSIZE_CERO
 		move_on_init = TRUE
-		density = 1
 		damage_type = DARKMAGIC_TYPE
 		
-		Step(dir,delay=step_delay)
-			//store prev x and y loc
-			// var/prev_x = x
-			// var/prev_y = y
-			// //make sure it exists
-			// //run ..Step()
-			// . = ..(dir, delay)
-			// if(.)
-			// 	//if moved one tile
-			// 	if(prev_x != x || prev_y != y)
-						
-
+		Damage(mob/caster, time=world.time)
+			src.damage=caster.reishi * SPELL_MULTIPL_BALA
+		
 	cero_trail
 		icon = 'cero.dmi'
 		icon_state = "cero_trail"

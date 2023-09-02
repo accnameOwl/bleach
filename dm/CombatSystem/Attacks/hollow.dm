@@ -1,32 +1,35 @@
 
 // Cero
-mob/hollow/verb/cero()
-	set name = "Cero"
-	set category = "Attack"
-	//Check reiatsu
-	if(!check_spellcost(src, SPELL_COST_CERO))
-		src << Bold(Red("insufficient mana to cast Cero!"))
-		return
+mob/hollow/verb
+	cero()
+		set name = "Cero"
+		set category = "Attacks"
+		//Check reiatsu
+		if(!check_spellcost(src, SPELL_COST_CERO))
+			src << Bold(Red("Insufficient mana to cast Cero"))
+			return 0
 
-	//1: Charge cero
-	consume_reiatsu(src, SPELL_COST_CERO)
-		//charge speed depends on cero mastery
+		//1: Charge cero
+		consume_reiatsu(src, SPELL_COST_CERO)
+			//charge speed depends on cero mastery
 
-	//2: send cero
-	var/obj/spell/cero/cero = new/obj/spell/cero(src,src.dir,src.loc,src.step_x,src.step_y)
-	cero.damage = src.reishi*SPELL_MULTIPL_CERO
+		//2: send cero
+		var/obj/spell/cero/cero = new/obj/spell/cero(src,world.time)
+		cero.dir = dir
+		cero.Init(src)
 
-// Bala
-mob/hollow/verb/bala()
-	set name = "Bala"
-	set category = "Attack"
+	// Bala
+	bala()
+		set name = "Bala"
+		set category = "Attacks"
 
-	if(!check_spellcost(src, SPELL_COST_BALA))
-		src << Bold(Red("insufficient mana to cast Bala!"))
-		return
+		if(!check_spellcost(src, SPELL_COST_BALA))
+			src << Bold(Red("Insufficient mana to cast Bala!"))
+			return 0
 
-	//1: Charge cero
-	consume_reiatsu(src, SPELL_COST_BALA)
-	var/obj/spell/bala/bala = new/obj/spell/bala(src,src.dir,src.loc,src.step_x,src.step_y)
-	bala.damage = src.reishi*SPELL_MULTIPL_BALA
+		//1: Charge cero
+		consume_reiatsu(src, SPELL_COST_BALA)
+		var/obj/spell/bala/bala = new/obj/spell/bala(src,world.time)
+		bala.dir = dir
+		bala.Init(src)
 

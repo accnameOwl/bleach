@@ -36,8 +36,13 @@ obj/spell
 			Timer(caster, time)
 			active = 1
 			if(move_on_init) // if supposed to move on init, spawn movement loop
-				SetLocation(caster, locate(caster.x, caster.y, caster.z))
+				SetLocation(locate(caster.x, caster.y, caster.z))
 				MovementLoop(dir, step_delay)
+			
+			var/x_offset = caster.step_x
+			var/y_offset = caster.step_y
+			
+			StepOffset(x_offset, y_offset)
 		
 		Timer(mob/caster, time=world.time)
 			set waitfor = 0
@@ -58,7 +63,7 @@ obj/spell
 				Expired(caster, time)
 		
 
-		SetLocation(mob/caster, turf/loc)
+		SetLocation(turf/loc)
 			src.loc = loc
 
 		StepOffset(x_offset, y_offset)

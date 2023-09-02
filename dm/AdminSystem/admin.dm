@@ -428,15 +428,3 @@ mob/proc/CheckAdmin()
 			src.verbs += typesof(/mob/Enforcer/verb)
 		if(HOST)
 			src.verbs += typesof(/mob/Host/verb)
-
-obj/item
-	suit_admin_star
-		icon = 'suit_admin_star.dmi'
-		layer = MOB_LAYER+5
-		pixel_y=32
-	suit_admin
-		icon = 'suit_admin.dmi'
-		layer = CLOTHING_LAYER
-	suit_admin_hat
-		icon = 'suit_admin_hat.dmi'
-		layer = CLOTHING_LAYER

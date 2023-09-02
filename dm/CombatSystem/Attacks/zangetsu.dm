@@ -67,8 +67,6 @@ obj/spell
 
 		Init(mob/caster, time=world.time)
 			..(caster, time)
-			var/x_offset = caster.step_x
-			var/y_offset = caster.step_y
 
 			// ! Error
 			// 		Issue not calling Crossed() for mobs in bounds()
@@ -90,7 +88,6 @@ obj/spell
 				if(WEST)
 					ChangeBounds(1,64,63,160)
 					y-=2
-			StepOffset(x_offset, y_offset)
 
 			var/list/new_overlap = bounds()
 			CrossedUncrossedBetweenBounds(old_overlap, new_overlap)
