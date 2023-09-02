@@ -28,6 +28,9 @@ obj/spell
 		duration = -1#INF
 		start_time = 0
 
+		x_offset = 0
+		y_offset = 0
+
 		active = 0
 
 	proc
@@ -39,8 +42,8 @@ obj/spell
 				SetLocation(locate(caster.x, caster.y, caster.z))
 				MovementLoop(dir, step_delay)
 			
-			var/x_offset = caster.step_x
-			var/y_offset = caster.step_y
+			var/x_offset = caster.step_x + src.x_offset
+			var/y_offset = caster.step_y + src.y_offset
 			
 			StepOffset(x_offset, y_offset)
 		
