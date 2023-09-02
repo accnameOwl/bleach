@@ -8,7 +8,6 @@ mob/player/zanpakuto/ichigo/verb/getsuga_tensho()
 	set name = "Getsuga Tensho"
 	set category = "Attacks"
 
-<<<<<<< HEAD
 	var/obj/spell/getsuga_charge/effect = new/obj/spell/getsuga_charge(src, world.time)
 	src.overlays += effect
 	flick("attack",src)
@@ -19,41 +18,6 @@ mob/player/zanpakuto/ichigo/verb/getsuga_tensho()
 	spell_object.dir = src.dir	
 	spell_object.Init(src)
 	
-=======
-	var/obj/spell/getsuga_charge/effect = new(usr)
-	src.vis_contents += effect
-	flick("attack",src)
-	sleep(10/world.fps * 3)
-	src.vis_contents -= effect
-
-	var/obj/spell/getsuga_tensho/spell_object = new(usr)
-	var/obj/spell/getsuga_tensho_flail/trace_one = new(usr)
-	var/obj/spell/getsuga_tensho_flail/trace_two = new(usr)
-
-	spell_object.SetLocation(usr, locate(usr.x,usr.y,usr.z))
-	trace_one.SetLocation(usr, locate(usr.x,usr.y,usr.z))
-	trace_two.SetLocation(usr, locate(usr.x,usr.y,usr.z))
-
-	switch(dir)
-		if(NORTH)
-			trace_one.dir = NORTHEAST
-			trace_two.dir = NORTHWEST
-		if(SOUTH)
-			trace_one.dir = SOUTHEAST
-			trace_two.dir = SOUTHWEST
-		if(EAST)
-			trace_one.dir = NORTHEAST
-			trace_two.dir = SOUTHEAST
-		if(WEST)
-			trace_one.dir = NORTHWEST
-			trace_two.dir = SOUTHWEST
-	spell_object.dir = src.dir	
-	
-	spell_object.Init(usr)
-	trace_one.Init(usr)
-	trace_two.Init(usr)
->>>>>>> refs/remotes/origin/trunk
-
 
 obj/spell
 	getsuga_charge
@@ -106,7 +70,6 @@ obj/spell
 			var/x_offset = caster.step_x
 			var/y_offset = caster.step_y
 
-<<<<<<< HEAD
 			// ! Error
 			// 		Issue not calling Crossed() for mobs in bounds()
 			// x Fix
@@ -132,8 +95,6 @@ obj/spell
 			var/list/new_overlap = bounds()
 			CrossedUncrossedBetweenBounds(old_overlap, new_overlap)
 
-=======
->>>>>>> refs/remotes/origin/trunk
 		Damage(mob/caster, time=world.time)
 			src.damage = (caster.attack * 0.5) + caster.reiatsu
 			

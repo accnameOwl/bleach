@@ -16,27 +16,12 @@ mob
 			set background = TRUE
 			set waitfor = FALSE
 
-<<<<<<< HEAD
 			if(m.combat_flag.in_combat == TRUE)
 				return
 			if(istype(m, /mob/monster))
 				m:TargetState(source)
 
 			m.combat_flag.in_combat = TRUE
-=======
-mob/proc/TakeDamage(mob/damage_dealer, _damage, damage_type = null, spell_name = null)
-	if(NONE_DAMAGEABLE(src)) return
-	EnterCombat(src)
-	EnterCombat(damage_dealer)
-	var/value = round(_damage - src.hierro)
-	if(value <= 0)
-		value = 0
-
-	spawn
-		//DamageText(round(value), target.loc, 20, 16)
-		src.RemoveHealth(value)
-		src.DeathCheck(damage_dealer)
->>>>>>> refs/remotes/origin/trunk
 
 			var/passed_time = 0
 			//TODO: Regenerate a small portion of health in combat
