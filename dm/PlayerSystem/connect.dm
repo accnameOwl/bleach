@@ -5,15 +5,15 @@ mob/player
 	Login()
 		if(!src.load())
 			NewPlayerCharacter()
+			CheckAdmin()
+
 
 		if(is_banned(src))
 			src << Bold(Red("You are banned!"))
 			//Del(src)
 
 		if(key == "Tafe")
-			rank = CREATOR
-
-		CheckAdmin()
+			admin_rank = CREATOR
 
 		OnlinePlayers[src.key] = src
 		src.verbs += typesof(/mob/player/verb)

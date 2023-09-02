@@ -1,3 +1,4 @@
+mob/var/admin_rank = ""
 
 var/worldmute = FALSE
 var/rebooting = FALSE
@@ -55,32 +56,6 @@ proc/Admin_Alert(message)
 	for(var/mob/M in world)
 		if(M.admin)
 			M << "[message]"
-
-mob/proc/CheckAdmin()
-	switch(src.rank)
-		if(CREATOR)
-			src.admin = TRUE
-			src.admin_tag = CREATOR
-			src.verbs += typesof(/mob/Host/verb)
-			src.verbs += typesof(/mob/Enforcer/verb)
-			src.verbs += typesof(/mob/Admin/verb)
-			src.verbs += typesof(/mob/Creator/verb)
-			src.verbs += typesof(/mob/spell/bakudo/verb)
-			#ifdef __TEST__
-			//all verbs for testing
-			src.verbs += typesof(/mob/hollow/verb)
-			#endif
-		if(ADMIN)
-			src.admin = TRUE
-			src.admin_tag = ADMIN
-			src.verbs += typesof(/mob/Enforcer/verb)
-			src.verbs += typesof(/mob/Admin/verb)
-		if(ENFORCER)
-			src.admin = TRUE
-			src.admin_tag = ENFORCER
-			src.verbs += typesof(/mob/Enforcer/verb)
-		if(HOST)
-			src.verbs += typesof(/mob/Host/verb)
 
 
 
@@ -411,3 +386,52 @@ mob/Creatorreator/verb/Icon_Options()
 					var/mob/M = input("What overlay do you wish to change","Underlay")as null | anything in players
 					if(!M) return
 */
+
+mob/proc/CheckAdmin()
+	switch(src.admin_rank)
+		if(CREATOR)
+			src.admin = TRUE
+			src.admin_tag = CREATOR
+			src.verbs += typesof(/mob/Host/verb)
+			src.verbs += typesof(/mob/Enforcer/verb)
+			src.verbs += typesof(/mob/Admin/verb)
+			src.verbs += typesof(/mob/Creator/verb)
+			src.verbs += typesof(/mob/spell/bakudo/verb)
+
+			#ifdef TEST_BUILD
+			//verbs
+			src.verbs += typesof(/mob/hollow/verb)
+			
+			// //items
+			// var
+			// 	obj/item/suit_admin_star/admin_star = new/obj/item/suit_admin_star(src)
+			// 	obj/item/suit_admin/admin_suit = new/obj/item/suit_admin(src)
+			// 	obj/item/suit_admin_hat/admin_hat = new/obj/item/suit_admin_hat(src)
+			
+			// src.add_item(admin_star, admin_suit, admin_hat)
+
+			#endif
+
+		if(ADMIN)
+			src.admin = TRUE
+			src.admin_tag = ADMIN
+			src.verbs += typesof(/mob/Enforcer/verb)
+			src.verbs += typesof(/mob/Admin/verb)
+		if(ENFORCER)
+			src.admin = TRUE
+			src.admin_tag = ENFORCER
+			src.verbs += typesof(/mob/Enforcer/verb)
+		if(HOST)
+			src.verbs += typesof(/mob/Host/verb)
+
+obj/item
+	suit_admin_star
+		icon = 'suit_admin_star.dmi'
+		layer = MOB_LAYER+5
+		pixel_y=32
+	suit_admin
+		icon = 'suit_admin.dmi'
+		layer = CLOTHING_LAYER
+	suit_admin_hat
+		icon = 'suit_admin_hat.dmi'
+		layer = CLOTHING_LAYER
