@@ -25,12 +25,11 @@ mob
 
 			var/passed_time = 0
 			//TODO: Regenerate a small portion of health in combat
-			do
+			while(m.combat_flag.in_combat)
 				passed_time = m.combat_flag.time - world.time
 				if(passed_time <= DROP_COMBAT_TIME)
 					return ExitCombat(m)
-				sleep(10/world.tick_lag)
-			while(m.combat_flag.in_combat)
+				sleep(10/world.fps)
 
 		ExitCombat(mob/m)
 			m.combat_flag.in_combat = FALSE
@@ -63,9 +62,9 @@ mob
 					value = DarkMagic(value)
 				if(BLEED_TYPE)
 					value = Bleed(value)
-				if(BURN_TYPE)
+				if(FIRE_TYPE)
 					value = Burn(value)
-				if(TOXIC_TYPE)
+				if(POISON_TYPE)
 					value = Toxin(value)
 				if(FREEZE_TYPE)
 					value = Freeze(value)

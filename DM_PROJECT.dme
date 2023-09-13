@@ -51,6 +51,7 @@
 #include "dm\client\verbs.dm"
 #include "dm\CombatSystem\combat_flag.dm"
 #include "dm\CombatSystem\combat_text.dm"
+#include "dm\CombatSystem\damage.dm"
 #include "dm\CombatSystem\damage_type.dm"
 #include "dm\CombatSystem\effect.dm"
 #include "dm\CombatSystem\handlers.dm"

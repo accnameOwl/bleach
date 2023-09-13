@@ -8,13 +8,13 @@ mob/player/zanpakuto/ichigo/verb/getsuga_tensho()
 	set name = "Getsuga Tensho"
 	set category = "Attacks"
 
-	var/obj/spell/getsuga_charge/effect = new/obj/spell/getsuga_charge(src, world.time)
+	var/effect = new/obj/spell/getsuga_charge(src)
 	src.overlays += effect
 	flick("attack",src)
 	sleep(3)
 	src.overlays-=effect
 
-	var/obj/spell/getsuga_tensho/spell_object = new/obj/spell/getsuga_tensho(src, world.time)
+	var/obj/spell/getsuga_tensho/spell_object = new/obj/spell/getsuga_tensho(src)
 	spell_object.dir = src.dir	
 	spell_object.Init(src)
 	

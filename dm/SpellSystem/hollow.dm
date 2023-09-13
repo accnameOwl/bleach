@@ -22,16 +22,43 @@ obj/spell
 		step_size = SPELL_STEPSIZE_CERO
 		move_on_init = TRUE
 		damage_type = DARKMAGIC_TYPE
+
 		
+		var/steps_moved = 1
+		// TODO:
+		// Spawn trails through Step()
+		// ? if prev trail is 32 pixels behind, spawn new trail 
+		// TODO:
+		// 		Doesn't move correctly... :/
+		// Step(dir, delay=step_delay)
+		// 	.= ..(dir,step_delay)
+		// 	if(.)
+		// 		src.steps_moved += 1
+		// 		if(steps_moved >= 6)
+		// 			steps_moved = 1
+		// 			var/obj/cero_trail/trail = new/obj/cero_trail
+		// 			trail.dir = src.dir
+		// 			trail.loc = locate(src.x, src.y,src.z)
+		// 			step_x = src.step_x
+		// 			step_y = src.step_y
+
 		Damage(mob/caster, time=world.time)
 			src.damage=caster.reishi * SPELL_MULTIPL_BALA
 		
-	cero_trail
-		icon = 'cero.dmi'
-		icon_state = "cero_trail"
-		duration = SPELL_TIMEOUT_CERO/6
+obj/cero_trail
+	icon = 'cero.dmi'
+	icon_state = "cero_trail"
 
-		
+	New()
+		timer(world.time)
+
+	proc/timer(start_time, duration = SPELL_TIMEOUT_CERO/6)
+		set waitfor = 0
+		while(world.time <= start_time+duration)
+			sleep(min(10,start_time+duration-world.time))
+		loc = null
+
+obj/spell	
 //Gran rey cero
 	granreycero
 		name = "Gran Rey Cero"

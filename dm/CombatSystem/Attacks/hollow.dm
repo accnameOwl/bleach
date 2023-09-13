@@ -16,6 +16,7 @@ mob/hollow/verb
 		//2: send cero
 		var/obj/spell/cero/cero = new/obj/spell/cero(src,world.time)
 		cero.dir = dir
+		cero.uid = src.key
 		cero.Init(src)
 
 	// Bala

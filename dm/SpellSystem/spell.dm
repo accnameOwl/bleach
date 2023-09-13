@@ -35,9 +35,9 @@ obj/spell
 
 	proc
 		Init(mob/caster, time=world.time)
+			active = 1
 			Damage(caster, time)
 			Timer(caster, time)
-			active = 1
 			if(move_on_init) // if supposed to move on init, spawn movement loop
 				SetLocation(locate(caster.x, caster.y, caster.z))
 				MovementLoop(dir, step_delay)
@@ -51,13 +51,14 @@ obj/spell
 			set waitfor = 0
 			while(active && world.time<start_time+duration)
 				sleep(min(10, start_time+duration-world.time))
-			Expire(caster,world.time)
+			if(caster)
+				Expire(caster,world.time)
 
 		MovementLoop()
 			set waitfor = 0
 			while(active)
 				Step(dir)
-				sleep(world.tick_lag/10)
+				sleep(10/world.fps)
 		
 		Expire(mob/caster, time=world.time)
 			if(active)
@@ -96,12 +97,10 @@ obj/spell
 
 	CrossedMob(mob/m)
 		..()
-		if(!src.uid)
-			return
-		else if(m.key == src.uid) 
-			return 0 // Stop spell from hitting caster
-		var/mob/caster = OnlinePlayers[src.uid]
+		var/mob/caster = src.uid ? OnlinePlayers[src.uid] : null
 		if(!caster) 
 			return 0 // no caster found.
-		m.TakeDamage(caster, src.damage, src.damage_type)
-		OnHit(caster, m, world.time)
+		if(caster.key != src.uid)
+			m.TakeDamage(caster, src.damage, src.damage_type)
+			OnHit(caster, m, world.time)
+

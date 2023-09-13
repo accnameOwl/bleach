@@ -4,8 +4,10 @@
 #define MAGIC_TYPE "magic"
 #define DARKMAGIC_TYPE "darkmagic"
 #define BLEED_TYPE "bleed"
-#define BURN_TYPE "burn"
-#define TOXIC_TYPE "toxic"
+#define FIRE_TYPE "burn"
+#define WATER_TYPE "water"
+#define ICE_TYPE "ice"
+#define POISON_TYPE "poison"
 #define FREEZE_TYPE "freeze"
 
 #define EFFECT_CAN_STACK "stack"
