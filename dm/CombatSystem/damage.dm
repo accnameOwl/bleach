@@ -4,7 +4,7 @@ var/damage/damage = new
 
 damage
 	proc
-		CalculateDamage(damage = 0, damage_type = "", defence = 0, dodge = 0, mitigation = 0)
+		Calculate(damage = 0, damage_type = "", defence = 0, dodge = 0, mitigation = 0)
 			if(dodge && prob(dodge))
 				return "dodge"
 			else

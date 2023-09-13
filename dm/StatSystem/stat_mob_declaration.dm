@@ -14,6 +14,13 @@ mob
 			
 		tmp/last_time_trained = -1#INF // world.time
 
+		//Special attributes. (They don't require to be /datum/stat types)
+		//dodge:	Max 25% -> 1sp=.5%
+		dodge = 0
+		//mitigation: max 40% -> 1sp=.5%
+		mitigation = 0
+		//regeneration: max 10% -> 1sp=.5%
+		regeneration = 0
 
 	player
 		var/exp = 0
@@ -21,13 +28,6 @@ mob
 		var/fatigue = 0
 		var/total_exp = 0
 		
-		//Special attributes. (They don't require to be /datum/stat types)
-		//dodge:	Max 25% -> 1sp=.5%
-		var/dodge = 0
-		//mitigation: max 40% -> 1sp=.5%
-		var/mitigation = 0
-		//regeneration: max 10% -> 1sp=.5%
-		var/regeneration = 0
 
 	var/level = 1
 	

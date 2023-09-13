@@ -4,12 +4,12 @@ mob
 		resting = FALSE
 	
 	proc
-		RemoveHealth(mob/source, value)
+		RemoveHealth(value, mob/source)
 			combat_flag.time = world.time
 			src.health -= round(value)
 			combat_flag.time = world.time
 
-		RestoreHealth(mob/source, amount=0)
+		RestoreHealth(amount=0, mob/source)
 			health += round(amount)
 
 		EnterCombat(mob/m, mob/source)
@@ -40,15 +40,12 @@ mob
 		TakeDamage(mob/damage_dealer, _damage, damage_type = null, spell_name = null)
 			if(IMMUNE_TO_DAMAGE(src)) // Ignore objects immune to damage 
 				return 0
-			var/value = round(_damage - src.hierro)
+			var/value = damage.Calculate(_damage, damage_type, src.hierro, src.dodge, src.mitigation)
 			
-			if(value <= 0) // If damage is less than 0, prevent restoring health
-				value = 0
+			EnterCombat(src, damage_dealer)
+			EnterCombat(damage_dealer, src)
 			
-			EnterCombat(src)
-			EnterCombat(damage_dealer)
-			
-			src.RemoveHealth(damage_dealer, value)
+			src.RemoveHealth(value, damage_dealer)
 			src.DeathCheck(damage_dealer)
 			
 			switch(damage_type) //Change damage text color, relative to damage type
@@ -135,8 +132,8 @@ mob
 				Reward(killer)
 				killer << Bold(Red("You have killed [src.name]."))
 
-		RemoveHealth(mob/source, value)
-			..(source, value)
+		RemoveHealth(value, mob/source)
+			..(value, source)
 
 			// AI targeting
 			#ifdef change_target
