@@ -12,7 +12,7 @@ mob/NPC/Barber
 
 	verb/Talk()
 		set src in oview(2)
-		
+
 		var/selected_hair = input(usr, "Please select a hairtype!", "Barber") in hairtypes
 		var/selected_color = input(usr, "select hair color", "Hair Color") as color
 		var/icon/_icon = new(hairtypes[selected_hair])
@@ -212,20 +212,6 @@ mob/NPC/RetsuUnohana
 	name = "Retsu Unohana"
 	level = "?"
 	respawn_time = 1
-	New()
-		..()
-		while(src)
-			switch(dir)
-				//Walk in a circle
-				if(NORTH)
-					walk_towards(src, locate(x+2,y,z),1,1)
-				if(EAST)
-					walk_towards(src, locate(x,y-2,z),1,1)
-				if(SOUTH)
-					walk_towards(src, locate(x-2,y,z),1,1)
-				if(WEST)
-					walk_towards(src, locate(x,y+2,z),1,1)
-			sleep(rand(60,80))
 
 	verb/Talk()
 		set src in oview(1)
@@ -255,23 +241,15 @@ mob/NPC/AizenSoske
 	level = "?"
 	respawn_time = 1
 
-	New()
-		while(src)
-			switch(dir)
-				//Walk in a circle
-				if(NORTH)
-					walk_towards(src, locate(x+2,y,z),0,1)
-				if(EAST)
-					walk_towards(src, locate(x,y-2,z),0,1)
-				if(SOUTH)
-					walk_towards(src, locate(x-2,y,z),0,1)
-				if(WEST)
-					walk_towards(src, locate(x,y+2,z),0,1)
-			sleep(rand(60,80))
-
 	verb/Talk()
 		set src in oview(2)
 		//var/_title = "Aizen Sōsuke"
+
+mob/NPC/KanameTousen
+	icon = 'kaname_tousen.dmi'
+	name = "Kaname Tousen"
+	level = "?"
+	respawn_time = 1800
 
 
 // @Urahara
