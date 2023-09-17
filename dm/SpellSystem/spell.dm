@@ -91,6 +91,7 @@ obj/spell
 		if(step(src, dir))
 			last_step = world.time
 			next_step = last_step + delay
+			world << "[src.name] steps"
 			return 1
 		else
 			return 0
