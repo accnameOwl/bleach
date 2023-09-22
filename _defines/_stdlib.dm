@@ -16,3 +16,13 @@
 #define SECOND(x)	10*x
 #define MINUTE(x) 	600*x
 #define HOUR(x) 	36000*x
+
+proc/ChangeIconColor(atom/object, icon/i, color)
+	// ChangeIconColor(object, 'icon.dmi')
+	if(i)	
+		i = new(i)
+	else if(object.icon) 
+		i = new(object.icon)
+	if(color)
+		i.Blend(color, ICON_ADD)
+	object.icon = i

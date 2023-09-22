@@ -58,7 +58,7 @@ obj/item/Clothing
 		icon='suit_arrancar_1.dmi'
 		name="Suit"
 		id="suit_arrancar_1"
-	suit_arrancer_2
+	suit_arrancar_2
 		icon='suit_arrancar_2.dmi'
 		name="Suit"
 		id="suit_arrancar_2"

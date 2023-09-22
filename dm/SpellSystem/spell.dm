@@ -66,7 +66,6 @@ obj/spell
 				loc = null
 				Expired(caster, time)
 		
-
 		SetLocation(turf/loc)
 			src.loc = loc
 
@@ -84,6 +83,7 @@ obj/spell
 	New(mob/caster, time=world.time)
 		..()
 		src.uid = caster.key
+		src.dir = caster.dir
 
 	Step(dir, delay=step_delay)
 		if(next_step - world.time >= world.tick_lag/10)

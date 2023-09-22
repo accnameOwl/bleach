@@ -31,7 +31,7 @@ mob/NPC/Barber
 // @Shopkeeper
 mob/NPC/Shopkeeper
 	icon = 'npcs.dmi'
-	icon_state = "shopkeeper"
+	icon_state = "Shopkeeper"
 	name = "The famous keeper of shops"
 
 	New()
@@ -50,20 +50,66 @@ mob/NPC/Shopkeeper
 
 	verb/Talk()
 		set src in oview(2)
+		var/list/shop_inventory = list(
+			"Cape" = new/obj/item/Clothing/cloth_cape,
+			"Flower Cape" = new/obj/item/Clothing/cloth_flowercape,
+			"Glasses" = new/obj/item/Clothing/cloth_glass,
+			"Jacket" = new/obj/item/Clothing/cloth_jacket,
+			"Ninja Suit" = new/obj/item/Clothing/cloth_ninja,
+			"Pants" = new/obj/item/Clothing/cloth_pants,
+			"School Uniform" = new/obj/item/Clothing/cloth_schooluniform,
+			"Shirt" = new/obj/item/Clothing/cloth_shirt,
+			"Sunglasses" = new/obj/item/Clothing/cloth_sunglasses,
+			"Eye Goggles" = new/obj/item/Clothing/cloth_tousengoggles,
+			"Green Uniform" = new/obj/item/Clothing/cloth_urahara,
+			"Hat" = new/obj/item/Clothing/cloth_urahara_hat)
+		var/selected_item = input(usr, "Please select a product!", "Barber") as null|anything in shop_inventory
+		var/obj/item/_item = shop_inventory[selected_item]
 
-		var/selected_hair = input(usr, "Please select a hairtype!", "Barber") in hairtypes
-		var/selected_color = input(usr, "select hair color", "Hair Color") as color
-		var/icon/_icon = new(hairtypes[selected_hair])
-		_icon.Blend(selected_color, ICON_ADD)
+		switch(selected_item)
+			if("Cape","Pants","Shirt")
+				var/selected_color = input(usr, "Please pick a color", "Hair Color") as color
+				_item.ChangeIconColor(, selected_color)
+		usr.add_item(_item)
 
-		var/obj/hair/h = new/obj/hair()
-		h.icon=_icon
-		if(usr.hair)
-			usr.overlays.Remove(usr.hair)
 
-		usr.hair = h
-		usr.overlays.Add(h)
+// @Shopkeeper
+mob/NPC/admin_shopkeeper
+	icon = 'npcs.dmi'
+	icon_state = "The Awesome Shopkeeper"
+	name = "The famous keeper of shops"
 
+	New()
+		while(src)
+			switch(dir)
+				//Walk in a circle
+				if(NORTH)
+					walk_towards(src, locate(x+1,y,z),0,1)
+				if(EAST)
+					walk_towards(src, locate(x,y-1,z),0,1)
+				if(SOUTH)
+					walk_towards(src, locate(x-1,y,z),0,1)
+				if(WEST)
+					walk_towards(src, locate(x,y+1,z),0,1)
+			sleep(rand(60,80))
+
+	verb/Talk()
+		set src in oview(2)
+		var/list/shop_inventory = list(
+			"Admin Hat" = new/obj/item/Clothing/suit_admin_hat,
+			"Admin Suit" = new/obj/item/Clothing/suit_admin,
+			"Admin Star" = new/obj/item/Clothing/suit_admin_star,
+			"Aizen Suit" = new/obj/item/Clothing/suit_aizen,
+			"Arrancar 1 Suit" = new/obj/item/Clothing/suit_arrancar_1,
+			"Arrancar 2 Suit" = new/obj/item/Clothing/suit_arrancar_2,
+			"Arrancar 3 Suit" = new/obj/item/Clothing/suit_arrancar_3,
+			"Arrancar 4 Suit" = new/obj/item/Clothing/suit_arrancar_4,
+			"Quincy Suit" = new/obj/item/Clothing/suit_quincy,
+			"Shinigami Suit" = new/obj/item/Clothing/suit_shinigami,
+			"Black Captain Cloak" = new/obj/item/Clothing/suit_captain_black,
+			"Blue Captain Cloak" = new/obj/item/Clothing/suit_captain_blue)
+		var/selected_item = input(usr, "Please select a product!", "Barber") as null|anything in shop_inventory
+		usr.add_item(shop_inventory[selected_item])
 
 // @ShinigamiTeacher
 mob/NPC/ShinigamiTeacher
