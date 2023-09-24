@@ -69,7 +69,7 @@ mob/NPC/Shopkeeper
 		switch(selected_item)
 			if("Cape","Pants","Shirt")
 				var/selected_color = input(usr, "Please pick a color", "Hair Color") as color
-				_item.ChangeIconColor(, selected_color)
+				ChangeIconColor(_item,, selected_color)
 		usr.add_item(_item)
 
 

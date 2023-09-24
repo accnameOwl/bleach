@@ -16,7 +16,7 @@ mob
 		// @Zaraki
 		Zaraki
 			name = "Zaraki Kenpachi"
-			icon_state = "zaraki"
+			icon='zaraki_kenpachi.dmi'
 
 			aggro_dist=10
 			attack_reach = 1
@@ -46,7 +46,7 @@ mob
 		// @Byakuya
 		Byakuya
 			name = "Kuchiki Byakuya"
-			icon_state = "byakuya"
+			icon = 'byakuya_kuchiki.dmi'
 
 			aggro_dist=10
 			attack_reach = 1
@@ -281,7 +281,7 @@ mob
 		// @Grimjow
 		Grimjow
 			name = "Grimjow Jaggerjack"
-			icon_state = "grimjow"
+			icon='grimjow_jaggarjack.dmi'
 
 			aggro_dist=10
 			attack_reach = 1
@@ -305,7 +305,7 @@ mob
 		// @Ulquiorra
 		Ulquiorra
 			name = "Ulquiorra Cifer"
-			icon_state = "ulquiorra"
+			icon = 'ulquiorra_chifer.dmi'
 
 			aggro_dist=10
 			attack_reach = 1
