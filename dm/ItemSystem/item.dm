@@ -1,12 +1,31 @@
 obj/item
 	layer = MOB_LAYER+1
 	var
-		equipped = 0
-		id = ""
+		equipped
+		id
+		name
+		effect
+		damage
 		// List of paths that is given to owner at Read() and Equip()
 		list/verbs_on_equip = list()
 
 	proc
+		loadItems()
+			var/json/Data = JsonReader('json/items.json')
+			var/json/Array = Data["items"]
+
+			for( var/json/Object/Item in Array)
+				var/obj/item/NewItem = obj/item()
+				NewItem.id = Item["id"]
+				NewItem.name = Item["name"]
+				NewItem.type = Item["type"]
+
+				if (Item["effect"])
+					NewItem.effect = Item["effect"]
+				
+				if (Item["damage"])
+					NewItem.damage = Item["damage"]
+
 		RemoveVerbsOnEquip(mob/m)
 			m.verbs -= verbs_on_equip
 

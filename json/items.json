@@ -1,0 +1,37 @@
+{
+	"items" : [
+		{
+			"id": 1,
+			"name": "Small Health Potion",
+			"type": "consumable",
+			"effect" : {
+				"type":"heal",
+				"value": 400
+			}
+		},
+		{
+			"id": 2,
+			"name": "Medium Health Potion",
+			"type": "consumable",
+			"effect" : {
+				"type":"heal",
+				"value": 2200
+			}
+		},
+		{
+			"id": 3,
+			"name": "Large Health Potion",
+			"type": "consumable",
+			"effect" : {
+				"type":"heal",
+				"value": 5000
+			}
+		},
+		{
+			"id":12,
+			"name": "Zanpakuto",
+			"type": "weapon",
+			"damage": 200
+		}
+	]
+}

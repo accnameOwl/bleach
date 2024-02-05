@@ -73,6 +73,7 @@
 #include "dm\MonsterSystem\monsters.dm"
 #include "dm\NPCSystem\NPCs.dm"
 #include "dm\NPCSystem\npcsystem.dm"
+#include "dm\NPCSystem\Challenge System\player_challenges.dm"
 #include "dm\pixelmovement\collition.dm"
 #include "dm\pixelmovement\input.dm"
 #include "dm\pixelmovement\pixelmovement.dm"

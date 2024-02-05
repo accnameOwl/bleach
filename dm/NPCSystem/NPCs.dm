@@ -6,8 +6,7 @@ mob/NPC
 
 // @Barber
 mob/NPC/Barber
-	icon = 'npcs.dmi'
-	icon_state = "barber"
+	icon = 'barber.dmi'
 	name = "The famous barber"
 
 	verb/Talk()
@@ -30,8 +29,7 @@ mob/NPC/Barber
 
 // @Shopkeeper
 mob/NPC/Shopkeeper
-	icon = 'npcs.dmi'
-	icon_state = "Shopkeeper"
+	icon = 'shop_keeper.dmi'
 	name = "The famous keeper of shops"
 
 	New()
@@ -278,6 +276,31 @@ mob/NPC/RetsuUnohana
 						alert("Unohana: You should be more careful, [usr.name]...")
 		else
 			alert("You do not feel welcome.")
+
+
+mob/NPC/ByakuyaKuchiki
+	icon = 'byakuya_kuchiki.dmi'
+	name = "Byakuya Kuchiki"
+	level = "?"
+	respawn_time = 1
+
+	verb/Talk()
+		set src in oview(2)
+		set category = "Talk"
+		var/mob/player/player = usr
+		var/accept_challenge = alert("Do you wish to challange me, [usr.name]", "Challenge Byakuya","Yes","No")
+		if(accept_challenge == "No") 
+			return 0
+		if(player.challenge_list["byakuya"])
+			var/no_reward = alert("You already recieved your reward, and will not be awarded once more. Continue?", "Challenge Byakuya", "Yes","No")
+			if( no_reward == "No")
+				return 0
+		else 
+			var/with_reward = alert("You will be rewarded a small boost and release mastery", "Challenge Byakuya","Ok","Leave")
+			if(with_reward == "Leave")
+				return 0
+		player << Bold(Yellow(Center("Defeat Byakuya Kuchiki")))
+		player << Red(Center("Starting challenge in 5 seconds"))
 
 
 	// @Aizen
