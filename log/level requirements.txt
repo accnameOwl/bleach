@@ -1,0 +1,547 @@
+
+Level 2	req_exp:130(+30); log:28
+Level 3	req_exp:159(+29); log:26
+Level 4	req_exp:188(+29); log:25
+Level 5	req_exp:217(+29); log:24
+Level 6	req_exp:245(+28); log:23
+Level 7	req_exp:273(+28); log:22
+Level 8	req_exp:302(+29); log:22
+Level 9	req_exp:331(+29); log:21
+Level 10	req_exp:360(+29); log:21
+Level 11	req_exp:390(+30); log:21
+Level 12	req_exp:420(+30); log:20
+Level 13	req_exp:451(+31); log:20
+Level 14	req_exp:482(+31); log:20
+Level 15	req_exp:513(+31); log:19
+Level 16	req_exp:545(+32); log:19
+Level 17	req_exp:578(+33); log:19
+Level 18	req_exp:612(+34); log:19
+Level 19	req_exp:646(+34); log:18
+Level 20	req_exp:681(+35); log:18
+Level 21	req_exp:717(+36); log:18
+Level 22	req_exp:754(+37); log:18
+Level 23	req_exp:792(+38); log:18
+Level 24	req_exp:830(+38); log:17
+Level 25	req_exp:869(+39); log:17
+Level 26	req_exp:909(+40); log:17
+Level 27	req_exp:950(+41); log:17
+Level 28	req_exp:992(+42); log:17
+Level 29	req_exp:1035(+43); log:17
+Level 30	req_exp:1078(+43); log:16
+Level 31	req_exp:1122(+44); log:16
+Level 32	req_exp:1167(+45); log:16
+Level 33	req_exp:1214(+47); log:16
+Level 34	req_exp:1262(+48); log:16
+Level 35	req_exp:1311(+49); log:16
+Level 36	req_exp:1361(+50); log:16
+Level 37	req_exp:1413(+52); log:16
+Level 38	req_exp:1465(+52); log:15
+Level 39	req_exp:1518(+53); log:15
+Level 40	req_exp:1573(+55); log:15
+Level 41	req_exp:1629(+56); log:15
+Level 42	req_exp:1687(+58); log:15
+Level 43	req_exp:1746(+59); log:15
+Level 44	req_exp:1807(+61); log:15
+Level 45	req_exp:1870(+63); log:15
+Level 46	req_exp:1934(+64); log:15
+Level 47	req_exp:2000(+66); log:15
+Level 48	req_exp:2068(+68); log:15
+Level 49	req_exp:2137(+69); log:14
+Level 50	req_exp:2207(+70); log:14
+Level 51	req_exp:2279(+72); log:14
+Level 52	req_exp:2353(+74); log:14
+Level 53	req_exp:2429(+76); log:14
+Level 54	req_exp:2507(+78); log:14
+Level 55	req_exp:2587(+80); log:14
+Level 56	req_exp:2669(+82); log:14
+Level 57	req_exp:2753(+84); log:14
+Level 58	req_exp:2840(+87); log:14
+Level 59	req_exp:2929(+89); log:14
+Level 60	req_exp:3020(+91); log:14
+Level 61	req_exp:3114(+94); log:14
+Level 62	req_exp:3209(+95); log:13
+Level 63	req_exp:3307(+98); log:13
+Level 64	req_exp:3407(+100); log:13
+Level 65	req_exp:3510(+103); log:13
+Level 66	req_exp:3616(+106); log:13
+Level 67	req_exp:3725(+109); log:13
+Level 68	req_exp:3837(+112); log:13
+Level 69	req_exp:3952(+115); log:13
+Level 70	req_exp:4070(+118); log:13
+Level 71	req_exp:4191(+121); log:13
+Level 72	req_exp:4315(+124); log:13
+Level 73	req_exp:4442(+127); log:13
+Level 74	req_exp:4573(+131); log:13
+Level 75	req_exp:4707(+134); log:13
+Level 76	req_exp:4845(+138); log:13
+Level 77	req_exp:4986(+141); log:13
+Level 78	req_exp:5131(+145); log:13
+Level 79	req_exp:5279(+148); log:12
+Level 80	req_exp:5431(+152); log:12
+Level 81	req_exp:5587(+156); log:12
+Level 82	req_exp:5747(+160); log:12
+Level 83	req_exp:5911(+164); log:12
+Level 84	req_exp:6080(+169); log:12
+Level 85	req_exp:6253(+173); log:12
+Level 86	req_exp:6431(+178); log:12
+Level 87	req_exp:6614(+183); log:12
+Level 88	req_exp:6801(+187); log:12
+Level 89	req_exp:6993(+192); log:12
+Level 90	req_exp:7191(+198); log:12
+Level 91	req_exp:7394(+203); log:12
+Level 92	req_exp:7602(+208); log:12
+Level 93	req_exp:7816(+214); log:12
+Level 94	req_exp:8035(+219); log:12
+Level 95	req_exp:8260(+225); log:12
+Level 96	req_exp:8491(+231); log:12
+Level 97	req_exp:8728(+237); log:12
+Level 98	req_exp:8972(+244); log:12
+Level 99	req_exp:9222(+250); log:12
+Level 100	req_exp:9478(+256); log:11
+Level 101	req_exp:9741(+263); log:11
+Level 102	req_exp:10011(+270); log:11
+Level 103	req_exp:10288(+277); log:11
+Level 104	req_exp:10572(+284); log:11
+Level 105	req_exp:10864(+292); log:11
+Level 106	req_exp:11163(+299); log:11
+Level 107	req_exp:11470(+307); log:11
+Level 108	req_exp:11786(+316); log:11
+Level 109	req_exp:12110(+324); log:11
+Level 110	req_exp:12443(+333); log:11
+Level 111	req_exp:12784(+341); log:11
+Level 112	req_exp:13135(+351); log:11
+Level 113	req_exp:13495(+360); log:11
+Level 114	req_exp:13864(+369); log:11
+Level 115	req_exp:14243(+379); log:11
+Level 116	req_exp:14632(+389); log:11
+Level 117	req_exp:15032(+400); log:11
+Level 118	req_exp:15442(+410); log:11
+Level 119	req_exp:15863(+421); log:11
+Level 120	req_exp:16295(+432); log:11
+Level 121	req_exp:16739(+444); log:11
+Level 122	req_exp:17195(+456); log:11
+Level 123	req_exp:17663(+468); log:11
+Level 124	req_exp:18143(+480); log:11
+Level 125	req_exp:18636(+493); log:11
+Level 126	req_exp:19142(+506); log:11
+Level 127	req_exp:19662(+520); log:11
+Level 128	req_exp:20195(+533); log:10
+Level 129	req_exp:20742(+547); log:10
+Level 130	req_exp:21303(+561); log:10
+Level 131	req_exp:21879(+576); log:10
+Level 132	req_exp:22470(+591); log:10
+Level 133	req_exp:23077(+607); log:10
+Level 134	req_exp:23700(+623); log:10
+Level 135	req_exp:24340(+640); log:10
+Level 136	req_exp:24997(+657); log:10
+Level 137	req_exp:25671(+674); log:10
+Level 138	req_exp:26363(+692); log:10
+Level 139	req_exp:27074(+711); log:10
+Level 140	req_exp:27804(+730); log:10
+Level 141	req_exp:28553(+749); log:10
+Level 142	req_exp:29322(+769); log:10
+Level 143	req_exp:30111(+789); log:10
+Level 144	req_exp:30921(+810); log:10
+Level 145	req_exp:31753(+832); log:10
+Level 146	req_exp:32607(+854); log:10
+Level 147	req_exp:33484(+877); log:10
+Level 148	req_exp:34384(+900); log:10
+Level 149	req_exp:35308(+924); log:10
+Level 150	req_exp:36257(+949); log:10
+Level 151	req_exp:37231(+974); log:10
+Level 152	req_exp:38231(+1000); log:10
+Level 153	req_exp:39257(+1026); log:10
+Level 154	req_exp:40311(+1054); log:10
+Level 155	req_exp:41393(+1082); log:10
+Level 156	req_exp:42504(+1111); log:10
+Level 157	req_exp:43644(+1140); log:10
+
+
+Level 158	req_exp:44814(+1170); log:10
+Level 159	req_exp:46016(+1202); log:10
+Level 160	req_exp:47250(+1234); log:10
+
+Level 161	req_exp:48516(+1266); log:10
+Level 162	req_exp:49816(+1300); log:10
+Level 163	req_exp:51150(+1334); log:9
+Level 164	req_exp:52519(+1369); log:9
+Level 165	req_exp:53925(+1406); log:9
+Level 166	req_exp:55368(+1443); log:9
+Level 167	req_exp:56849(+1481); log:9
+Level 168	req_exp:58370(+1521); log:9
+
+Level 169	req_exp:59931(+1561); log:9
+Level 170	req_exp:61534(+1603); log:9
+Level 171	req_exp:63179(+1645); log:9
+Level 172	req_exp:64868(+1689); log:9
+Level 173	req_exp:66602(+1734); log:9
+Level 174	req_exp:68382(+1780); log:9
+Level 175	req_exp:70209(+1827); log:9
+Level 176	req_exp:72085(+1876); log:9
+Level 177	req_exp:74011(+1926); log:9
+Level 178	req_exp:75988(+1977); log:9
+Level 179	req_exp:78018(+2030); log:9
+Level 180	req_exp:80102(+2084); log:9
+Level 181	req_exp:82241(+2139); log:9
+
+Level 182	req_exp:84437(+2196); log:9
+Level 183	req_exp:86692(+2255); log:9
+Level 184	req_exp:89007(+2315); log:9
+Level 185	req_exp:91383(+2376); log:9
+Level 186	req_exp:93822(+2439); log:9
+Level 187	req_exp:96326(+2504); log:9
+Level 188	req_exp:98897(+2571); log:9
+Level 189	req_exp:101536(+2639); log:9
+Level 190	req_exp:104245(+2709); log:9
+Level 191	req_exp:107026(+2781); log:9
+Level 192	req_exp:109881(+2855); log:9
+Level 193	req_exp:112812(+2931); log:9
+Level 194	req_exp:115821(+3009); log:9
+Level 195	req_exp:118910(+3089); log:9
+Level 196	req_exp:122082(+3172); log:9
+Level 197	req_exp:125338(+3256); log:9
+Level 198	req_exp:128680(+3342); log:9
+Level 199	req_exp:132111(+3431); log:9
+Level 200	req_exp:135634(+3523); log:9
+Level 201	req_exp:139250(+3616); log:9
+Level 202	req_exp:142963(+3713); log:9
+Level 203	req_exp:146774(+3811); log:9
+Level 204	req_exp:150687(+3913); log:9
+Level 205	req_exp:154704(+4017); log:9
+Level 206	req_exp:158828(+4124); log:9
+Level 207	req_exp:163060(+4232); log:8
+Level 208	req_exp:167405(+4345); log:8
+Level 209	req_exp:171865(+4460); log:8
+Level 210	req_exp:176444(+4579); log:8
+
+
+Level 211	req_exp:181145(+4701); log:8
+Level 212	req_exp:185971(+4826); log:8
+Level 213	req_exp:190925(+4954); log:8
+Level 214	req_exp:196011(+5086); log:8
+
+Level 215	req_exp:201232(+5221); log:8
+
+
+Level 216	req_exp:206592(+5360); log:8
+Level 217	req_exp:212095(+5503); log:8
+Level 218	req_exp:217744(+5649); log:8
+Level 219	req_exp:223543(+5799); log:8
+
+Level 220	req_exp:229497(+5954); log:8
+Level 221	req_exp:235609(+6112); log:8
+Level 222	req_exp:241884(+6275); log:8
+
+
+
+
+
+
+
+
+
+Level 2	req_exp:130(+30); log:28
+Level 3	req_exp:159(+29); log:26
+Level 4	req_exp:188(+29); log:25
+Level 5	req_exp:217(+29); log:24
+Level 6	req_exp:245(+28); log:23
+Level 7	req_exp:273(+28); log:22
+Level 8	req_exp:302(+29); log:22
+Level 9	req_exp:331(+29); log:21
+Level 10	req_exp:360(+29); log:21
+Level 11	req_exp:390(+30); log:21
+Level 12	req_exp:420(+30); log:20
+Level 13	req_exp:451(+31); log:20
+Level 14	req_exp:482(+31); log:20
+Level 15	req_exp:513(+31); log:19
+Level 16	req_exp:545(+32); log:19
+Level 17	req_exp:578(+33); log:19
+Level 18	req_exp:612(+34); log:19
+Level 19	req_exp:646(+34); log:18
+Level 20	req_exp:681(+35); log:18
+Level 21	req_exp:717(+36); log:18
+Level 22	req_exp:754(+37); log:18
+Level 23	req_exp:792(+38); log:18
+Level 24	req_exp:830(+38); log:17
+Level 25	req_exp:869(+39); log:17
+Level 26	req_exp:909(+40); log:17
+Level 27	req_exp:950(+41); log:17
+Level 28	req_exp:992(+42); log:17
+Level 29	req_exp:1035(+43); log:17
+Level 30	req_exp:1078(+43); log:16
+Level 31	req_exp:1122(+44); log:16
+Level 32	req_exp:1167(+45); log:16
+Level 33	req_exp:1214(+47); log:16
+Level 34	req_exp:1262(+48); log:16
+Level 35	req_exp:1311(+49); log:16
+Level 36	req_exp:1361(+50); log:16
+Level 37	req_exp:1413(+52); log:16
+Level 38	req_exp:1465(+52); log:15
+Level 39	req_exp:1518(+53); log:15
+Level 40	req_exp:1573(+55); log:15
+Level 41	req_exp:1629(+56); log:15
+Level 42	req_exp:1687(+58); log:15
+Level 43	req_exp:1746(+59); log:15
+Level 44	req_exp:1807(+61); log:15
+Level 45	req_exp:1870(+63); log:15
+Level 46	req_exp:1934(+64); log:15
+Level 47	req_exp:2000(+66); log:15
+Level 48	req_exp:2068(+68); log:15
+Level 49	req_exp:2137(+69); log:14
+Level 50	req_exp:2207(+70); log:14
+Level 51	req_exp:2279(+72); log:14
+Level 52	req_exp:2353(+74); log:14
+Level 53	req_exp:2429(+76); log:14
+Level 54	req_exp:2507(+78); log:14
+Level 55	req_exp:2587(+80); log:14
+Level 56	req_exp:2669(+82); log:14
+Level 57	req_exp:2753(+84); log:14
+Level 58	req_exp:2840(+87); log:14
+Level 59	req_exp:2929(+89); log:14
+Level 60	req_exp:3020(+91); log:14
+Level 61	req_exp:3114(+94); log:14
+Level 62	req_exp:3209(+95); log:13
+Level 63	req_exp:3307(+98); log:13
+Level 64	req_exp:3407(+100); log:13
+Level 65	req_exp:3510(+103); log:13
+Level 66	req_exp:3616(+106); log:13
+Level 67	req_exp:3725(+109); log:13
+Level 68	req_exp:3837(+112); log:13
+Level 69	req_exp:3952(+115); log:13
+Level 70	req_exp:4070(+118); log:13
+Level 71	req_exp:4191(+121); log:13
+Level 72	req_exp:4315(+124); log:13
+Level 73	req_exp:4442(+127); log:13
+Level 74	req_exp:4573(+131); log:13
+Level 75	req_exp:4707(+134); log:13
+Level 76	req_exp:4845(+138); log:13
+Level 77	req_exp:4986(+141); log:13
+Level 78	req_exp:5131(+145); log:13
+Level 79	req_exp:5279(+148); log:12
+Level 80	req_exp:5431(+152); log:12
+Level 81	req_exp:5587(+156); log:12
+Level 82	req_exp:5747(+160); log:12
+Level 83	req_exp:5911(+164); log:12
+Level 84	req_exp:6080(+169); log:12
+Level 85	req_exp:6253(+173); log:12
+Level 86	req_exp:6431(+178); log:12
+Level 87	req_exp:6614(+183); log:12
+Level 88	req_exp:6801(+187); log:12
+Level 89	req_exp:6993(+192); log:12
+Level 90	req_exp:7191(+198); log:12
+Level 91	req_exp:7394(+203); log:12
+Level 92	req_exp:7602(+208); log:12
+Level 93	req_exp:7816(+214); log:12
+Level 94	req_exp:8035(+219); log:12
+Level 95	req_exp:8260(+225); log:12
+Level 96	req_exp:8491(+231); log:12
+Level 97	req_exp:8728(+237); log:12
+Level 98	req_exp:8972(+244); log:12
+Level 99	req_exp:9222(+250); log:12
+Level 100	req_exp:9478(+256); log:11
+Level 101	req_exp:9741(+263); log:11
+Level 102	req_exp:10011(+270); log:11
+Level 103	req_exp:10288(+277); log:11
+
+
+
+
+
+
+
+
+
+
+Level 2	req_exp:130(+30); log:28
+Level 3	req_exp:159(+29); log:26
+
+
+
+Level 4	req_exp:188(+29); log:25
+
+
+
+
+
+
+
+
+
+Level 5	req_exp:217(+29); log:24
+
+
+
+Level 6	req_exp:245(+28); log:23
+
+Level 7	req_exp:273(+28); log:22
+
+Level 8	req_exp:302(+29); log:22
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Level 9	req_exp:331(+29); log:21
+
+
+
+
+
+
+Level 10	req_exp:360(+29); log:21
+
+
+Level 11	req_exp:390(+30); log:21
+
+
+
+
+Level 12	req_exp:420(+30); log:20
+
+
+
+
+Level 13	req_exp:451(+31); log:20
+
+
+
+
+Level 14	req_exp:482(+31); log:20
+
+
+
+Level 15	req_exp:513(+31); log:19
+
+
+
+
+Level 16	req_exp:545(+32); log:19
+
+
+
+
+
+
+
+Level 17	req_exp:578(+33); log:19
+
+
+
+
+
+
+Level 18	req_exp:612(+34); log:19
+
+
+
+
+Level 19	req_exp:646(+34); log:18
+
+
+
+
+
+Level 20	req_exp:681(+35); log:18
+
+
+
+
+
+
+Level 21	req_exp:717(+36); log:18
+
+
+
+
+
+
+Level 22	req_exp:754(+37); log:18
+
+
+
+
+
+
+
+
+
+
+
+Level 23	req_exp:792(+38); log:18
+
+
+
+Level 24	req_exp:830(+38); log:17
+
+
+
+
+
+
+
+
+
+Level 25	req_exp:869(+39); log:17
+
+
+
+Level 26	req_exp:909(+40); log:17
+
+
+
+
+
+
+
+
+Level 27	req_exp:950(+41); log:17
+Level 28	req_exp:992(+42); log:17
+Level 29	req_exp:1035(+43); log:17
+Level 30	req_exp:1078(+43); log:16
+Level 31	req_exp:1122(+44); log:16
+Level 32	req_exp:1167(+45); log:16
+Level 33	req_exp:1214(+47); log:16
+Level 34	req_exp:1262(+48); log:16
+Level 35	req_exp:1311(+49); log:16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Level 36	req_exp:1361(+50); log:16
+Level 37	req_exp:1413(+52); log:16
+

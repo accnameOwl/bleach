@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Ladder</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+		radial-gradient(circle at top,
+			#ff7b00 0%,
+			#c2410c 25%,
+			#7f1d1d 50%,
+			#1c1917 85%);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    color:#fff;
+}
+
+table{
+    width:900px;
+    max-width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:18px;
+    background:rgba(20,10,5,0.75);
+    backdrop-filter:blur(12px);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.55),
+        0 0 25px rgba(255,100,0,.15);
+}
+
+thead{
+    background:linear-gradient(90deg,#7f1d1d,#ea580c,#fb923c);
+}
+
+thead th{
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:18px;
+}
+
+tbody td{
+    padding:16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    color:#f4f4f4;
+    transition:.25s;
+}
+
+tbody tr{
+    transition:.25s;
+}
+
+tbody tr:nth-child(even){
+    background:rgba(255,255,255,.035);
+}
+
+tbody tr:nth-child(odd){
+    background:rgba(0,0,0,.18);
+}
+
+tbody tr:hover{
+    background:rgba(59,130,246,.18);
+    transform:scale(1.01);
+}
+
+tbody tr:hover td{
+    color:white;
+}
+
+.rank{
+    font-weight:700;
+    color:#ffd54f;
+    font-size:18px;
+}
+
+tbody tr:first-child .rank{
+    color:#FFD700;
+}
+
+tbody tr:nth-child(2) .rank{
+    color:#C0C0C0;
+}
+
+tbody tr:nth-child(3) .rank{
+    color:#CD7F32;
+}
+
+td:nth-child(2){
+    font-weight:600;
+    text-align:left;
+    padding-left:25px;
+}
+
+td:nth-child(3){
+    color:#7dd3fc;
+    font-weight:600;
+}
+
+td:nth-child(4){
+    color:#ff7b7b;
+    font-weight:bold;
+}
+
+td:nth-child(5){
+    color:#6ee7b7;
+    font-weight:bold;
+    letter-spacing:.5px;
+}
+
+caption{
+    caption-side:top;
+    font-size:34px;
+    font-weight:bold;
+    color:white;
+    padding:25px;
+    text-shadow:0 0 15px rgba(0,162,255,.4);
+}
+
+@media (max-width:700px){
+
+    table{
+        width:100%;
+        font-size:14px;
+    }
+
+    th,
+    td{
+        padding:10px 6px;
+    }
+
+}
+</style>
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Rank</th>
+				<th>Player</th>
+				<th>Level</th>
+				<th>Kills</th>
+				<th>Title</th>
+			</tr>
+		</thead>
+		<tbody id='ladderBody'>
+		</tbody>
+	</table>
+	
+
+<script>
+	function sortAndDisplayLeaderboardData(json_string) {
+		console.log(decodeURI(json_string));
+
+		const tbody = document.getElementById('ladderBody');
+		//reset content
+		tbody.innerHTML="";
+		let leader_pos = 1;
+
+		const data = JSON.parse(decodeURI(json_string));
+		const sorted_data = data.sort((a,b) => b.level - a.level);
+		
+
+		sorted_data.forEach(player => {
+			tbody.insertAdjacentHTML('beforeend',`
+				<tr>
+					<td>${leader_pos}</td>
+					<td>${player.name}</td>
+					<td>${player.level}</td>
+					<td>${player.kills}</td>
+					<td>${player.title}</td>
+				</tr>
+			`);
+
+			leader_pos += 1;
+		});
+	};
+
+
+</script>
+
+</body>
+</html>

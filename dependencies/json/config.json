@@ -1,0 +1,34 @@
+{
+	"server":{
+		"status":""
+	},
+	"reboot":{
+		"enabled":false,
+		"interval":108000,
+		"warning_time": 3000,
+		"save_before_reboot":true,
+		"reconnect_players":false
+	},
+	"logging":{
+		"enabled":true,
+		"chat":true,
+		"admin":true,
+		"combat":false,
+		"debug":false
+	},
+	"admin":{
+		"allow_admin_dm":true,
+		"announce_admin_login":true,
+		"developer_mode":true
+	},
+	"discord":{
+		"enabled":true,
+		"webhook":"",
+		"announce_restarts":false
+	},
+	"events":{
+		"random_events":true,
+		"event_interval":18000,
+		"holiday_events":false
+	}
+}

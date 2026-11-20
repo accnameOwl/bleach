@@ -1,0 +1,1334 @@
+{
+  ":D": {
+    "char": "😃",
+    "keywords": ["smile", "grin", "happy"]
+  },
+  ":)": {
+    "char": "🙂",
+    "keywords": ["smile", "nice"]
+  },
+  ":(": {
+    "char": "☹️",
+    "keywords": ["sad", "frown"]
+  },
+  "<3": {
+    "char": "❤️",
+    "keywords": ["love", "heart"]
+  },
+  ":P": {
+    "char": "😛",
+    "keywords": ["tongue", "playful"]
+  },
+  ":o": {
+    "char": "😮",
+    "keywords": ["surprised", "shock"]
+  },
+  ";)": {
+    "char": "😉",
+    "keywords": ["wink", "flirty"]
+  },
+  "XD": {
+    "char": "😆",
+    "keywords": ["laugh", "funny"]
+  },
+  ">:(": {
+    "char": "😠",
+    "keywords": ["angry", "mad"]
+  },
+  "T_T": {
+    "char": "😭",
+    "keywords": ["crying", "sad"]
+  },
+  "^_^": {
+    "char": "😊",
+    "keywords": ["happy", "cute"]
+  },
+  ":*": {
+    "char": "😘",
+    "keywords": ["kiss", "love"]
+  },
+  ":alien:": {
+    "char": "👽",
+    "keywords": ["ufo", "alien"]
+  },
+  ":ghost:": {
+    "char": "👻",
+    "keywords": ["ghost", "boo"]
+  },
+  ":skull:": {
+    "char": "💀",
+    "keywords": ["dead", "danger"]
+  },
+  ":robot:": {
+    "char": "🤖",
+    "keywords": ["ai", "robot"]
+  },
+  ":coffee:": {
+    "char": "☕",
+    "keywords": ["coffee", "drink"]
+  },
+  ":cake:": {
+    "char": "🎂",
+    "keywords": ["birthday", "cake"]
+  },
+  ":pizza:": {
+    "char": "🍕",
+    "keywords": ["food", "cheese"]
+  },
+  ":poop:": {
+    "char": "💩",
+    "keywords": ["poo", "funny", "shit"]
+  },
+  ":thinking:": {
+    "char": "🤔",
+    "keywords": ["hmm", "curious", "question"]
+  },
+  ":fire:": {
+    "char": "🔥",
+    "keywords": ["lit", "hot"]
+  },
+  ":100:": {
+    "char": "💯",
+    "keywords": ["perfect", "score"]
+  },
+  ":boom:": {
+    "char": "💥",
+    "keywords": ["explode", "shock"]
+  },
+  ":eyes:": {
+    "char": "👀",
+    "keywords": ["look", "see", "watch"]
+  },
+  ":rocket:": {
+    "char": "🚀",
+    "keywords": ["launch", "space"]
+  },
+  ":joy:": {
+    "char": "😂",
+    "keywords": ["tears", "happy", "lol"]
+  },
+  ":angry:": {
+    "char": "😠",
+    "keywords": ["mad", "rage"]
+  },
+  ":rage:": {
+    "char": "😡",
+    "keywords": ["furious", "angry"]
+  },
+  ":sunglasses:": {
+    "char": "😎",
+    "keywords": ["cool", "chill"]
+  },
+  ":clown:": {
+    "char": "🤡",
+    "keywords": ["funny", "creepy"]
+  },
+  ":star_struck:": {
+    "char": "🤩",
+    "keywords": ["amazed", "stars", "wow"]
+  },
+  ":sleepy:": {
+    "char": "😪",
+    "keywords": ["tired", "sleep"]
+  },
+  ":money_mouth:": {
+    "char": "🤑",
+    "keywords": ["rich", "money"]
+  },
+  ":cowboy:": {
+    "char": "🤠",
+    "keywords": ["hat", "wild west"]
+  },
+  ":party_face:": {
+    "char": "🥳",
+    "keywords": ["celebrate", "party"]
+  },
+  ":shushing_face:": {
+    "char": "🤫",
+    "keywords": ["quiet", "shush"]
+  },
+  ":zany_face:": {
+    "char": "🤪",
+    "keywords": ["crazy", "silly"]
+  },
+  ":exploding_head:": {
+    "char": "🤯",
+    "keywords": ["mindblown", "shock"]
+  },
+  ":face_vomiting:": {
+    "char": "🤮",
+    "keywords": ["sick", "disgust"]
+  },
+  ":face_with_thermometer:": {
+    "char": "🤒",
+    "keywords": ["ill", "sick"]
+  },
+  ":dog:": {
+    "char": "🐶",
+    "keywords": ["dog", "pet", "cute"]
+  },
+  ":cat:": {
+    "char": "🐱",
+    "keywords": ["cat", "pet", "meow"]
+  },
+  ":lion:": {
+    "char": "🦁",
+    "keywords": ["lion", "king", "wild"]
+  },
+  ":unicorn:": {
+    "char": "🦄",
+    "keywords": ["unicorn", "magic", "fantasy"]
+  },
+  ":apple:": {
+    "char": "🍎",
+    "keywords": ["apple", "fruit", "healthy"]
+  },
+  ":banana:": {
+    "char": "🍌",
+    "keywords": ["banana", "fruit", "tropical"]
+  },
+  ":sushi:": {
+    "char": "🍣",
+    "keywords": ["sushi", "food", "japanese"]
+  },
+  ":car:": {
+    "char": "🚗",
+    "keywords": ["car", "drive", "travel"]
+  },
+  ":airplane:": {
+    "char": "✈️",
+    "keywords": ["airplane", "fly", "travel"]
+  },
+  ":sun:": {
+    "char": "☀️",
+    "keywords": ["sun", "weather", "bright"]
+  },
+  ":cloud:": {
+    "char": "☁️",
+    "keywords": ["cloud", "weather", "sky"]
+  },
+  ":umbrella:": {
+    "char": "☔",
+    "keywords": ["umbrella", "rain", "weather"]
+  },
+  ":star:": {
+    "char": "⭐",
+    "keywords": ["star", "shine", "favorite"]
+  },
+  ":moon:": {
+    "char": "🌙",
+    "keywords": ["moon", "night", "sky"]
+  },
+  ":muscle:": {
+    "char": "💪",
+    "keywords": ["muscle", "strong", "fitness"]
+  },
+  ":clap:": {
+    "char": "👏",
+    "keywords": ["clap", "applause", "praise"]
+  },
+  ":pray:": {
+    "char": "🙏",
+    "keywords": ["pray", "hope", "thanks"]
+  },
+  ":camera:": {
+    "char": "📷",
+    "keywords": ["camera", "photo", "picture"]
+  },
+  ":book:": {
+    "char": "📚",
+    "keywords": ["book", "read", "study"]
+  },
+  ":gift:": {
+    "char": "🎁",
+    "keywords": ["gift", "present", "surprise"]
+  },
+  ":balloon:": {
+    "char": "🎈",
+    "keywords": ["balloon", "party", "celebrate"]
+  },
+  ":sparkles:": {
+    "char": "✨",
+    "keywords": ["sparkles", "shine", "magic"]
+  },
+  ":warning:": {
+    "char": "⚠️",
+    "keywords": ["warning", "alert", "danger"]
+  },
+  ":check:": {
+    "char": "✅",
+    "keywords": ["check", "done", "approved"]
+  },
+  ":grinning:": {
+    "char": "😄",
+    "keywords": ["smile", "happy", "cheerful"]
+  },
+  ":smirk:": {
+    "char": "😏",
+    "keywords": ["smirk", "sly", "confident"]
+  },
+  ":confused:": {
+    "char": "😕",
+    "keywords": ["confused", "puzzled", "unsure"]
+  },
+  ":disappointed:": {
+    "char": "😞",
+    "keywords": ["sad", "disappointed", "down"]
+  },
+  ":sweat:": {
+    "char": "😓",
+    "keywords": ["sweat", "nervous", "stress"]
+  },
+  ":relieved:": {
+    "char": "😥",
+    "keywords": ["relieved", "calm", "sad"]
+  },
+  ":weary:": {
+    "char": "😩",
+    "keywords": ["weary", "tired", "exhausted"]
+  },
+  ":pensive:": {
+    "char": "😔",
+    "keywords": ["pensive", "thoughtful", "sad"]
+  },
+  ":scream:": {
+    "char": "😱",
+    "keywords": ["scream", "shock", "fear"]
+  },
+  ":blush:": {
+    "char": "😊",
+    "keywords": ["blush", "shy", "happy"]
+  },
+  ":yum:": {
+    "char": "😋",
+    "keywords": ["yum", "delicious", "tasty"]
+  },
+  ":neutral:": {
+    "char": "😐",
+    "keywords": ["neutral", "meh", "blank"]
+  },
+  ":grimacing:": {
+    "char": "😣",
+    "keywords": ["grimace", "awkward", "nervous"]
+  },
+  ":flushed:": {
+    "char": "😳",
+    "keywords": ["flushed", "embarrassed", "shock"]
+  },
+  ":dizzy:": {
+    "char": "😵",
+    "keywords": ["dizzy", "confused", "faint"]
+  },
+  ":no_mouth:": {
+    "char": "😶",
+    "keywords": ["silent", "no mouth", "speechless"]
+  },
+  ":innocent:": {
+    "char": "😇",
+    "keywords": ["innocent", "angel", "pure"]
+  },
+  ":devil:": {
+    "char": "😈",
+    "keywords": ["devil", "evil", "mischief"]
+  },
+  ":heart_eyes:": {
+    "char": "😍",
+    "keywords": ["love", "heart", "admire"]
+  },
+  ":kissing:": {
+    "char": "😗",
+    "keywords": ["kiss", "love", "affection"]
+  },
+  ":sleeping:": {
+    "char": "😴",
+    "keywords": ["sleep", "tired", "zzz"]
+  },
+  ":mask:": {
+    "char": "😷",
+    "keywords": ["mask", "sick", "protection"]
+  },
+  ":cold_sweat:": {
+    "char": "😰",
+    "keywords": ["sweat", "nervous", "anxious"]
+  },
+  ":smiling_imp:": {
+    "char": "😈",
+    "keywords": ["imp", "mischief", "devil"]
+  },
+  ":triumph:": {
+    "char": "😤",
+    "keywords": ["triumph", "angry", "huff"]
+  },
+  ":open_mouth:": {
+    "char": "😦",
+    "keywords": ["shock", "surprise", "open mouth"]
+  },
+  ":hushed:": {
+    "char": "😯",
+    "keywords": ["hushed", "quiet", "surprised"]
+  },
+  ":unamused:": {
+    "char": "😒",
+    "keywords": ["unamused", "bored", "meh"]
+  },
+  ":rolling_eyes:": {
+    "char": "🙄",
+    "keywords": ["rolling eyes", "annoyed", "sarcasm"]
+  },
+  ":expressionless:": {
+    "char": "😑",
+    "keywords": ["expressionless", "blank", "meh"]
+  },
+  ":fearful:": {
+    "char": "😨",
+    "keywords": ["fear", "scared", "shock"]
+  },
+  ":sob:": {
+    "char": "😢",
+    "keywords": ["sob", "cry", "sad"]
+  },
+  ":cold:": {
+    "char": "🥶",
+    "keywords": ["cold", "freezing", "chilly"]
+  },
+  ":hot:": {
+    "char": "🥵",
+    "keywords": ["hot", "sweaty", "overheated"]
+  },
+  ":nerd:": {
+    "char": "🤓",
+    "keywords": ["nerd", "geek", "smart"]
+  },
+  ":monocle:": {
+    "char": "🧐",
+    "keywords": ["monocle", "curious", "fancy"]
+  },
+  ":partying:": {
+    "char": "🥳",
+    "keywords": ["party", "celebrate", "fun"]
+  },
+  ":woozy:": {
+    "char": "🥴",
+    "keywords": ["woozy", "drunk", "dizzy"]
+  },
+  ":pleading:": {
+    "char": "🥺",
+    "keywords": ["pleading", "beg", "cute"]
+  },
+  ":lying:": {
+    "char": "🤥",
+    "keywords": ["lie", "pinocchio", "dishonest"]
+  },
+  ":drooling:": {
+    "char": "🤤",
+    "keywords": ["drool", "hungry", "craving"]
+  },
+  ":yawn:": {
+    "char": "🥱",
+    "keywords": ["yawn", "tired", "bored"]
+  },
+  ":facepalm:": {
+    "char": "🤦",
+    "keywords": ["facepalm", "frustrated", "embarrassed"]
+  },
+  ":shrug:": {
+    "char": "🤷",
+    "keywords": ["shrug", "unsure", "whatever"]
+  },
+  ":ok_hand:": {
+    "char": "👌",
+    "keywords": ["ok", "perfect", "good"]
+  },
+  ":thumbsup:": {
+    "char": "👍",
+    "keywords": ["thumbs up", "approve", "good"]
+  },
+  ":thumbsdown:": {
+    "char": "👎",
+    "keywords": ["thumbs down", "disapprove", "bad"]
+  },
+  ":point_up:": {
+    "char": "👆",
+    "keywords": ["point up", "attention", "up"]
+  },
+  ":point_down:": {
+    "char": "👇",
+    "keywords": ["point down", "attention", "down"]
+  },
+  ":point_left:": {
+    "char": "👈",
+    "keywords": ["point left", "attention", "left"]
+  },
+  ":point_right:": {
+    "char": "👉",
+    "keywords": ["point right", "attention", "right"]
+  },
+  ":fist:": {
+    "char": "✊",
+    "keywords": ["fist", "strength", "power"]
+  },
+  ":punch:": {
+    "char": "👊",
+    "keywords": ["punch", "fight", "hit"]
+  },
+  ":wave:": {
+    "char": "👋",
+    "keywords": ["wave", "hello", "goodbye"]
+  },
+  ":call_me:": {
+    "char": "🤙",
+    "keywords": ["call me", "phone", "cool"]
+  },
+  ":raised_hand:": {
+    "char": "✋",
+    "keywords": ["raised hand", "stop", "high five"]
+  },
+  ":backhand:": {
+    "char": "🤚",
+    "keywords": ["backhand", "stop", "wait"]
+  },
+  ":open_hands:": {
+    "char": "👐",
+    "keywords": ["open hands", "hug", "welcome"]
+  },
+  ":palms_up:": {
+    "char": "🤲",
+    "keywords": ["palms up", "prayer", "hope"]
+  },
+  ":handshake:": {
+    "char": "🤝",
+    "keywords": ["handshake", "agreement", "deal"]
+  },
+  ":crossed_fingers:": {
+    "char": "🤞",
+    "keywords": ["crossed fingers", "luck", "hope"]
+  },
+  ":i_love_you:": {
+    "char": "🤟",
+    "keywords": ["i love you", "sign", "love"]
+  },
+  ":metal:": {
+    "char": "🤘",
+    "keywords": ["metal", "rock", "cool"]
+  },
+  ":writing_hand:": {
+    "char": "✍️",
+    "keywords": ["writing", "pen", "note"]
+  },
+  ":nail_polish:": {
+    "char": "💅",
+    "keywords": ["nail polish", "beauty", "manicure"]
+  },
+  ":selfie:": {
+    "char": "🤳",
+    "keywords": ["selfie", "photo", "camera"]
+  },
+  ":ear:": {
+    "char": "👂",
+    "keywords": ["ear", "listen", "hear"]
+  },
+  ":nose:": {
+    "char": "👃",
+    "keywords": ["nose", "smell", "scent"]
+  },
+  ":foot:": {
+    "char": "🦶",
+    "keywords": ["foot", "walk", "step"]
+  },
+  ":leg:": {
+    "char": "🦵",
+    "keywords": ["leg", "kick", "walk"]
+  },
+  ":brain:": {
+    "char": "🧠",
+    "keywords": ["brain", "think", "smart"]
+  },
+  ":heart:": {
+    "char": "💖",
+    "keywords": ["heart", "love", "sparkle"]
+  },
+  ":broken_heart:": {
+    "char": "💔",
+    "keywords": ["broken heart", "sad", "love"]
+  },
+  ":two_hearts:": {
+    "char": "💕",
+    "keywords": ["two hearts", "love", "affection"]
+  },
+  ":sparkling_heart:": {
+    "char": "💖",
+    "keywords": ["sparkling heart", "love", "excited"]
+  },
+  ":heart_beat:": {
+    "char": "💓",
+    "keywords": ["heart beat", "love", "pulse"]
+  },
+  ":blue_heart:": {
+    "char": "💙",
+    "keywords": ["blue heart", "love", "calm"]
+  },
+  ":green_heart:": {
+    "char": "💚",
+    "keywords": ["green heart", "love", "nature"]
+  },
+  ":yellow_heart:": {
+    "char": "💛",
+    "keywords": ["yellow heart", "love", "happy"]
+  },
+  ":purple_heart:": {
+    "char": "💜",
+    "keywords": ["purple heart", "love", "royal"]
+  },
+  ":black_heart:": {
+    "char": "🖤",
+    "keywords": ["black heart", "love", "dark"]
+  },
+  ":white_heart:": {
+    "char": "🤍",
+    "keywords": ["white heart", "love", "pure"]
+  },
+  ":brown_heart:": {
+    "char": "🤎",
+    "keywords": ["brown heart", "love", "warm"]
+  },
+  ":orange_heart:": {
+    "char": "🧡",
+    "keywords": ["orange heart", "love", "energy"]
+  },
+  ":kiss_mark:": {
+    "char": "💋",
+    "keywords": ["kiss", "lipstick", "love"]
+  },
+  ":dash:": {
+    "char": "💨",
+    "keywords": ["dash", "run", "fast"]
+  },
+  ":sweat_drops:": {
+    "char": "💦",
+    "keywords": ["sweat", "water", "effort"]
+  },
+  ":monkey_face:": {
+    "char": "🐵",
+    "keywords": ["monkey", "animal", "cute"]
+  },
+  ":gorilla:": {
+    "char": "🦍",
+    "keywords": ["gorilla", "animal", "strong"]
+  },
+  ":orangutan:": {
+    "char": "🦧",
+    "keywords": ["orangutan", "animal", "ape"]
+  },
+  ":dog2:": {
+    "char": "🐕",
+    "keywords": ["dog", "pet", "bark"]
+  },
+  ":poodle:": {
+    "char": "🐩",
+    "keywords": ["poodle", "dog", "pet"]
+  },
+  ":wolf:": {
+    "char": "🐺",
+    "keywords": ["wolf", "animal", "wild"]
+  },
+  ":fox:": {
+    "char": "🦊",
+    "keywords": ["fox", "animal", "sly"]
+  },
+  ":raccoon:": {
+    "char": "🦝",
+    "keywords": ["raccoon", "animal", "sneaky"]
+  },
+  ":cat2:": {
+    "char": "🐈",
+    "keywords": ["cat", "pet", "meow"]
+  },
+  ":tiger:": {
+    "char": "🐯",
+    "keywords": ["tiger", "animal", "wild"]
+  },
+  ":leopard:": {
+    "char": "🐆",
+    "keywords": ["leopard", "animal", "wild"]
+  },
+  ":horse:": {
+    "char": "🐎",
+    "keywords": ["horse", "animal", "ride"]
+  },
+  ":zebra:": {
+    "char": "🦓",
+    "keywords": ["zebra", "animal", "stripes"]
+  },
+  ":deer:": {
+    "char": "🦌",
+    "keywords": ["deer", "animal", "forest"]
+  },
+  ":cow:": {
+    "char": "🐄",
+    "keywords": ["cow", "animal", "farm"]
+  },
+  ":ox:": {
+    "char": "🐂",
+    "keywords": ["ox", "animal", "farm"]
+  },
+  ":buffalo:": {
+    "char": "🐃",
+    "keywords": ["buffalo", "animal", "wild"]
+  },
+  ":pig:": {
+    "char": "🐷",
+    "keywords": ["pig", "animal", "farm"]
+  },
+  ":boar:": {
+    "char": "🐗",
+    "keywords": ["boar", "animal", "wild"]
+  },
+  ":sheep:": {
+    "char": "🐑",
+    "keywords": ["sheep", "animal", "farm"]
+  },
+  ":goat:": {
+    "char": "🐐",
+    "keywords": ["goat", "animal", "farm"]
+  },
+  ":camel:": {
+    "char": "🐪",
+    "keywords": ["camel", "animal", "desert"]
+  },
+  ":llama:": {
+    "char": "🦙",
+    "keywords": ["llama", "animal", "cute"]
+  },
+  ":giraffe:": {
+    "char": "🦒",
+    "keywords": ["giraffe", "animal", "tall"]
+  },
+  ":elephant:": {
+    "char": "🐘",
+    "keywords": ["elephant", "animal", "big"]
+  },
+  ":rhino:": {
+    "char": "🦏",
+    "keywords": ["rhino", "animal", "wild"]
+  },
+  ":hippo:": {
+    "char": "🦛",
+    "keywords": ["hippo", "animal", "water"]
+  },
+  ":mouse:": {
+    "char": "🐭",
+    "keywords": ["mouse", "animal", "small"]
+  },
+  ":rat:": {
+    "char": "🐀",
+    "keywords": ["rat", "animal", "sneaky"]
+  },
+  ":hamster:": {
+    "char": "🐹",
+    "keywords": ["hamster", "pet", "cute"]
+  },
+  ":rabbit:": {
+    "char": "🐰",
+    "keywords": ["rabbit", "animal", "cute"]
+  },
+  ":chipmunk:": {
+    "char": "🐿️",
+    "keywords": ["chipmunk", "animal", "cute"]
+  },
+  ":bear:": {
+    "char": "🐻",
+    "keywords": ["bear", "animal", "wild"]
+  },
+  ":koala:": {
+    "char": "🐨",
+    "keywords": ["koala", "animal", "cute"]
+  },
+  ":panda:": {
+    "char": "🐼",
+    "keywords": ["panda", "animal", "cute"]
+  },
+  ":sloth:": {
+    "char": "🦥",
+    "keywords": ["sloth", "animal", "slow"]
+  },
+  ":otter:": {
+    "char": "🦦",
+    "keywords": ["otter", "animal", "cute"]
+  },
+  ":skunk:": {
+    "char": "🦨",
+    "keywords": ["skunk", "animal", "smell"]
+  },
+  ":kangaroo:": {
+    "char": "🦘",
+    "keywords": ["kangaroo", "animal", "jump"]
+  },
+  ":badger:": {
+    "char": "🦡",
+    "keywords": ["badger", "animal", "wild"]
+  },
+  ":turkey:": {
+    "char": "🦃",
+    "keywords": ["turkey", "bird", "thanksgiving"]
+  },
+  ":chicken:": {
+    "char": "🐔",
+    "keywords": ["chicken", "bird", "farm"]
+  },
+  ":rooster:": {
+    "char": "🐓",
+    "keywords": ["rooster", "bird", "farm"]
+  },
+  ":bird:": {
+    "char": "🐦",
+    "keywords": ["bird", "animal", "fly"]
+  },
+  ":penguin:": {
+    "char": "🐧",
+    "keywords": ["penguin", "bird", "cold"]
+  },
+  ":dove:": {
+    "char": "🕊️",
+    "keywords": ["dove", "bird", "peace"]
+  },
+  ":eagle:": {
+    "char": "🦅",
+    "keywords": ["eagle", "bird", "wild"]
+  },
+  ":duck:": {
+    "char": "🦆",
+    "keywords": ["duck", "bird", "water"]
+  },
+  ":swan:": {
+    "char": "🦢",
+    "keywords": ["swan", "bird", "graceful"]
+  },
+  ":owl:": {
+    "char": "🦉",
+    "keywords": ["owl", "bird", "wise"]
+  },
+  ":flamingo:": {
+    "char": "🦩",
+    "keywords": ["flamingo", "bird", "tropical"]
+  },
+  ":peacock:": {
+    "char": "🦚",
+    "keywords": ["peacock", "bird", "colorful"]
+  },
+  ":parrot:": {
+    "char": "🦜",
+    "keywords": ["parrot", "bird", "talk"]
+  },
+  ":frog:": {
+    "char": "🐸",
+    "keywords": ["frog", "animal", "jump"]
+  },
+  ":crocodile:": {
+    "char": "🐊",
+    "keywords": ["crocodile", "animal", "wild"]
+  },
+  ":turtle:": {
+    "char": "🐢",
+    "keywords": ["turtle", "animal", "slow"]
+  },
+  ":lizard:": {
+    "char": "🦎",
+    "keywords": ["lizard", "animal", "reptile"]
+  },
+  ":snake:": {
+    "char": "🐍",
+    "keywords": ["snake", "animal", "reptile"]
+  },
+  ":dragon:": {
+    "char": "🐉",
+    "keywords": ["dragon", "mythical", "fire"]
+  },
+  ":sauropod:": {
+    "char": "🦕",
+    "keywords": ["sauropod", "dinosaur", "big"]
+  },
+  ":t-rex:": {
+    "char": "🦖",
+    "keywords": ["t-rex", "dinosaur", "wild"]
+  },
+  ":whale:": {
+    "char": "🐳",
+    "keywords": ["whale", "animal", "ocean"]
+  },
+  ":dolphin:": {
+    "char": "🐬",
+    "keywords": ["dolphin", "animal", "ocean"]
+  },
+  ":fish:": {
+    "char": "🐟",
+    "keywords": ["fish", "animal", "ocean"]
+  },
+  ":tropical_fish:": {
+    "char": "🐠",
+    "keywords": ["tropical fish", "animal", "colorful"]
+  },
+  ":blowfish:": {
+    "char": "🐡",
+    "keywords": ["blowfish", "animal", "ocean"]
+  },
+  ":shark:": {
+    "char": "🦈",
+    "keywords": ["shark", "animal", "ocean"]
+  },
+  ":octopus:": {
+    "char": "🐙",
+    "keywords": ["octopus", "animal", "ocean"]
+  },
+  ":shell:": {
+    "char": "🐚",
+    "keywords": ["shell", "ocean", "beach"]
+  },
+  ":crab:": {
+    "char": "🦀",
+    "keywords": ["crab", "animal", "ocean"]
+  },
+  ":lobster:": {
+    "char": "🦞",
+    "keywords": ["lobster", "animal", "ocean"]
+  },
+  ":shrimp:": {
+    "char": "🦐",
+    "keywords": ["shrimp", "animal", "ocean"]
+  },
+  ":squid:": {
+    "char": "🦑",
+    "keywords": ["squid", "animal", "ocean"]
+  },
+  ":butterfly:": {
+    "char": "🦋",
+    "keywords": ["butterfly", "insect", "beautiful"]
+  },
+  ":bug:": {
+    "char": "🐛",
+    "keywords": ["bug", "insect", "nature"]
+  },
+  ":ant:": {
+    "char": "🐜",
+    "keywords": ["ant", "insect", "small"]
+  },
+  ":bee:": {
+    "char": "🐝",
+    "keywords": ["bee", "insect", "honey"]
+  },
+  ":ladybug:": {
+    "char": "🐞",
+    "keywords": ["ladybug", "insect", "cute"]
+  },
+  ":cricket:": {
+    "char": "🦗",
+    "keywords": ["cricket", "insect", "sound"]
+  },
+  ":spider:": {
+    "char": "🕷️",
+    "keywords": ["spider", "insect", "scary"]
+  },
+  ":scorpion:": {
+    "char": "🦂",
+    "keywords": ["scorpion", "animal", "danger"]
+  },
+  ":mosquito:": {
+    "char": "🦟",
+    "keywords": ["mosquito", "insect", "bite"]
+  },
+  ":microbe:": {
+    "char": "🦠",
+    "keywords": ["microbe", "germ", "virus"]
+  },
+  ":rose:": {
+    "char": "🌹",
+    "keywords": ["rose", "flower", "love"]
+  },
+  ":tulip:": {
+    "char": "🌷",
+    "keywords": ["tulip", "flower", "spring"]
+  },
+  ":hibiscus:": {
+    "char": "🌺",
+    "keywords": ["hibiscus", "flower", "tropical"]
+  },
+  ":sunflower:": {
+    "char": "🌻",
+    "keywords": ["sunflower", "flower", "bright"]
+  },
+  ":blossom:": {
+    "char": "🌼",
+    "keywords": ["blossom", "flower", "nature"]
+  },
+  ":cherry_blossom:": {
+    "char": "🌸",
+    "keywords": ["cherry blossom", "flower", "spring"]
+  },
+  ":bouquet:": {
+    "char": "💐",
+    "keywords": ["bouquet", "flowers", "gift"]
+  },
+  ":mushroom:": {
+    "char": "🍄",
+    "keywords": ["mushroom", "fungus", "nature"]
+  },
+  ":chestnut:": {
+    "char": "🌰",
+    "keywords": ["chestnut", "nut", "fall"]
+  },
+  ":jack_o_lantern:": {
+    "char": "🎃",
+    "keywords": ["pumpkin", "halloween", "fall"]
+  },
+  ":christmas_tree:": {
+    "char": "🎄",
+    "keywords": ["christmas tree", "holiday", "winter"]
+  },
+  ":palm_tree:": {
+    "char": "🌴",
+    "keywords": ["palm tree", "tropical", "beach"]
+  },
+  ":cactus:": {
+    "char": "🌵",
+    "keywords": ["cactus", "desert", "plant"]
+  },
+  ":bamboo:": {
+    "char": "🎍",
+    "keywords": ["bamboo", "plant", "asia"]
+  },
+  ":four_leaf_clover:": {
+    "char": "🍀",
+    "keywords": ["clover", "luck", "green"]
+  },
+  ":maple_leaf:": {
+    "char": "🍁",
+    "keywords": ["maple leaf", "fall", "canada"]
+  },
+  ":fallen_leaf:": {
+    "char": "🍂",
+    "keywords": ["fallen leaf", "fall", "nature"]
+  },
+  ":herb:": {
+    "char": "🌿",
+    "keywords": ["herb", "plant", "cooking"]
+  },
+  ":grapes:": {
+    "char": "🍇",
+    "keywords": ["grapes", "fruit", "wine"]
+  },
+  ":melon:": {
+    "char": "🍈",
+    "keywords": ["melon", "fruit", "summer"]
+  },
+  ":watermelon:": {
+    "char": "🍉",
+    "keywords": ["watermelon", "fruit", "summer"]
+  },
+  ":tangerine:": {
+    "char": "🍊",
+    "keywords": ["tangerine", "fruit", "citrus"]
+  },
+  ":lemon:": {
+    "char": "🍋",
+    "keywords": ["lemon", "fruit", "sour"]
+  },
+  ":pineapple:": {
+    "char": "🍍",
+    "keywords": ["pineapple", "fruit", "tropical"]
+  },
+  ":mango:": {
+    "char": "🥭",
+    "keywords": ["mango", "fruit", "tropical"]
+  },
+  ":peach:": {
+    "char": "🍑",
+    "keywords": ["peach", "fruit", "juicy"]
+  },
+  ":cherries:": {
+    "char": "🍒",
+    "keywords": ["cherries", "fruit", "sweet"]
+  },
+  ":strawberry:": {
+    "char": "🍓",
+    "keywords": ["strawberry", "fruit", "sweet"]
+  },
+  ":kiwi:": {
+    "char": "🥝",
+    "keywords": ["kiwi", "fruit", "green"]
+  },
+  ":tomato:": {
+    "char": "🍅",
+    "keywords": ["tomato", "vegetable", "red"]
+  },
+  ":coconut:": {
+    "char": "🥥",
+    "keywords": ["coconut", "fruit", "tropical"]
+  },
+  ":avocado:": {
+    "char": "🥑",
+    "keywords": ["avocado", "fruit", "healthy"]
+  },
+  ":eggplant:": {
+    "char": "🍆",
+    "keywords": ["eggplant", "vegetable", "purple"]
+  },
+  ":potato:": {
+    "char": "🥔",
+    "keywords": ["potato", "vegetable", "food"]
+  },
+  ":carrot:": {
+    "char": "🥕",
+    "keywords": ["carrot", "vegetable", "orange"]
+  },
+  ":corn:": {
+    "char": "🌽",
+    "keywords": ["corn", "vegetable", "food"]
+  },
+  ":hot_pepper:": {
+    "char": "🌶️",
+    "keywords": ["hot pepper", "spicy", "food"]
+  },
+  ":cucumber:": {
+    "char": "🥒",
+    "keywords": ["cucumber", "vegetable", "green"]
+  },
+  ":leafy_green:": {
+    "char": "🥬",
+    "keywords": ["leafy green", "vegetable", "healthy"]
+  },
+  ":broccoli:": {
+    "char": "🥦",
+    "keywords": ["broccoli", "vegetable", "green"]
+  },
+  ":garlic:": {
+    "char": "🧄",
+    "keywords": ["garlic", "food", "cooking"]
+  },
+  ":onion:": {
+    "char": "🧅",
+    "keywords": ["onion", "vegetable", "cooking"]
+  },
+  ":peanuts:": {
+    "char": "🥜",
+    "keywords": ["peanuts", "nut", "snack"]
+  },
+  ":bread:": {
+    "char": "🍞",
+    "keywords": ["bread", "food", "bake"]
+  },
+  ":croissant:": {
+    "char": "🥐",
+    "keywords": ["croissant", "food", "pastry"]
+  },
+  ":baguette:": {
+    "char": "🥖",
+    "keywords": ["baguette", "bread", "french"]
+  },
+  ":pretzel:": {
+    "char": "🥨",
+    "keywords": ["pretzel", "snack", "salty"]
+  },
+  ":bagel:": {
+    "char": "🥯",
+    "keywords": ["bagel", "bread", "breakfast"]
+  },
+  ":pancakes:": {
+    "char": "🥞",
+    "keywords": ["pancakes", "food", "breakfast"]
+  },
+  ":waffle:": {
+    "char": "🧇",
+    "keywords": ["waffle", "food", "breakfast"]
+  },
+  ":cheese:": {
+    "char": "🧀",
+    "keywords": ["cheese", "food", "dairy"]
+  },
+  ":meat:": {
+    "char": "🍖",
+    "keywords": ["meat", "food", "bbq"]
+  },
+  ":poultry_leg:": {
+    "char": "🍗",
+    "keywords": ["poultry leg", "food", "chicken"]
+  },
+  ":cut_of_meat:": {
+    "char": "🥩",
+    "keywords": ["steak", "meat", "food"]
+  },
+  ":bacon:": {
+    "char": "🥓",
+    "keywords": ["bacon", "food", "breakfast"]
+  },
+  ":hamburger:": {
+    "char": "🍔",
+    "keywords": ["hamburger", "food", "fast food"]
+  },
+  ":fries:": {
+    "char": "🍟",
+    "keywords": ["fries", "food", "fast food"]
+  },
+  ":hotdog:": {
+    "char": "🌭",
+    "keywords": ["hotdog", "food", "fast food"]
+  },
+  ":sandwich:": {
+    "char": "🥪",
+    "keywords": ["sandwich", "food", "lunch"]
+  },
+  ":taco:": {
+    "char": "🌮",
+    "keywords": ["taco", "food", "mexican"]
+  },
+  ":burrito:": {
+    "char": "🌯",
+    "keywords": ["burrito", "food", "mexican"]
+  },
+  ":salad:": {
+    "char": "🥗",
+    "keywords": ["salad", "food", "healthy"]
+  },
+  ":spaghetti:": {
+    "char": "🍝",
+    "keywords": ["spaghetti", "food", "italian"]
+  },
+  ":ramen:": {
+    "char": "🍜",
+    "keywords": ["ramen", "food", "japanese"]
+  },
+  ":stew:": {
+    "char": "🍲",
+    "keywords": ["stew", "food", "soup"]
+  },
+  ":curry:": {
+    "char": "🍛",
+    "keywords": ["curry", "food", "spicy"]
+  },
+  ":bento:": {
+    "char": "🍱",
+    "keywords": ["bento", "food", "japanese"]
+  },
+  ":dumpling:": {
+    "char": "🥟",
+    "keywords": ["dumpling", "food", "asian"]
+  },
+  ":fried_shrimp:": {
+    "char": "🍤",
+    "keywords": ["fried shrimp", "food", "seafood"]
+  },
+  ":rice_ball:": {
+    "char": "🍙",
+    "keywords": ["rice ball", "food", "japanese"]
+  },
+  ":rice:": {
+    "char": "🍚",
+    "keywords": ["rice", "food", "asian"]
+  },
+  ":egg:": {
+    "char": "🥚",
+    "keywords": ["egg", "food", "breakfast"]
+  },
+  ":fried_egg:": {
+    "char": "🍳",
+    "keywords": ["fried egg", "food", "breakfast"]
+  },
+  ":omelette:": {
+    "char": "🧆",
+    "keywords": ["omelette", "food", "breakfast"]
+  },
+  ":milk:": {
+    "char": "🥛",
+    "keywords": ["milk", "drink", "dairy"]
+  },
+  ":tea:": {
+    "char": "🍵",
+    "keywords": ["tea", "drink", "hot"]
+  },
+  ":sake:": {
+    "char": "🍶",
+    "keywords": ["sake", "drink", "japanese"]
+  },
+  ":wine:": {
+    "char": "🍷",
+    "keywords": ["wine", "drink", "alcohol"]
+  },
+  ":cocktail:": {
+    "char": "🍸",
+    "keywords": ["cocktail", "drink", "party"]
+  },
+  ":beer:": {
+    "char": "🍺",
+    "keywords": ["beer", "drink", "alcohol"]
+  },
+  ":beers:": {
+    "char": "🍻",
+    "keywords": ["beers", "drink", "cheers"]
+  },
+  ":clinking_glasses:": {
+    "char": "🥂",
+    "keywords": ["clinking glasses", "toast", "celebrate"]
+  },
+  ":tumbler:": {
+    "char": "🥃",
+    "keywords": ["tumbler", "drink", "whiskey"]
+  },
+  ":cup_with_straw:": {
+    "char": "🥤",
+    "keywords": ["cup with straw", "drink", "soda"]
+  },
+  ":juice:": {
+    "char": "🧃",
+    "keywords": ["juice", "drink", "fruit"]
+  },
+  ":ice:": {
+    "char": "🧊",
+    "keywords": ["ice", "cold", "cool"]
+  },
+  ":candy:": {
+    "char": "🍬",
+    "keywords": ["candy", "sweet", "snack"]
+  },
+  ":lollipop:": {
+    "char": "🍭",
+    "keywords": ["lollipop", "sweet", "candy"]
+  },
+  ":chocolate:": {
+    "char": "🍫",
+    "keywords": ["chocolate", "sweet", "dessert"]
+  },
+  ":popcorn:": {
+    "char": "🍿",
+    "keywords": ["popcorn", "snack", "movie"]
+  },
+  ":cookie:": {
+    "char": "🍪",
+    "keywords": ["cookie", "sweet", "dessert"]
+  },
+  ":doughnut:": {
+    "char": "🍩",
+    "keywords": ["doughnut", "sweet", "dessert"]
+  },
+  ":ice_cream:": {
+    "char": "🍦",
+    "keywords": ["ice cream", "sweet", "dessert"]
+  },
+  ":shaved_ice:": {
+    "char": "🍧",
+    "keywords": ["shaved ice", "sweet", "dessert"]
+  },
+  ":cupcake:": {
+    "char": "🧁",
+    "keywords": ["cupcake", "sweet", "dessert"]
+  },
+  ":pie:": {
+    "char": "🥧",
+    "keywords": ["pie", "dessert", "food"]
+  },
+  ":custard:": {
+    "char": "🍮",
+    "keywords": ["custard", "dessert", "sweet"]
+  },
+  ":honey:": {
+    "char": "🍯",
+    "keywords": ["honey", "sweet", "bee"]
+  }
+}

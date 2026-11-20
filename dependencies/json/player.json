@@ -1,0 +1,18 @@
+{
+	"new-player": {
+		"level": 1,
+		"race": "Human",
+		"hp": 100,
+		"max_hp": 100,
+		"mana": 10,
+		"max_mana": 10,
+		"stat_attack": 1,
+		"stat_defense": 1,
+		"stat_reiatsu": 1,
+		"stat_cooldown_reduction": 30,
+		"stat_versatility": 40,
+		"stat_crit_chance": 1,
+		"stat_parry_chance": 0,
+		"stat_block_chance": 0
+	}
+}

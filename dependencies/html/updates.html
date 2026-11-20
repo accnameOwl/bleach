@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Updates and Fixes</title>
+  <style>
+	body {
+	font-family: Arial, sans-serif;
+	background-color: #1a1a1a;
+	color: #ffa500;
+	margin: 0;
+	padding: 20px;
+	text-align: left;
+  }
+  .hotfix-container {
+	max-width: 800px;
+	margin: auto;
+	background-color: #2c2c2c;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: left;
+  }
+  h1, h3, h4 {
+	color: #ffffff;
+	margin-bottom: 10px;
+  }
+  h1 {
+	text-align: center;
+  }
+  h2,h3,h4 {
+	text-align: left;
+	line-height:0.9;
+  }
+  .category h2 {
+	border: none;
+	padding-bottom: 0;
+  }
+  .date {
+	font-style: italic;
+	margin-bottom: 20px;
+	text-align: left;
+  }
+  .category {
+	margin-bottom: 30px;
+  }
+  .description {
+	color:#ffffff;
+  }
+  .sub-category {
+	margin-top: 15px;
+  }
+  ul {
+	list-style-type: disc;
+	padding-left: 2.5em;
+  }
+  ul li::marker {
+	color: #ffa500 ;
+  }
+  strong {
+	color: #cf9b00;
+	font-weight: bold;
+  }
+  small {
+	color: #a80303;
+	font-weight:lighter;
+  }
+  </style>
+</head>
+<body>
+  <div class="hotfix-container">
+    <h1>Updates and Fixes</h1>
+
+    <section class="category">
+		<h3>Development log</h3>
+		<p class="date">5. May 2025</p>
+		<ul>
+			<li>
+				<!-- Repeat <article> as needed -->
+				<article class="sub-category">
+					<h4>Combat and combat handlers</h4>
+					<ul>
+						<li>Health regeneration</li>
+						<li>Mana regeneration</li>
+						<li>Enter/Leave combat</li>
+						<li>TakeDamage: Takes parry and defence into consideration<i>(parry is calculated by level difference and is not an attribute.)</i></li>
+						<li>Respawn timer: respawn time for players, making sure there is a brief moment where players can tell they have died.</li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="sub-category">
+					<h4>Pixel movement</h4>
+					<ul>
+						<li>mob.Step() Changes to DM's step() behaviour, to create a more fluent movement. It takes client input times and world-time into consideration.</li>
+						<li>atom/movable.Bump() There are a few miniscule behaviour-changes to Bump()</li>	
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="sub-category">
+					<h4>Client keyboard input</h4>
+					<ul>
+						<li>client.Movement() reads from key inputs and determines movement direction pr server tick.</li>
+						<li>Using one of BYOND's new<i>... or not so new</i> macro function <b>Any</b>-key. Client registers keyboard input at real-time, processed pr server tick.</li>	
+						<li>Future development updates will focus on keyboard mapping, creating Actionbar shortcuts so players can bind abilities to specific keys.</li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="sub-category">
+					<h4>Kill reward fundamentals</h4>
+					<ul>
+						<li>Monsters rewards stats and experience on kill</li>
+						<li>Specific monster types rewards it's own specific stats<i>(i.e: some reward reiatsu-based stats, some defence etc...)</i></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="sub-category">
+					<h4>Monster behaviour</h4>
+					<p>Most of the old Bleach games found on BYOND, based on <i>SoC's</i> source code, is known for bad behavioural mobs. 
+						Those old behaviours will never exist in this game. Avoiding large server-side processing, implementing smart, collition-based player detection and 
+						AI rest model, mobs will only be actively ready to trigger it's behaviour when players are nearby.</p>
+					<ul>
+						<li>AI Controller model makes sure mobs have a stable behaviour foundation that is easy to expand upon for future content.</li>
+						<li>AI Trigger is a collition-based trigger that doesn't need to actively scan for players. It only triggers at the event of a player entering it's vicinity.</li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="sub-category">
+					<h4>Leveling and Experience</h4>
+					<ul>
+						<li>Players get experience and rewards by killing monsters. Higher leveled monsters rewards more experience.</li>
+						<li>Dummy training is unfortunately still a thing. Though I hate to admit it, it was a key component to this style of game, though it will only act as a form of introductory experience gain. It's </li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="sub-category">
+					<h4>Screen & UI</h4>
+					<ul>
+						<li>"25x14" view/16:9 aspect ratio</li>
+						<li>Browserbased chat<small>(HTML/CSS & js) <i>©PhatT/Index.^</i></small></li>
+						<li>HUD Buttons: <small>(client.screen objects)</small><ul>
+							<li>Who</li> 
+							<li>Whisper</li> 
+							<li>Rest</li> 
+							<li>Save</li> 
+							<li>Help</li> 
+							<li>Stats</li> 
+							<li>Skillbook</li> 
+							<li>Inventory</li> 
+							<li>Options & Settings</li>
+						</ul></li>
+						<li>Browser-based login with 'create account'<small>(with encryption)</small></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="sub-category">
+					<h4>Assets & Icons</h4>
+					<ul>
+						<li>Shinigami Teacher<small>(remake)</small></li>
+						<li>Quincy Teacher<small>(remake)</small></li>
+						<li>Quincy Elder<small>(remake)</small></li>
+						<li>Rento<small>(remake)</small></li>
+						<li>Aizen Sosuke<small>(remake)</small></li>
+						<li>Zaraki Kenpachi<small>(remake, tybw)</small></li>
+						<li>Kuchiki Byakuya<small>(remake, tybw)</small></li>
+						<li>Hair Stylist<small>(remake)</small></li>
+						<li>Shop Keeper<small>(remake)</small></li>
+						<li>Special Shopkeeper<small>(new)</small></li>
+						<li>Mayuri Kurotsuchi<small>(new)</small></li>
+						<li>Retsu Unohana<small>(new)</small></li>
+						<li>Zaraki Shikai<small>(new, tybw)</small></li>
+						<li>Zaraki Bankai<small>(new, tybw)</small></li>
+						<li>Getsuta Tensho<small>(new, tybw)</small></li>
+						<li>Getsuga Jujisho<small>(new, tybw)</small></li>
+						<li>HUD Buttons<small>(new)</small></li>
+					</ul>
+				</article>
+			</li>
+			<li>
+				<article class="sub-category">
+					<h4>World Map</h4>
+					<ul>
+						<li>Earth<small>(Not complete)</small></li>
+						<li>Soul Society<small>(Not complete)</small></li>
+						<li>Hueco Mundo<small>(Not complete)</small></li>
+					</ul>
+				</article>
+			</li>
+		</ul>
+    </section>
+
+
+  </div>
+</body>
+</html>

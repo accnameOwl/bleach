@@ -10,6 +10,13 @@
 #define POISON_TYPE "poison"
 #define FREEZE_TYPE "freeze"
 
-#define EFFECT_CAN_STACK "stack"
-#define EFFECT_CAN_REFRESH "refresh"
-#define EFFECT_SLOW "slow"
+#define NO_EFFECT 0
+#define EFFECT_CAN_STACK 1
+#define EFFECT_REFRESH_ON_APPLY 2
+#define EFFECT_SLOW 4
+
+#define DAMAGETYPE_REI 1
+#define DAMAGETYPE_ATK 2
+
+
+
