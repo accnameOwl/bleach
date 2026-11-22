@@ -7,6 +7,10 @@ item/clothing
 		pixel_y=32
 	layer = CLOTHING_LAYER
 
+
+/**
+ * All this BS needs some rework. For sure.
+ */
 #define CLOTHING(a, b, c, d) item/clothing/a{icon=b; name=c; id=d;}
 
 CLOTHING(CaptainCloak,'suit_captain_black.dmi', "Shinigami Haori","suit_captain_black")
@@ -72,4 +76,4 @@ item/equipment
 				update_hud = TRUE
 			
 			if(update_hud) 
-				m.hud_update()	
+				m.hud_update()

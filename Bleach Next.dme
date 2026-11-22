@@ -74,6 +74,7 @@
 #include "code\core\ai.dm"
 #include "code\core\client_keyboard_input.dm"
 #include "code\core\combat.dm"
+#include "code\core\controller_keyboard.dm"
 #include "code\core\config.dm"
 #include "code\core\event_manager.dm"
 #include "code\core\hud.dm"
