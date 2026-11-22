@@ -1,3 +1,16 @@
+client
+
+	var/controller/keyboard/keyboard = new
+
+	verb
+		KeyStatus(key as text, state as num)
+			set hidden = 1
+
+			if(state)
+				keyboard.pressed(src, key)
+			else
+				keyboard.released(src, key)
+
 controller/keyboard
 
 	var
@@ -84,20 +97,22 @@ controller/keyboard
 		// params:
 		//		key: Key pressed
 		//		state: 1 pressed, 0 released
-		key_action(client/c, key="", state=0)
+		pressed(client/c, key="")
 			if(is_movement_key(key)) 
 			
 				var/input_dir = keybinds["movement"][key])
 				if(input_dir)
-					if(state)
-						c.move_dir |= input_dir
-						c.move_vector = dir2vec(c.move_dir)
-					else
+					c.move_dir |= input_dir
+					c.move_vector = dir2vec(c.move_dir)
+			else
+				active_keys += key
+				call_keyboard_input(c, key)
+		
+		released(client/c, key="")
+			if(is_movement_key(key)) 
+				var/input_dir = keybinds["movement"][key])
+				if(input_dir)
 						c.move_dir &= ~input_dir
 						c.move_vector &= ~input_dir
 			else
-				if(state)
-					active_keys += key
-					call_keyboard_input(c, key)
-				else
-					active_keys -= key
+				active_keys -= key
