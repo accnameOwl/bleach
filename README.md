@@ -3,7 +3,7 @@
 A modern, ground-up reimagining of the classic BYOND game **Bleach: Souls of Chaos**, written in Dream Maker (DM) and designed to grow alongside the *Bleach* anime through large, story-driven expansions.
 
 > **Status:** Early development / active work in progress
-> **Language:** Dream Maker (BYOND) · **Platform:** BYOND 5xx.xxxx *(update to your version)*
+> **Language:** Dream Maker (BYOND) · **Platform:** BYOND 516.1689
 
 ---
 
@@ -27,24 +27,33 @@ This is a solo project. It is published as a showcase of my work with DM and gam
 - **Client click handling:** clicks pass through a type-validation layer (`/turf`, `/mob`, `/obj`, etc.) before any interaction is created, so the world only reacts to valid targets
 - **Spell and ability system:** abilities are driven by the click system, creating interactions between the player's mob and the world
 - **Aura system:** equipment (`/item`) can grant auras through a `grant_auras` list, and mobs apply or remove them with `apply_aura()` / `remove_aura()`
+- **Combat:** realtime combat, using spells from an actionbar. Spells 
 - *[Add: combat, progression, races/factions, zanpakuto, etc.]*
 
 ## Project Structure
 
-*(Adjust to your real layout.)*
 
 ```
 Bleach-NeXt/
+├── _defines/       	# Global macros and constants
+├── assets/         	# Images, Icons, sound, ...
 ├── code/
-│   ├── _defines/       # Global macros and constants
 │   ├── client/         # Client-side input and click handling
-│   ├── mobs/           # Mob types and behavior
-│   ├── items/          # Equipment and items
+│   ├── core/         	# Client-side input and click handling
+│   ├── mob/           	# Mob types and behavior
+│   ├── obj/          	# Equipment and items
 │   ├── spells/         # Abilities and interactions
-│   └── ...
-├── icons/              # Sprites and icon files
-├── maps/               # Map files (.dmm)
-├── Bleach-NeXt.dme     # Main environment file
+│   ├── world/         	# Abilities and interactions
+├── config/				# runtime, client-side directory for client configs.
+├── dependencies/		# JSON, Javascript, HTML templates, ...
+├── interface/			# DMF interface files
+├── log/				# output dir for runtime logging
+├── map/               	# Map files (.dmm)
+├── saves/				# Runtime server-side directory for savefiles
+├── unit test/			# AI generated Unit testing for testing new implementations
+├── bleachnext.ico		# Application icon
+├── Bleach Next.dm		
+├── Bleach Next.dme     # Main environment file
 └── README.md
 ```
 
