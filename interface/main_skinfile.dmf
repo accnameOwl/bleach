@@ -1,0 +1,231 @@
+macro "macro"
+	elem 
+		name = "Any"
+		command = "KeyStatus [[*]] 1"
+	elem 
+		name = "Any+UP"
+		command = "KeyStatus [[*]] 0"
+
+
+menu "menu"
+	elem 
+		name = "&File"
+		command = ""
+		saved-params = "is-checked"
+	elem 
+		name = "&Quit"
+		command = ".quit"
+		category = "&File"
+		saved-params = "is-checked"
+	elem "view"
+		name = "View"
+		command = ""
+		saved-params = "is-checked"
+	elem 
+		name = "Commands"
+		command = "ShowCommandWindow"
+		category = "View"
+		saved-params = "is-checked"
+	elem 
+		name = "PrettyDebug"
+		command = "ShowDebugWindow"
+		category = "Admin"
+		saved-params = "is-checked"
+	elem 
+		name = "Start Profiler"
+		command = "StartProfiler"
+		category = "Admin"
+		saved-params = "is-checked"
+	elem 
+		name = "Stop Profiler"
+		command = "StopProfiler"
+		category = "Admin"
+		saved-params = "is-checked"
+
+
+window "characterWindow"
+	elem "characterWindow"
+		type = MAIN
+		pos = 384,0
+		size = 330x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-transparent = true
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "browser"
+		type = BROWSER
+		pos = 0,0
+		size = 330x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = ""
+
+window "chatWindow"
+	elem "chatWindow"
+		type = MAIN
+		pos = 384,0
+		size = 400x260
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-transparent = true
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		alpha = 70
+	elem "chatBrowser"
+		type = BROWSER
+		pos = 0,0
+		size = 400x260
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = ""
+
+window "keybinds"
+	elem "keybinds"
+		type = MAIN
+		pos = 384,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+	elem "browser"
+		type = BROWSER
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = ""
+
+window "leaderboard"
+	elem "leaderboard"
+		type = MAIN
+		pos = 384,0
+		size = 1080x751
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		is-transparent = true
+		saved-params = "pos;size;is-minimized;is-maximized;"
+		is-pane = true
+		alpha = 170
+	elem "browser"
+		type = BROWSER
+		pos = 0,0
+		size = 1080x751
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = ""
+
+window "main"
+	elem "main"
+		type = MAIN
+		pos = 384,0
+		size = 1280x720
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		is-default = true
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Bleach: Next"
+		statusbar = false
+		icon = 'assets\\png\\ico.png'
+		macro = "macro"
+		menu = "menu"
+		outer-size = 1298x792
+		outer-pos = 384,0
+		inner-size = 1280x720
+		inner-pos = 9,63
+		screen-size = 3840x2100
+	elem "map"
+		type = MAP
+		pos = 0,0
+		size = 1280x720
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		saved-params = "zoom;letterbox;zoom-mode"
+	elem "characterChild"
+		type = CHILD
+		pos = 950,240
+		size = 330x480
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		background-color = none
+		is-visible = false
+		saved-params = "splitter"
+		left = "characterWindow"
+		is-vert = false
+	elem "child-menu"
+		type = CHILD
+		pos = 304,136
+		size = 680x432
+		anchor1 = 29,23
+		anchor2 = 71,77
+		background-color = none
+		is-visible = false
+		saved-params = "zoom=0;"
+		left = "window_info"
+		is-vert = false
+		splitter = 100
+		show-splitter = false
+	elem "chat"
+		type = BROWSER
+		pos = 8,462
+		size = 392x250
+		anchor1 = 0,73
+		anchor2 = 25,100
+		background-color = #414141
+		saved-params = ""
+		inner-background-color = transparent
+
+window "window_info"
+	elem "window_info"
+		type = MAIN
+		pos = 384,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "browser1"
+		type = BROWSER
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = ""
+
+window "window_tab"
+	elem "window_tab"
+		type = MAIN
+		pos = 384,0
+		size = 448x408
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Tabs"
+	elem "info1"
+		type = INFO
+		pos = 0,0
+		size = 448x408
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		saved-params = ""
+

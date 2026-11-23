@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:,">
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+
+        background: transparent;
+
+        font-family: Roboto, sans-serif;
+        color: #d7dce5;
+
+
+
+        overflow: hidden;
+    }
+
+    .chat {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        background: rgba(20, 24, 30, 0.45);
+		backdrop-filter: blur(5px);
+
+        gap: 2px;
+        padding: 2px;
+    }
+
+    /* ─────────────────────────────────────────────
+       Messages
+       ───────────────────────────────────────────── */
+
+    .messages {
+        flex: 1;
+        min-height: 0;
+
+        overflow-y: auto;
+
+        padding: 8px;
+
+		backdrop-filter: blur(10px);
+
+        border: 1px solid rgba(130, 145, 165, 0.25);
+        border-radius: 5px;
+
+        scrollbar-width: thin;
+
+    }
+
+    .message {
+        margin-bottom: 5px;
+        line-height: 1.3;
+		font-size: 12px;
+		font-weight:600;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       Input row
+       ───────────────────────────────────────────── */
+
+    .input-row {
+        height: 36px;
+
+        display: flex;
+        gap: 6px;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       Channel dropdown
+       ───────────────────────────────────────────── */
+
+    .channel-wrapper {
+        position: relative;
+
+        width: 72px;
+        flex-shrink: 0;
+    }
+
+    .channel {
+        width: 100%;
+        height: 36px;
+
+        display: flex;
+        align-items: center;
+
+        padding: 0 5px;
+
+        background: rgba(20, 24, 30, 0.55);
+        border: 1px solid rgba(130, 145, 165, 0.25);
+        border-radius: 5px;
+
+        color: #d7dce5;
+
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .channel:hover {
+        background: rgba(40, 46, 55, 0.6);
+    }
+
+    .status {
+        width: 7px;
+        height: 7px;
+
+        margin-right: 8px;
+
+        border-radius: 50%;
+        background: #72d6ad;
+
+        flex-shrink: 0;
+    }
+
+    .channel-name {
+        flex: 1;
+    }
+
+    .arrow {
+        width: 7px;
+        height: 7px;
+
+        border-right: 2px solid #8995a6;
+        border-bottom: 2px solid #8995a6;
+
+        transform: rotate(45deg) translateY(-2px);
+    }
+
+
+    /* ─────────────────────────────────────────────
+       Dropdown menu
+       ───────────────────────────────────────────── */
+
+    .channel-menu {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: calc(100% + 4px);
+
+        display: none;
+
+        padding: 3px;
+
+        background: rgba(25, 30, 37, 0.96);
+        border: 1px solid rgba(130, 145, 165, 0.3);
+        border-radius: 5px;
+
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+
+        z-index: 100;
+    }
+
+    .channel-menu.open {
+        display: block;
+    }
+
+    .channel-option {
+        height: 30px;
+
+        display: flex;
+        align-items: center;
+
+        padding: 0 8px;
+
+        border-radius: 3px;
+
+        cursor: pointer;
+
+        color: #bfc7d3;
+    }
+
+    .channel-option:hover {
+        background: rgba(100, 115, 135, 0.18);
+        color: #e2e6ed;
+    }
+
+    .channel-option.selected {
+        color: #d7dce5;
+        background: rgba(100, 115, 135, 0.12);
+    }
+
+
+    /* ─────────────────────────────────────────────
+       Input
+       ───────────────────────────────────────────── */
+
+    .input {
+        flex: 1;
+        min-width: 0;
+
+        border: 1px solid rgba(130, 145, 165, 0.25);
+        border-radius: 5px;
+
+        outline: none;
+
+        padding: 0 12px;
+
+        background: rgba(20, 24, 30, 0.55);
+
+        color: #d7dce5;
+        font-size: 14px;
+    }
+
+    .input::placeholder {
+        color: rgba(145, 157, 175, 0.55);
+    }
+
+    .input:focus {
+        border-color: rgba(130, 160, 195, 0.55);
+        background: rgba(25, 30, 37, 0.65);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="chat">
+
+    <div class="messages" id="messages">
+        <!-- Messages go here -->
+
+    </div>
+
+    <div class="input-row">
+
+        <div class="channel-wrapper">
+
+            <div class="channel" id="channelButton">
+        <!--	<span class="status"></span> -->
+                <span class="channel-name" id="channelName">Say</span>
+        		<span class="arrow"></span>
+            </div>
+
+            <div class="channel-menu" id="channelMenu">
+
+                <div class="channel-option selected" data-channel="say">
+                    Say
+                </div>
+
+                <div class="channel-option" data-channel="ooc">
+                    OOC
+                </div>
+
+                <div class="channel-option" data-channel="whisper">
+                    Whisper
+                </div>
+            </div>
+
+        </div>
+
+        <input
+            class="input"
+            id="messageInput"
+            type="text"
+            placeholder="Type a message and press Enter"
+            autocomplete="off"
+        >
+
+    </div>
+
+</div>
+
+<script>
+
+	function addAdminChannel() {
+		let menu = document.getElementById(`channelMenu`);
+		menu.innerHTML += `<div class="channel-option" data-channel="admin">Admin</div>`
+	};
+
+	const messageLog = document.getElementById("message");
+    const input = document.getElementById("messageInput");
+
+    const channelButton = document.getElementById("channelButton");
+    const channelMenu = document.getElementById("channelMenu");
+    const channelName = document.getElementById("channelName");
+    const channelOptions = document.querySelectorAll(".channel-option");
+
+    let selectedChannel = "say";
+
+
+
+
+    /*
+     * Open / close channel menu.
+     */
+    channelButton.addEventListener("click", event => {
+        event.stopPropagation();
+
+        channelMenu.classList.toggle("open");
+    });
+
+
+    /*
+     * Select channel.
+     */
+    channelOptions.forEach(option => {
+
+        option.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+            selectedChannel = option.dataset.channel;
+
+            channelName.textContent = option.textContent.trim();
+
+            channelOptions.forEach(item => {
+                item.classList.remove("selected");
+            });
+
+            option.classList.add("selected");
+
+            channelMenu.classList.remove("open");
+
+            input.focus();
+        });
+
+    });
+
+
+
+    /*
+     * Close dropdown when clicking elsewhere.
+     */
+    document.addEventListener("click", () => {
+        channelMenu.classList.remove("open");
+    });
+
+    /*
+     * Send message.
+     */
+    input.addEventListener("keydown", event => {
+
+        if (event.key !== "Enter")
+            return;
+
+		let msgInput = document.getElementById("messageInput");
+
+        BYOND.command(`ChatMessage "${selectedChannel}" "${encodeURIComponent(msgInput.value)}"`);
+
+        input.value = "";
+    });
+
+	/**
+	 * Receive messages, as json
+	*/
+
+	function addMessages(msg) {
+		
+		let marshall_messages = JSON.parse(msg);
+
+		let log = document.getElementById('messages')
+		for(let msg of marshall_messages)
+			log.innerHTML += `<span class="message">` + decodeURIComponent(msg) + `</span>`;
+		log.scrollTop = log.scrollHeight;
+	};
+
+
+	document.addEventListener("byond-ready", () => {
+		console.log("BYOND ready:", typeof BYOND);
+		BYOND.command(`PageResponse "chat" "ready"`)
+	});
+
+
+</script>
+
+</body>
+</html>

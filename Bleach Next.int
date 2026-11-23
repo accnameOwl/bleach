@@ -1,0 +1,14 @@
+// BEGIN_INTERNALS
+/*
+MAP_PLANE_MASTERS: 
+MAP_ZOOM: 1.500
+LAST_COMPILE_TIME: 1794774768
+DIR: _defines assets assets\icons code code\client code\client\Interface code\core code\global code\obj code\obj\hud code\obj\item code\spells 
+AUTO_FILE_DIR: ON
+MAP_ICON_TYPE: 0
+LAST_COMPILE_VERSION: 516.1688
+WINDOW: assets\icons\renjishikai.dmi;assets\icons\renjishikaimove.dmi;assets\icons\rikujoukourou.dmi;assets\icons\rukiabankai.dmi;assets\icons\rukiashikai.dmi;assets\icons\sadoaura.dmi;assets\icons\sadoreflect.dmi;assets\icons\senbonscatter.dmi;code\core\spell.dm;code\client\click.dm;code\core\combat.dm;code\core\Item.dm;code\core\mob.dm;code\obj\item\zanpakuto.dm;code\obj\item\clothing.dm;code\obj\hud\elements.dm;_defines\_define.dm;code\client\Interface\InventoryPanel.dm;code\obj\hair.dm;code\obj\vaizard_masks.dm;code\obj\variables.dm;code\core\tick.dm
+FILE: code\core\Item.dm
+MAP_INSTANCE_MODE: copy
+*/
+// END_INTERNALS

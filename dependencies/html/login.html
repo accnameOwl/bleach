@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				margin:0;
+				height:100vh;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+				font-family:Century Gothic;
+				background-color:#2c2c2c;
+				color:#FFFFFF;
+			}
+			.login-container {
+				width: 80%;
+				display:flex;
+				flex-direction:column;
+				align-items:center;
+				padding:10px;
+				border: 2px solid white;
+				border-radius:10px;
+				background-color:#3c3c3c;
+			}
+			.login-form {
+				display:flex;
+				flex-direction:column;
+				width:100%;
+				padding:10px;
+				gap:10px;
+				border-sizing:border-box;
+			}
+			.login-title {
+				font-family:Bahnschrift SemiBold;
+				font-weight:bold;
+				font-size:1rem;
+				text-align:center;
+				color:#e69010;
+			}
+			.bleach-next {
+				font-size:2rem;
+				color:#FFF;
+			}
+			input[type="text"],
+			input[type="password"] {
+				font-size:1rem;
+				border:none;
+				border-radius:5px;
+				border-sizing:border-box;
+			}
+			button {
+				padding:10px 20px;
+				font-size:1rem;
+				cursor:pointer;
+				border:none;
+				border-radius:10px;
+				background: #e69010;
+				background: radial-gradient(circle, rgba(230, 144, 16, 1) 0%, rgba(161, 95, 0, 1) 100%);
+				color:#2c2c2c;
+				font-weight:bold;
+			}
+			.create-account {
+				margin-top:5px;
+				font-size:0.9rem;
+				color:#ccc;
+			}
+			.error-message {
+				margin-top:10px;
+				color:red;
+				font-size:0.9rem;
+				display:none;
+			}
+			#new-account {
+				color:orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="login-container">
+			<div class="login-title">
+				<div class="bleach-next">
+					Bleach Ne<font color=orange size=6>X</font>t
+				</div>
+				Login
+			</div>
+			<div class="login-form">
+				<input type="text" id="username" placeholder="Username">
+				<input type="password" id="password" placeholder="Password">
+				<button onclick="login()">Login</button>
+			</div>
+			<div class="error-message" id="error-message">
+				Please fill in both fields!
+			</div>
+			<div class="create-account">
+				<a id="new-account" onclick="new_account()" href="#">Create new account.</a>
+			</div>
+		</div>
+		
+		<script>
+			function login() {
+				const username = encodeURIComponent(document.getElementById('username').value);
+				const password = encodeURIComponent(document.getElementById('password').value);
+				const errorMessage = document.getElementById('error-message');
+				if(!username || !password) {
+					errorMessage.style.display = 'block';
+				} else {
+					errorMessage.style.display = 'none';
+					//Do loginstuff here
+					//?
+					window.location = 'byond://winset?id=;command=HTML-Login "username" "password"';
+				}
+			}
+			function new_account() {
+				window.location = "byond://winset?id=;command=HTML-BrowseNewAccount"
+			}
+		</script>
+	</body>
+</html>

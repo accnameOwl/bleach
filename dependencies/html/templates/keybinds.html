@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Keybinds</title>
+<style>
+  :root{
+    --bg:#111111;
+    --panel:#1c1c1c;
+    --panel-alt:#242424;
+    --border:#3a3a3a;
+    --orange:#ff8c1a;
+    --orange-dim:#c96f14;
+    --text:#e2e2e2;
+    --text-dim:#8f8f8f;
+    --danger:#c0392b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Segoe UI", Consolas, monospace;
+    font-size:14px;
+  }
+  header{
+    background:#000;
+    border-bottom:2px solid var(--orange);
+    padding:10px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  header h1{
+    margin:0;
+    font-size:16px;
+    letter-spacing:1px;
+    color:var(--orange);
+    text-transform:uppercase;
+  }
+  #status{
+    font-size:12px;
+    color:var(--text-dim);
+  }
+  #status.active{ color:var(--orange); }
+
+  .layout{
+    display:flex;
+    gap:12px;
+    padding:12px;
+    align-items:flex-start;
+  }
+  .categories{
+    flex:1 1 auto;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    min-width:0;
+  }
+  .available{
+    flex:0 0 260px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:10px;
+    max-height:80vh;
+    overflow-y:auto;
+  }
+  .available h2{
+    margin:0 0 8px 0;
+    font-size:13px;
+    color:var(--orange);
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:6px;
+  }
+  #commandList{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  #commandList li{
+    background:var(--panel-alt);
+    border:1px solid var(--border);
+    border-radius:3px;
+    padding:6px 8px;
+    cursor:pointer;
+    word-break:break-all;
+    font-size:12px;
+  }
+  #commandList li:hover{
+    border-color:var(--orange-dim);
+  }
+  #commandList li.selected{
+    background:var(--orange-dim);
+    color:#111;
+    border-color:var(--orange);
+    font-weight:bold;
+  }
+
+  details.category{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  details.category[open] summary{
+    border-bottom:1px solid var(--border);
+  }
+  details.category.sticky{
+    border-color:var(--orange-dim);
+  }
+  summary{
+    list-style:none;
+    cursor:pointer;
+    padding:10px 12px;
+    background:var(--panel-alt);
+    color:var(--orange);
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary .name::before{
+    content:"▸ ";
+    display:inline-block;
+    transition:transform .1s;
+  }
+  details[open] summary .name::before{
+    content:"▾ ";
+  }
+  summary .badge{
+    font-size:10px;
+    font-weight:normal;
+    color:var(--text-dim);
+    text-transform:none;
+    letter-spacing:0;
+  }
+  summary .badge.core{
+    color:var(--orange);
+    border:1px solid var(--orange-dim);
+    border-radius:3px;
+    padding:1px 5px;
+    margin-left:8px;
+  }
+
+  table.binds{
+    width:100%;
+    border-collapse:collapse;
+  }
+  table.binds td, table.binds th{
+    padding:6px 10px;
+    border-top:1px solid var(--border);
+    text-align:left;
+    font-size:13px;
+  }
+  table.binds th{
+    color:var(--text-dim);
+    font-weight:normal;
+    font-size:11px;
+    text-transform:uppercase;
+  }
+  .key-cell button{
+    background:var(--panel-alt);
+    color:var(--text);
+    border:1px solid var(--border);
+    border-radius:3px;
+    padding:4px 10px;
+    cursor:pointer;
+    font-family:inherit;
+    min-width:70px;
+  }
+  .key-cell button:hover{
+    border-color:var(--orange-dim);
+  }
+  .key-cell button.listening{
+    border-color:var(--orange);
+    color:var(--orange);
+    animation:pulse 1s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ opacity:1; }
+    50%{ opacity:.4; }
+  }
+  .cmd-cell{
+    color:var(--text-dim);
+    font-size:12px;
+    word-break:break-all;
+  }
+  .cmd-cell.unbound{
+    font-style:italic;
+  }
+  .row-actions button{
+    background:none;
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    border-radius:3px;
+    padding:3px 8px;
+    cursor:pointer;
+    font-size:11px;
+  }
+  .row-actions button:hover{
+    color:var(--orange);
+    border-color:var(--orange-dim);
+  }
+  .row-actions button.remove:hover{
+    color:var(--danger);
+    border-color:var(--danger);
+  }
+  .add-row{
+    padding:8px 12px;
+  }
+  .add-row button{
+    background:none;
+    border:1px dashed var(--border);
+    color:var(--text-dim);
+    border-radius:3px;
+    padding:6px 10px;
+    cursor:pointer;
+    width:100%;
+  }
+  .add-row button:hover{
+    border-color:var(--orange-dim);
+    color:var(--orange);
+  }
+  .empty-hint{
+    padding:10px 12px;
+    color:var(--text-dim);
+    font-style:italic;
+    font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Keybinds</h1>
+  <span id="status">no pending changes</span>
+</header>
+
+<div class="layout">
+  <div class="categories" id="categories"><details class="category sticky" open=""><summary><span class="name">movement</span><span class="badge">8 bound<span class="badge core">core</span></span></summary><table class="binds"><thead><tr><th>Key</th><th>Command</th><th></th></tr></thead><tbody><tr><td class="key-cell"><button title="Click, then press a key to rebind">W</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">NORTH</td><td class="row-actions"><button class="remove">remove</button></td></tr><tr><td class="key-cell"><button title="Click, then press a key to rebind">A</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">WEST</td><td class="row-actions"><button class="remove">remove</button></td></tr><tr><td class="key-cell"><button title="Click, then press a key to rebind">S</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">SOUTH</td><td class="row-actions"><button class="remove">remove</button></td></tr><tr><td class="key-cell"><button title="Click, then press a key to rebind">D</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">EAST</td><td class="row-actions"><button class="remove">remove</button></td></tr><tr><td class="key-cell"><button title="Click, then press a key to rebind">North</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">NORTH</td><td class="row-actions"><button class="remove">remove</button></td></tr><tr><td class="key-cell"><button title="Click, then press a key to rebind">West</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">WEST</td><td class="row-actions"><button class="remove">remove</button></td></tr><tr><td class="key-cell"><button title="Click, then press a key to rebind">South</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">SOUTH</td><td class="row-actions"><button class="remove">remove</button></td></tr><tr><td class="key-cell"><button title="Click, then press a key to rebind">East</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">EAST</td><td class="row-actions"><button class="remove">remove</button></td></tr></tbody></table><div class="add-row"><button>+ add keybind</button></div></details><details class="category" open=""><summary><span class="name">interaction</span><span class="badge">1 bound</span></summary><table class="binds"><thead><tr><th>Key</th><th>Command</th><th></th></tr></thead><tbody><tr><td class="key-cell"><button title="Click, then press a key to rebind">space</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">/mob/verb/Train</td><td class="row-actions"><button class="remove">remove</button></td></tr></tbody></table><div class="add-row"><button>+ add keybind</button></div></details><details class="category" open=""><summary><span class="name">client</span><span class="badge">1 bound</span></summary><table class="binds"><thead><tr><th>Key</th><th>Command</th><th></th></tr></thead><tbody><tr><td class="key-cell"><button title="Click, then press a key to rebind">l</button></td><td class="cmd-cell" title="Click to assign the selected command from the list on the right">/client/verb/ShowLeaderboardWindow</td><td class="row-actions"><button class="remove">remove</button></td></tr></tbody></table><div class="add-row"><button>+ add keybind</button></div></details><details class="category" open=""><summary><span class="name">communication</span><span class="badge">0 bound</span></summary><div class="empty-hint">No keybinds in this category yet.</div><div class="add-row"><button>+ add keybind</button></div></details><details class="category" open=""><summary><span class="name">combat</span><span class="badge">0 bound</span></summary><div class="empty-hint">No keybinds in this category yet.</div><div class="add-row"><button>+ add keybind</button></div></details></div>
+
+  <div class="available">
+    <h2>Available commands</h2>
+    <ul id="commandList"><li title="Click to select, then click a keybind slot to assign it">/mob/verb/Train</li><li title="Click to select, then click a keybind slot to assign it">/mob/verb/Attack</li><li title="Click to select, then click a keybind slot to assign it">/mob/verb/Say</li><li title="Click to select, then click a keybind slot to assign it">/mob/verb/Emote</li><li title="Click to select, then click a keybind slot to assign it">/client/verb/ShowLeaderboardWindow</li></ul>
+  </div>
+</div>
+
+<!--
+  DM injects data by replacing these two blocks before browse()-ing the page,
+  e.g. via replacetext() on the raw file text, or by writing this HTML from a
+  proc that string-concatenates json_encode() output in place of the arrays below.
+-->
+<script id="keybinds-data" type="application/json">
+{
+  "movement": {
+    "W": "NORTH",
+    "A": "WEST",
+    "S": "SOUTH",
+    "D": "EAST",
+    "North": "NORTH",
+    "West": "WEST",
+    "South": "SOUTH",
+    "East": "EAST"
+  },
+  "interaction": {
+    "space": "/mob/verb/Train"
+  },
+  "client": {
+    "l": "/client/verb/ShowLeaderboardWindow"
+  },
+  "communication": {},
+  "combat": {}
+}
+</script>
+
+<script id="verbs-data" type="application/json">
+[
+  "/mob/verb/Train",
+  "/mob/verb/Attack",
+  "/mob/verb/Say",
+  "/mob/verb/Emote",
+  "/client/verb/ShowLeaderboardWindow"
+]
+</script>
+
+<script defer>
+	function setKeybinds(keybinds_json) {
+		const elem = document.getElementById("keybinds-data");
+		elem.textContent = keybinds_json;
+	}	
+
+	function setVerbs(verbs_json){
+		const elem = document.getElementById("verbs-data");
+		elem.textContent = verbs_json;
+	}
+</script>
+
+<script>
+
+
+function renderAll(){
+
+	// ---- config -------------------------------------------------------
+	// \ref[client] (or whatever object owns Topic()) gets dropped in here
+	// by DM when it writes this file out, so href callbacks route back
+	// to the right object.
+	var SRC_REF = "__SRC_REF__";
+
+	// Categories that must always exist, even if the server sent nothing
+	// for them. "movement" is the keepsafe category and is never removable.
+	var STICKY_CATEGORIES = ["movement"];
+
+	// ---- state ----------------------------------------------------------
+	var keybinds = {};
+	var verbs = [];
+	var selectedCommand = null;
+	var selectedCommandEl = null;
+
+  function loadData(keybinds_json, verbs_json){
+    keybinds = JSON.parse(document.getElementById("keybinds-data").textContent);
+    verbs = JSON.parse(document.getElementById("verbs-data").textContent);
+
+    STICKY_CATEGORIES.forEach(function(cat){
+      if(!keybinds[cat]) keybinds[cat] = {};
+    });
+  }
+
+  function setStatus(text, active){
+    var el = document.getElementById("status");
+    el.textContent = text;
+    el.className = active ? "active" : "";
+  }
+
+
+  // ---- available commands panel ---------------------------------------
+  function renderAvailableCommands(){
+    var list = document.getElementById("commandList");
+    list.innerHTML = "";
+
+    verbs.forEach(function(verb){
+      var li = document.createElement("li");
+      li.textContent = verb;
+      li.title = "Click to select, then click a keybind slot to assign it";
+      li.addEventListener("click", function(){
+        selectCommand(verb, li);
+      });
+      list.appendChild(li);
+    });
+  }
+
+  function selectCommand(verb, el){
+    if(selectedCommandEl) selectedCommandEl.classList.remove("selected");
+    if(selectedCommand === verb){
+      selectedCommand = null;
+      selectedCommandEl = null;
+      setStatus("no pending changes", false);
+      return;
+    }
+    selectedCommand = verb;
+    selectedCommandEl = el;
+    el.classList.add("selected");
+    setStatus("selected: " + verb + " \u2014 click a slot to assign", true);
+  }
+
+  // ---- category rendering ----------------------------------------------
+  function renderCategories(){
+    var wrap = document.getElementById("categories");
+    wrap.innerHTML = "";
+
+    var names = Object.keys(keybinds);
+    // sticky categories always render first, in declared order
+    names.sort(function(a, b){
+      var aSticky = STICKY_CATEGORIES.indexOf(a) !== -1;
+      var bSticky = STICKY_CATEGORIES.indexOf(b) !== -1;
+      if(aSticky && !bSticky) return -1;
+      if(bSticky && !aSticky) return 1;
+      return 0;
+    });
+
+    names.forEach(function(name){
+      wrap.appendChild(renderCategory(name));
+    });
+  }
+
+  function renderCategory(name){
+    var isSticky = STICKY_CATEGORIES.indexOf(name) !== -1;
+    var binds = keybinds[name] || {};
+
+    var details = document.createElement("details");
+    details.className = "category" + (isSticky ? " sticky" : "");
+    details.open = true;
+
+    var summary = document.createElement("summary");
+    var keyCount = Object.keys(binds).length;
+    summary.innerHTML =
+      '<span class="name">' + escapeHtml(name) + '</span>' +
+      '<span class="badge">' + keyCount + ' bound' +
+      (isSticky ? '<span class="badge core">core</span>' : '') +
+      '</span>';
+    details.appendChild(summary);
+
+    if(keyCount === 0){
+      var hint = document.createElement("div");
+      hint.className = "empty-hint";
+      hint.textContent = "No keybinds in this category yet.";
+      details.appendChild(hint);
+    } else {
+      var table = document.createElement("table");
+      table.className = "binds";
+      table.innerHTML =
+        "<thead><tr><th>Key</th><th>Command</th><th></th></tr></thead>";
+      var tbody = document.createElement("tbody");
+      Object.keys(binds).forEach(function(key){
+        tbody.appendChild(renderRow(name, key, binds[key]));
+      });
+      table.appendChild(tbody);
+      details.appendChild(table);
+    }
+
+    var addRow = document.createElement("div");
+    addRow.className = "add-row";
+    var addBtn = document.createElement("button");
+    addBtn.textContent = "+ add keybind";
+    addBtn.addEventListener("click", function(){
+      addNewBind(name);
+    });
+    addRow.appendChild(addBtn);
+    details.appendChild(addRow);
+
+    return details;
+  }
+
+  function renderRow(category, key, callback){
+    var tr = document.createElement("tr");
+
+    var keyCell = document.createElement("td");
+    keyCell.className = "key-cell";
+    var keyBtn = document.createElement("button");
+    keyBtn.textContent = key;
+    keyBtn.title = "Click, then press a key to rebind";
+    keyBtn.addEventListener("click", function(){
+      listenForKey(keyBtn, function(newKey){
+        rebindKey(category, key, newKey);
+      });
+    });
+    keyCell.appendChild(keyBtn);
+    tr.appendChild(keyCell);
+
+    var cmdCell = document.createElement("td");
+    cmdCell.className = "cmd-cell" + (callback ? "" : " unbound");
+    cmdCell.textContent = callback || "(unbound)";
+    cmdCell.title = "Click to assign the selected command from the list on the right";
+    cmdCell.addEventListener("click", function(){
+      if(!selectedCommand){
+        setStatus("select a command from the list first", true);
+        return;
+      }
+      assignCommand(category, key, selectedCommand);
+    });
+    tr.appendChild(cmdCell);
+
+    var actionCell = document.createElement("td");
+    actionCell.className = "row-actions";
+    var removeBtn = document.createElement("button");
+    removeBtn.className = "remove";
+    removeBtn.textContent = "remove";
+    removeBtn.addEventListener("click", function(){
+      removeBind(category, key);
+    });
+    actionCell.appendChild(removeBtn);
+    tr.appendChild(actionCell);
+
+    return tr;
+  }
+
+  // ---- key capture ------------------------------------------------------
+  function captureKey(onCaptured){
+    setStatus("waiting for key press...", true);
+    function handler(ev){
+      ev.preventDefault();
+      document.removeEventListener("keydown", handler, true);
+      onCaptured(keyEventToLabel(ev));
+    }
+    document.addEventListener("keydown", handler, true);
+  }
+
+  function listenForKey(btn, onCaptured){
+    btn.classList.add("listening");
+    btn.textContent = "press a key...";
+    captureKey(function(newKey){
+      btn.classList.remove("listening");
+      onCaptured(newKey);
+    });
+  }
+
+  function keyEventToLabel(ev){
+    if(ev.key === " ") return "space";
+    if(ev.key.length === 1) return ev.key.toUpperCase();
+    return ev.key; // arrow keys, function keys, etc. come through as-is
+  }
+
+  // ---- mutations + server sync -------------------------------------------
+  function rebindKey(category, oldKey, newKey){
+    if(newKey === oldKey) { renderAll(); return; }
+    var callback = keybinds[category][oldKey];
+    delete keybinds[category][oldKey];
+    keybinds[category][newKey] = callback;
+    sendKeybind(category, newKey, callback, oldKey);
+    renderAll();
+  }
+
+  function assignCommand(category, key, callback){
+    keybinds[category][key] = callback;
+    sendKeybind(category, key, callback, null);
+    renderAll();
+  }
+
+  function removeBind(category, key){
+    delete keybinds[category][key];
+    sendKeybind(category, key, "", null);
+    renderAll();
+  }
+
+  function addNewBind(category){
+    captureKey(function(newKey){
+      var callback = selectedCommand || "";
+      keybinds[category][newKey] = callback;
+      sendKeybind(category, newKey, callback, null);
+      renderAll();
+    });
+  }
+
+  function sendKeybind(category, key, callback, oldKey){
+    setStatus("saving " + category + " / " + key + "...", true);
+
+    var params = "src=" + SRC_REF +
+      "&action=set_keybind" +
+      "&category=" + encodeURIComponent(category) +
+      "&key=" + encodeURIComponent(key) +
+      "&callback=" + encodeURIComponent(callback || "");
+    if(oldKey) params += "&old_key=" + encodeURIComponent(oldKey);
+
+    // Classic browser-control round trip: DM's Topic() on the referenced
+    // object receives this as href_list and calls set_new_keybind().
+    window.location.href = "?" + params;
+
+    window.setTimeout(function(){
+      setStatus("no pending changes", false);
+    }, 600);
+  }
+
+  // ---- boot ---------------------------------------------------------------
+  function escapeHtml(str){
+    var div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  loadData();
+  renderCategories();
+  renderAvailableCommands();
+
+};
+</script>
+
+
+
+</body></html>

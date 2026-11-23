@@ -1,0 +1,96 @@
+{
+	"shinigami_teacher":{
+		"name": "{NPC}Kyōraku Akina",
+		"level":85
+	},
+	"bounto_teacher":{
+		"name": "{NPC}Ran'Tao",
+		"level":85
+	},
+	"shinji":{
+		"name": "{NPC}Hirako Shinji",
+		"level":210
+	},
+	"aizen":{
+		"name": "{NPC}Sōsuke Aizen",
+		"level": "?"
+	},
+	"ryuken_ishida":{
+		"name": "{NPC}Ryūken Ishida",
+		"level":210
+	},
+	"soken_ishida":{
+		"name": "{NPC}Sōken Ishida",
+		"level":150
+	},
+	"yoruichi":{
+		"name": "{NPC}Yoruichi Shihouin",
+		"level": 210
+	},
+	"urahara":{
+		"name": "{NPC}Kisuke Urahara",
+		"level": "?"
+	},
+	"unohana": {
+		"name": "{NPC}Retsu Unohana",
+		"level": "?"
+	},
+	"byakuya": {
+		"name": "{NPC}Byakuya Kuchiki",
+		"level": 150
+	},
+
+	"clothing":{
+		"name": "{NPC}Clothing Salesperson",
+		"level": 1
+	},
+	"barber":{
+		"name": "{NPC}Hair Dresser",
+		"level": 1
+	},
+	"doctor":{
+		"name": "{NPC}Doctor",
+		"level": 1
+	},
+	"special_shop":{
+		"name": "{NPC}Fancy Shopkeeper",
+		"level":100
+	},
+	"admin_shop":{
+		"name": "{NPC}Fancy Shopkeeper",
+		"level":100
+	},
+
+	"hiyori":{
+		"name": "{NPC}Hiyori Sarugaki",
+		"level": 210
+	},
+	"aikawa":{
+		"name": "{NPC}Love Aikawa",
+		"level": 210
+	},
+	"rojoru":{
+		"name": "{NPC}Rōjūrō Ōtoribashi",
+		"level": 210
+	},
+	"kensei":{
+		"name": "{NPC}Kensei Muguruma",
+		"level": 210
+	},
+	"mashiro":{
+		"name": "{NPC}Mashiro Kuna",
+		"level": 210
+	},
+	"hachigen":{
+		"name": "{NPC}Hachigen Ushōda",
+		"level": 210
+	},
+	"lisa":{
+		"name": "{NPC}Lisa Yadōmaru",
+		"level":210
+	},
+	"tousen":{
+		"name": "{NPC}Kaname Tōsen",
+		"level": "?"
+	}
+}
