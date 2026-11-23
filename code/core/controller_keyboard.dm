@@ -14,7 +14,7 @@ client
 controller/keyboard
 
 	var
-		static/alist/invalid_keys = alist(
+		alist/invalid_keys = alist(
 			"F1",
 			"F2",
 			"Home",
